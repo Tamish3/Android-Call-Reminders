@@ -1,5 +1,5 @@
 # CMSC436FinalProject
-Application Concept  
+## Application Concept  
 Sending notifications/reminders to the users of their contacts that they haven’t been in touch with recently.
 
 ## Key Functionality  
