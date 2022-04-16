@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/footerView"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
-    android:text="@string/add_new_todo_item_string"
-    android:textSize="24sp" >
+    android:layout_height="match_parent" >
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/NameLabelView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity=""
+        android:text="@string/name_label"
+        android:textSize="24sp" >
 
-</TextView>
+    </TextView>
+
+    <TextView
+        android:id="@+id/TimeLabelView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/time_label"
+        android:textSize="24sp">
+
+    </TextView>
+
+</RelativeLayout>

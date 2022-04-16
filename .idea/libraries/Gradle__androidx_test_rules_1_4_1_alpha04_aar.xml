@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: androidx.test:rules:1.4.1-alpha04@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/701025a6e1fd11a7764285013e7b5363/transformed/rules-1.4.1-alpha04/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/701025a6e1fd11a7764285013e7b5363/transformed/rules-1.4.1-alpha04/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/701025a6e1fd11a7764285013e7b5363/transformed/rules-1.4.1-alpha04/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.test/rules/1.4.1-alpha04/85dfd80c61ba200127b1dd1a49b7f3a804a41059/rules-1.4.1-alpha04-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.test/rules/1.4.1-alpha04/ac3677bfe9b149d640557e75430a9320b24d1c79/rules-1.4.1-alpha04-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

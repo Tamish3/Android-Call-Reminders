@@ -10,7 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.app.ActivityCompat.invalidateOptionsMenu
 import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.recyclerview.widget.RecyclerView
 import course.labs.todomanager.ToDoItem.Status
@@ -51,10 +50,10 @@ class ToDoListAdapter(private val mContext: Context) :
     // Retrieve the number of ToDoItems
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         if (viewType == HEADER_VIEW_TYPE) {
-            val v = LayoutInflater.from(parent.context).inflate(R.layout.header_view, parent, false)
+            val v = LayoutInflater.from(parent.context).inflate(R.layout.header_view_old, parent, false)
             return ViewHolder(v)
         } else {
-            val v = LayoutInflater.from(parent.context).inflate(R.layout.todo_item, parent, false)
+            val v = LayoutInflater.from(parent.context).inflate(R.layout.todo_item_old, parent, false)
             val viewHolder = ViewHolder(v)
 
             // TODO - Inflate the View (defined in todo_item.xml) for this ToDoItem and store references in ViewHolder
@@ -131,8 +130,8 @@ class ToDoListAdapter(private val mContext: Context) :
 
     companion object {
         private const val TAG = "Lab-UserInterface"
-        private const val HEADER_VIEW_TYPE = R.layout.header_view
-        private const val TODO_VIEW_TYPE = R.layout.todo_item
+        private const val HEADER_VIEW_TYPE = R.layout.header_view_old
+        private const val TODO_VIEW_TYPE = R.layout.todo_item_old
     }
 
 

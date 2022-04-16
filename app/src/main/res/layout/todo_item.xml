@@ -1,72 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/RelativeLayout1"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ContactHomePageLayoutItem"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:orientation="vertical" >
-
+    android:layout_height="50dp"
+    android:orientation="horizontal" >
     <TextView
         android:id="@+id/titleView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_weight="4"
+        android:layout_marginTop="10dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=""/>
 
     <TextView
-        android:id="@+id/StatusLabel"
+        android:id="@+id/TimeLeftView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/statusCheckBox"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="17dp"
-        android:text="@string/done_string" >
-    </TextView>
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@+id/titleView"
+        android:layout_weight="2"
+        android:text=""
+        />
 
-    <CheckBox
-        android:id="@+id/statusCheckBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="26dp"
-        android:layout_toEndOf="@+id/StatusLabel" />
 
-    <TextView
-        android:id="@+id/PriorityLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/statusCheckBox"
-        android:layout_alignTop="@+id/StatusLabel"
-        android:layout_toStartOf="@+id/priorityView"
-        android:text="@string/priority_string" >
-    </TextView>
+    <Button
+        android:id="@+id/settingsButtonItem"
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@+id/TimeLeftView"
+        android:layout_weight="1"
+        android:text="" />
 
-    <TextView
-        android:id="@+id/priorityView"
-        android:layout_width="50dip"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/statusCheckBox"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/StatusLabel" >
-    </TextView>
 
-    <TextView
-        android:id="@+id/DateLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/statusCheckBox"
-        android:text="@string/date_string" >
-    </TextView>
+<!--    <CheckBox-->
+<!--        android:id="@+id/statusCheckBox"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginStart="0dp"-->
+<!--        android:layout_marginTop="26dp"-->
+<!--        android:layout_toEndOf="@+id/StatusLabel" />-->
 
-    <TextView
-        android:id="@+id/dateView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/DateLabel"
-        android:layout_toEndOf="@+id/DateLabel" >
-    </TextView>
+<!--    <TextView-->
+<!--        android:id="@+id/PriorityLabel"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignBaseline="@+id/statusCheckBox"-->
+<!--        android:layout_alignTop="@+id/StatusLabel"-->
+<!--        android:layout_toStartOf="@+id/priorityView"-->
+<!--        android:text="@string/priority_string" >-->
+<!--    </TextView>-->
 
-</RelativeLayout>
+<!--    <TextView-->
+<!--        android:id="@+id/priorityView"-->
+<!--        android:layout_width="50dip"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignBaseline="@+id/statusCheckBox"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_alignTop="@+id/StatusLabel" >-->
+<!--    </TextView>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/DateLabel"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_below="@+id/statusCheckBox"-->
+<!--        android:text="@string/date_string" >-->
+<!--    </TextView>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/dateView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignBaseline="@+id/DateLabel"-->
+<!--        android:layout_toEndOf="@+id/DateLabel" >-->
+<!--    </TextView>-->
+
+</LinearLayout>
