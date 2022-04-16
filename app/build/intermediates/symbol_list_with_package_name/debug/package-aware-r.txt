@@ -82,10 +82,14 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+id ContactHomePageLayoutItem
 id DateLabel
+id NameLabelView
 id PriorityLabel
 id RelativeLayout1
 id StatusLabel
+id TimeLabelView
+id TimeLeftView
 id TitleLabel
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -174,6 +178,7 @@ id resetButton
 id right
 id right_icon
 id right_side
+id settingsButtonItem
 id start
 id status
 id statusCheckBox
@@ -203,6 +208,7 @@ integer status_bar_notification_info_maxnum
 layout add_todo
 layout custom_dialog
 layout header_view
+layout header_view_old
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action
@@ -220,6 +226,7 @@ layout notification_template_part_chronometer
 layout notification_template_part_time
 layout recycle_view
 layout todo_item
+layout todo_item_old
 string add_new_todo_item_string
 string app_name
 string cancel_string
@@ -228,6 +235,7 @@ string choose_time_string
 string date_string
 string done_string
 string enter_title_string
+string name_label
 string no_date_set_string
 string no_time_set_string
 string not_done_string
@@ -240,6 +248,7 @@ string status_bar_notification_info_overflow
 string status_string
 string submit_string
 string time_and_date_string
+string time_label
 string title_string
 style TextAppearance_Compat_Notification
 style TextAppearance_Compat_Notification_Info

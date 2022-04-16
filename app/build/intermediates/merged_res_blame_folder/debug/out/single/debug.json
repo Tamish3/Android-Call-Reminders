@@ -12,6 +12,10 @@
         "source": "/Users/prudra/Documents/GitHub/CMSC436FinalProject/app/src/main/res/drawable-ldpi/ic_launcher.png"
     },
     {
+        "merged": "/Users/prudra/Documents/GitHub/CMSC436FinalProject/app/build/intermediates/merged_res/debug/layout_todo_item_old.xml.flat",
+        "source": "/Users/prudra/Documents/GitHub/CMSC436FinalProject/app/src/main/res/layout/todo_item_old.xml"
+    },
+    {
         "merged": "/Users/prudra/Documents/GitHub/CMSC436FinalProject/app/build/intermediates/merged_res/debug/drawable-mdpi_ic_launcher.png.flat",
         "source": "/Users/prudra/Documents/GitHub/CMSC436FinalProject/app/src/main/res/drawable-mdpi/ic_launcher.png"
     },
@@ -26,6 +30,10 @@
     {
         "merged": "/Users/prudra/Documents/GitHub/CMSC436FinalProject/app/build/intermediates/merged_res/debug/layout_recycle_view.xml.flat",
         "source": "/Users/prudra/Documents/GitHub/CMSC436FinalProject/app/src/main/res/layout/recycle_view.xml"
+    },
+    {
+        "merged": "/Users/prudra/Documents/GitHub/CMSC436FinalProject/app/build/intermediates/merged_res/debug/layout_header_view_old.xml.flat",
+        "source": "/Users/prudra/Documents/GitHub/CMSC436FinalProject/app/src/main/res/layout/header_view_old.xml"
     },
     {
         "merged": "/Users/prudra/Documents/GitHub/CMSC436FinalProject/app/build/intermediates/merged_res/debug/layout_add_todo.xml.flat",
