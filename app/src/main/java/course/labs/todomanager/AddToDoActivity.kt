@@ -9,7 +9,6 @@ import androidx.fragment.app.DialogFragment
 import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -66,7 +65,7 @@ class AddToDoActivity : FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.add_todo)
+        setContentView(R.layout.add_todo_old)
 
         mTitleText = findViewById<View>(R.id.title) as EditText
         mDefaultStatusButton = findViewById<View>(R.id.statusNotDone) as RadioButton
