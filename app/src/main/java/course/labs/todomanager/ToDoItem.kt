@@ -6,6 +6,7 @@ import java.util.Date
 import java.util.Locale
 
 import android.content.Intent
+import java.sql.Time
 
 class ToDoItem {
 
@@ -14,6 +15,9 @@ class ToDoItem {
     var status = Status.NOTDONE
     var date = Date()
 
+    var name : String? = String()
+    var time : String? = String()
+    /*
     enum class Priority {
         LOW, MED, HIGH
     }
@@ -21,12 +25,15 @@ class ToDoItem {
     enum class Status {
         NOTDONE, DONE
     }
-
-    internal constructor(title: String, priority: Priority, status: Status, date: Date) {
+    */
+    internal constructor(name: String, time: Date) {
         this.title = title
         this.priority = priority
         this.status = status
         this.date = date
+
+        this.name = name
+        this.time = time
     }
 
     // Create a new ToDoItem from data packaged in an Intent
@@ -46,36 +53,32 @@ class ToDoItem {
     }
 
     override fun toString(): String {
-        return (title + ITEM_SEP + priority + ITEM_SEP + status + ITEM_SEP
+        return (name + ITEM_SEP
                 + FORMAT.format(date))
     }
 
     fun toLog(): String {
-        return ("Title:" + title + ITEM_SEP + "Priority:" + priority
-                + ITEM_SEP + "Status:" + status + ITEM_SEP + "Date:"
-                + FORMAT.format(date) + "\n")
+        return("Name:" + name + "Time:")
     }
 
     companion object {
 
         val ITEM_SEP: String? = System.getProperty("line.separator")
 
-        const val TITLE = "title"
-        const val PRIORITY = "priority"
-        const val STATUS = "status"
-        const val DATE = "date"
+        const val NAME = "name"
+        const val TIME = "time"
 //        val FILENAME = "filename"
 
-        val FORMAT = SimpleDateFormat(
+        val FORMAT = SimpleTimeFormat(
                 "yyyy-MM-dd HH:mm:ss", Locale.US)
 
         // Take a set of String data values and
         // package them for transport in an Intent
 
-        fun packageIntent(intent: Intent, title: String,
+        fun packageIntent(intent: Intent, name: String,
                           priority: Priority, status: Status, date: String) {
 
-            intent.putExtra(TITLE, title)
+            intent.putExtra(NAME, name)
             intent.putExtra(PRIORITY, priority.toString())
             intent.putExtra(STATUS, status.toString())
             intent.putExtra(DATE, date)
