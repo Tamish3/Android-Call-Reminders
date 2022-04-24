@@ -113,6 +113,11 @@ class ToDoManagerActivity : Activity() {
             var status: String?
             var date: Date?
 
+            /*
+            var name: String?
+            var date: Date?
+             */
+
             do {
                 title = reader.readLine()
                 if (title == null)
@@ -121,8 +126,16 @@ class ToDoManagerActivity : Activity() {
                 status = reader.readLine()
                 date = ToDoItem.FORMAT.parse(reader.readLine())
                 mAdapter.add(ToDoItem(title, Priority.valueOf(priority),
-                        Status.valueOf(status), date))
+                    Status.valueOf(status), date))
 
+                /*
+                title = reader.readLine()
+                if (name == null)
+                    break
+                date = ToDoItem.FORMAT.parse(reader.readLine())
+                mAdapter.add(ToDoItem(title, Priority.valueOf(priority),
+                    Status.valueOf(status), date))
+                */
             }
             while (true)
 
