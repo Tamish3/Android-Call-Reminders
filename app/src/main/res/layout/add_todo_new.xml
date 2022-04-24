@@ -4,6 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <Button
+        android:id="@+id/settingsButtonItem"
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@+id/TimeLeftView"
+        android:layout_weight="1"
+        android:text="" />
+
     <Spinner
         android:id="@+id/spinner1"
         android:layout_width="match_parent"

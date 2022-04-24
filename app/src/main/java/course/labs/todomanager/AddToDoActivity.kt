@@ -10,8 +10,8 @@ import android.view.View
 import android.widget.*
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentActivity
-import course.labs.todomanager.ToDoItem.Priority
-import course.labs.todomanager.ToDoItem.Status
+//import course.labs.todomanager.ToDoItem.Priority
+//import course.labs.todomanager.ToDoItem.Status
 import java.util.*
 
 

@@ -1,9 +1,12 @@
 package course.labs.todomanager
 
 
+import android.Manifest
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,8 +14,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.app.ActivityCompat.startActivityForResult
+import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.recyclerview.widget.RecyclerView
 //import course.labs.todomanager.ToDoItem.Status
+//import android.Manifest
+import android.annotation.TargetApi
+//import android.app.Activity
+//import android.content.Intent
+//import android.content.pm.PackageManager
+import android.net.Uri
+//import android.os.Build
+//import android.os.Bundle
+import android.provider.ContactsContract
+//import android.util.Log
+import android.widget.Button
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityCompat.requestPermissions
+import androidx.core.content.PermissionChecker
 
 class ToDoListAdapter(private val mContext: Context) :
     RecyclerView.Adapter<ToDoListAdapter.ViewHolder>() {
@@ -68,22 +87,30 @@ class ToDoListAdapter(private val mContext: Context) :
         }
     }
 
+
+
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
         if (position == 0) {
             viewHolder.itemView.setOnClickListener {
                 Log.i(ToDoManagerActivity.TAG, "Entered footerView.OnClickListener.onClick()")
-                val options: Bundle? = null
-                startActivityForResult(
-                    mContext as Activity,
-                    Intent(
-                        mContext,
-                        AddToDoActivity::class.java
-                    ),
-                    ToDoManagerActivity.ADD_TODO_ITEM_REQUEST,
-                    options
-                )
-            }
+
+//                if (checkPermission()) {
+                    val options: Bundle? = null
+                    startActivityForResult(
+                        mContext as Activity,
+                        Intent(
+                            mContext,
+                            AddToDoActivity::class.java
+                        ),
+                        ToDoManagerActivity.ADD_TODO_ITEM_REQUEST,
+                        options
+                    )
+                }
+//                else {
+//                    getPermission()
+//                }
+//            }
         } else {
             val toDoItem = mItems[position - 1]
 
@@ -92,12 +119,63 @@ class ToDoListAdapter(private val mContext: Context) :
             viewHolder.mNameView!!.text = toDoItem.name
 
             // TODO - Display Time and Date
-            viewHolder.mTimeLeftView!!.text = ToDoItem.FORMAT.format(
-                toDoItem.time
-            )
+//            viewHolder.mTimeLeftView!!.text = ToDoItem.FORMAT.format(
+//                toDoItem.time
+//            )
 
         }
     }
+
+//    override fun onRequestPermissionsResult(
+//        requestCode: Int, permissions: Array<String>,
+//        grantResults: IntArray
+//    ) {
+//        if (requestCode == PERMISSIONS_PICK_CONTACT_REQUEST) {
+//            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//                // Permission is granted
+//                hasPermission = true
+////                startContactsApp()
+//                val options: Bundle? = null
+//                startActivityForResult(
+//                    mContext as Activity,
+//                    Intent(
+//                        mContext,
+//                        AddToDoActivity::class.java
+//                    ),
+//                    ToDoManagerActivity.ADD_TODO_ITEM_REQUEST,
+//                    options
+//                )
+//            } else {
+//                Toast.makeText(
+//                    mContext,
+//                    "This app requires access to your contact list",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            }
+//        }
+//    }
+
+//    fun checkPermission(): Boolean {
+//        Toast.makeText(
+//            mContext,
+//            "check permission",
+//            Toast.LENGTH_SHORT
+//        ).show()
+////        mContext.checkSelfPermission(mContext)
+//        return checkSelfPermission(
+//            mContext, READ_CONTACTS_PERM
+//        ) == PermissionChecker.PERMISSION_GRANTED
+//    }
+//
+//    fun getPermission() {
+//        Toast.makeText(
+//            mContext,
+//            "Get permission",
+//            Toast.LENGTH_SHORT
+//        ).show()
+//        ActivityCompat.requestPermissions(mContext as Activity, arrayOf(READ_CONTACTS_PERM), PERMISSIONS_PICK_CONTACT_REQUEST)
+////        requestPermissions(mContext as Activity, arrayOf(READ_CONTACTS_PERM), PERMISSIONS_PICK_CONTACT_REQUEST)
+//    }
 
     // Get the ID for the ToDoItem
     // In this case it's just the position
@@ -121,6 +199,10 @@ class ToDoListAdapter(private val mContext: Context) :
         private const val TAG = "Lab-UserInterface"
         private const val HEADER_VIEW_TYPE = R.layout.header_view
         private const val TODO_VIEW_TYPE = R.layout.todo_item_old
+
+        private var hasPermission: Boolean = false
+        private const val PERMISSIONS_PICK_CONTACT_REQUEST = 1
+        private const val READ_CONTACTS_PERM = Manifest.permission.READ_CONTACTS
     }
 
 

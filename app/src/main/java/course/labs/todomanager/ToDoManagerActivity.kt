@@ -1,5 +1,6 @@
 package course.labs.todomanager
 
+import android.Manifest
 import android.app.Activity
 import java.io.BufferedReader
 import java.io.BufferedWriter
@@ -13,14 +14,18 @@ import java.util.Date
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.PermissionChecker
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import course.labs.todomanager.ToDoItem.Priority
-import course.labs.todomanager.ToDoItem.Status
+//import course.labs.todomanager.ToDoItem.Priority
+//import course.labs.todomanager.ToDoItem.Status
 
 class ToDoManagerActivity : Activity() {
 
@@ -41,9 +46,61 @@ class ToDoManagerActivity : Activity() {
         loadItemsFromFile()
 
         // TODO - Attach the adapter to this Activity's RecyclerView
-        x.adapter = mAdapter
+//        x.adapter = mAdapter
 
+        if (checkPermission()) {
+            x.adapter = mAdapter
+        }
+        else {
+            getPermission()
+            x.adapter = mAdapter
+        }
 
+    }
+
+//    override fun onRequestPermissionsResult(
+//        requestCode: Int, permissions: Array<String>,
+//        grantResults: IntArray
+//    ) {
+//        if (requestCode == PERMISSIONS_PICK_CONTACT_REQUEST) {
+//            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//                // Permission is granted
+//                hasPermission = true
+////                startContactsApp()
+//                x.adapter = mAdapter
+//
+//            } else {
+//                Toast.makeText(
+//                    this,
+//                    "This app requires access to your contact list",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            }
+//        }
+//    }
+
+    fun checkPermission(): Boolean {
+        Toast.makeText(
+            this,
+            "check permission",
+            Toast.LENGTH_SHORT
+        ).show()
+//        mContext.checkSelfPermission(mContext)
+        return PermissionChecker.checkSelfPermission(
+            this, READ_CONTACTS_PERM
+        ) == PermissionChecker.PERMISSION_GRANTED
+    }
+
+    fun getPermission() {
+        Toast.makeText(
+            this,
+            "Get permission",
+            Toast.LENGTH_SHORT
+        ).show()
+        ActivityCompat.requestPermissions(this as Activity, arrayOf(READ_CONTACTS_PERM),
+            PERMISSIONS_PICK_CONTACT_REQUEST
+        )
+//        requestPermissions(mContext as Activity, arrayOf(READ_CONTACTS_PERM), PERMISSIONS_PICK_CONTACT_REQUEST)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -108,7 +165,7 @@ class ToDoManagerActivity : Activity() {
             val fis = openFileInput(FILE_NAME)
             reader = BufferedReader(InputStreamReader(fis))
 
-            var title: String?
+            var name: String?
             var priority: String?
             var status: String?
             var date: Date?
@@ -119,14 +176,15 @@ class ToDoManagerActivity : Activity() {
              */
 
             do {
-                title = reader.readLine()
-                if (title == null)
+                name = reader.readLine()
+                if (name == null)
                     break
-                priority = reader.readLine()
-                status = reader.readLine()
-                date = ToDoItem.FORMAT.parse(reader.readLine())
-                mAdapter.add(ToDoItem(title, Priority.valueOf(priority),
-                    Status.valueOf(status), date))
+//                priority = reader.readLine()
+//                status = reader.readLine()
+//                date = ToDoItem.FORMAT.parse(reader.readLine())
+//                mAdapter.add(ToDoItem(title, Priority.valueOf(priority),
+//                    Status.valueOf(status), date))
+                mAdapter.add(ToDoItem(name))
 
                 /*
                 title = reader.readLine()
@@ -186,5 +244,9 @@ class ToDoManagerActivity : Activity() {
         // IDs for menu items
         private const val MENU_DELETE = Menu.FIRST
         private const val MENU_DUMP = Menu.FIRST + 1
+
+        private var hasPermission: Boolean = false
+        private const val PERMISSIONS_PICK_CONTACT_REQUEST = 1
+        private const val READ_CONTACTS_PERM = Manifest.permission.READ_CONTACTS
     }
 }

@@ -11,8 +11,8 @@ import java.sql.Time
 class ToDoItem {
 
     var title : String? = String()
-    var priority : Priority = Priority.LOW
-    var status = Status.NOTDONE
+//    var priority : Priority = Priority.LOW
+//    var status = Status.NOTDONE
     var date = Date()
 
     var name : String? = String()
@@ -26,35 +26,36 @@ class ToDoItem {
         NOTDONE, DONE
     }
     */
-    internal constructor(name: String, time: Date) {
-        this.title = title
-        this.priority = priority
-        this.status = status
-        this.date = date
+    internal constructor(name: String) {
+//        this.title = title
+//        this.priority = priority
+//        this.status = status
+//        this.date = date
 
         this.name = name
-        this.time = time
+//        this.time = time
     }
 
     // Create a new ToDoItem from data packaged in an Intent
 
     internal constructor(intent: Intent) {
 
-        title = intent.getStringExtra(TITLE)
-        priority = Priority.valueOf(intent.getStringExtra(PRIORITY)!!)
-        status = Status.valueOf(intent.getStringExtra(STATUS)!!)
+        name = intent.getStringExtra(NAME)
+//        title = intent.getStringExtra(TITLE)
+//        priority = Priority.valueOf(intent.getStringExtra(PRIORITY)!!)
+//        status = Status.valueOf(intent.getStringExtra(STATUS)!!)
 
-        date = try {
-            FORMAT.parse(intent.getStringExtra(DATE)!!)!!
-        } catch (e: ParseException) {
-            Date()
-        }
+//        date = try {
+//            FORMAT.parse(intent.getStringExtra(DATE)!!)!!
+//        } catch (e: ParseException) {
+//            Date()
+//        }
 
     }
 
     override fun toString(): String {
-        return (name + ITEM_SEP
-                + FORMAT.format(date))
+        return (name + ITEM_SEP)
+//                + FORMAT.format(date))
     }
 
     fun toLog(): String {
@@ -69,19 +70,19 @@ class ToDoItem {
         const val TIME = "time"
 //        val FILENAME = "filename"
 
-        val FORMAT = SimpleTimeFormat(
-                "yyyy-MM-dd HH:mm:ss", Locale.US)
+//        val FORMAT = SimpleTimeFormat(
+//                "yyyy-MM-dd HH:mm:ss", Locale.US)
 
         // Take a set of String data values and
         // package them for transport in an Intent
 
-        fun packageIntent(intent: Intent, name: String,
-                          priority: Priority, status: Status, date: String) {
+        fun packageIntent(intent: Intent, name: String) {
+//                          priority: Priority, status: Status, date: String) {
 
             intent.putExtra(NAME, name)
-            intent.putExtra(PRIORITY, priority.toString())
-            intent.putExtra(STATUS, status.toString())
-            intent.putExtra(DATE, date)
+//            intent.putExtra(PRIORITY, priority.toString())
+//            intent.putExtra(STATUS, status.toString())
+//            intent.putExtra(DATE, date)
 
         }
     }
