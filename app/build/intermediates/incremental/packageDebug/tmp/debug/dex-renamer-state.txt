@@ -1,9 +1,9 @@
-#Sat Apr 16 18:21:23 EDT 2022
-base.2=/Users/prudra/Documents/GitHub/CMSC436FinalProject/app/build/intermediates/dex/debug/mergeProjectDexDebug/5/classes.dex
+#Sat Apr 16 19:45:52 EDT 2022
+base.2=D\:\\Downloads\\CMSC436FinalProject-main\\CMSC436FinalProject-main\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
 path.2=5/classes.dex
-base.1=/Users/prudra/Documents/GitHub/CMSC436FinalProject/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.1=D\:\\Downloads\\CMSC436FinalProject-main\\CMSC436FinalProject-main\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 path.1=0/classes.dex
-base.0=/Users/prudra/Documents/GitHub/CMSC436FinalProject/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.0=D\:\\Downloads\\CMSC436FinalProject-main\\CMSC436FinalProject-main\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex

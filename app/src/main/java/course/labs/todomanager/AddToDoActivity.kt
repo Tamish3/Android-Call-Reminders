@@ -1,27 +1,19 @@
 package course.labs.todomanager
 
-import java.util.Calendar
-import java.util.Date
-
 import android.app.DatePickerDialog
 import android.app.Dialog
-import androidx.fragment.app.DialogFragment
 import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.DatePicker
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.TextView
-import android.widget.TimePicker
-
+import android.widget.*
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentActivity
 import course.labs.todomanager.ToDoItem.Priority
 import course.labs.todomanager.ToDoItem.Status
+import java.util.*
+
 
 class AddToDoActivity : FragmentActivity() {
 
@@ -34,114 +26,24 @@ class AddToDoActivity : FragmentActivity() {
     private lateinit var dateView: TextView
     private lateinit var timeView: TextView
 
-    private val priority: Priority
-        get() {
-
-            return when (mPriorityRadioGroup.checkedRadioButtonId) {
-                R.id.lowPriority -> {
-                    Priority.LOW
-                }
-                R.id.highPriority -> {
-                    Priority.HIGH
-                }
-                else -> {
-                    Priority.MED
-                }
-            }
-        }
-
-    private val status: Status
-        get() {
-
-            return when (mStatusRadioGroup.checkedRadioButtonId) {
-                R.id.statusDone -> {
-                    Status.DONE
-                }
-                else -> {
-                    Status.NOTDONE
-                }
-            }
-        }
+    
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.add_todo_old)
+        setContentView(R.layout.add_todo_new)
 
-        mTitleText = findViewById<View>(R.id.title) as EditText
-        mDefaultStatusButton = findViewById<View>(R.id.statusNotDone) as RadioButton
-        mDefaultPriorityButton = findViewById<View>(R.id.medPriority) as RadioButton
-        mPriorityRadioGroup = findViewById<View>(R.id.priorityGroup) as RadioGroup
-        mStatusRadioGroup = findViewById<View>(R.id.statusGroup) as RadioGroup
-        dateView = findViewById<View>(R.id.date) as TextView
-        timeView = findViewById<View>(R.id.time) as TextView
-
-        // Set the default date and time
-
-        setDefaultDateTime()
-
-        // OnClickListener for the Date button, calls showDatePickerDialog() to
-        // show
-        // the Date dialog
-
-        val datePickerButton = findViewById<View>(R.id.date_picker_button) as Button
-        datePickerButton.setOnClickListener { showDatePickerDialog() }
-
-        // OnClickListener for the Time button, calls showTimePickerDialog() to
-        // show
-        // the Time Dialog
-
-        val timePickerButton = findViewById<View>(R.id.time_picker_button) as Button
-        timePickerButton.setOnClickListener { showTimePickerDialog() }
-
-        // OnClickListener for the Cancel Button,
-
-        val cancelButton = findViewById<View>(R.id.cancelButton) as Button
-        cancelButton.setOnClickListener {
-            Log.i(TAG, "Entered cancelButton.OnClickListener.onClick()")
-
-            // TODO - Indicate result and finish
-            setResult(RESULT_CANCELED)
-            finish()
-        }
-
-        // TODO - Set up OnClickListener for the Reset Button
-        val resetButton = findViewById<View>(R.id.resetButton) as Button
-        resetButton.setOnClickListener {
-            Log.i(TAG, "Entered resetButton.OnClickListener.onClick()")
-
-            // TODO - Reset data to default values
-            mTitleText.setText("")
-            mPriorityRadioGroup.clearCheck()
-            mStatusRadioGroup.clearCheck()
-            setDefaultDateTime()
-
-
-        }
-
-        // Set up OnClickListener for the Submit Button
-
-        val submitButton = findViewById<View>(R.id.submitButton) as Button
-        submitButton.setOnClickListener {
-            Log.i(TAG, "Entered submitButton.OnClickListener.onClick()")
-
-            // TODO - gather ToDoItem data
-
-            // Get Priority
-            var priority2 = priority
-            // Get Status
-            var status2 = status
-            // Title
-            var title2 = mTitleText.text.toString()
-            // Date
-            var date2 = "$dateString $timeString"
-            // Package ToDoItem data into an Intent
-            var intentHelper = Intent()
-            ToDoItem.packageIntent(intentHelper, title2, priority2,status2,date2)
-            // TODO - return data Intent and finish
-            setResult(RESULT_OK, intentHelper)
-            finish()
-
-        }
+        val dropdown = findViewById<Spinner>(R.id.spinner1)
+        //create a list of items for the spinner.
+        //create a list of items for the spinner.
+        val items = arrayOf("24 hours", "1 week", "1 month", "6 months", "1 year", "Custom")
+        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
+        //There are multiple variations of this, but this is the basic variant.
+        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
+        //There are multiple variations of this, but this is the basic variant.
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, items)
+        //set the spinners adapter to the previously created one.
+        //set the spinners adapter to the previously created one.
+        dropdown.adapter = adapter
     }
 
     private fun setDefaultDateTime() {

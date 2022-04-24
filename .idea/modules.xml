@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CMSC436FinalProject.iml" filepath="$PROJECT_DIR$/.idea/modules/CMSC436FinalProject.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CMSC436FinalProject.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CMSC436FinalProject.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CMSC436FinalProject-main.iml" filepath="$PROJECT_DIR$/.idea/modules/CMSC436FinalProject-main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CMSC436FinalProject-main.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CMSC436FinalProject-main.app.iml" />
     </modules>
   </component>
 </project>
