@@ -10,10 +10,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.app.ActivityCompat.invalidateOptionsMenu
 import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.recyclerview.widget.RecyclerView
-import course.labs.todomanager.ToDoItem.Status
+//import course.labs.todomanager.ToDoItem.Status
 
 class ToDoListAdapter(private val mContext: Context) :
     RecyclerView.Adapter<ToDoListAdapter.ViewHolder>() {
@@ -58,10 +57,10 @@ class ToDoListAdapter(private val mContext: Context) :
             val viewHolder = ViewHolder(v)
 
             // TODO - Inflate the View (defined in todo_item.xml) for this ToDoItem and store references in ViewHolder
-            viewHolder.mTitleView=v.findViewById(R.id.titleView)
-            viewHolder.mStatusView=v.findViewById(R.id.statusCheckBox) //as CheckBox
-            viewHolder.mPriorityView=v.findViewById(R.id.priorityView)
-            viewHolder.mDateView=v.findViewById(R.id.dateView)
+            viewHolder.mNameView=v.findViewById(R.id.nameView)
+            /*viewHolder.mStatusView=v.findViewById(R.id.statusCheckBox) //as CheckBox
+            viewHolder.mPriorityView=v.findViewById(R.id.priorityView)*/
+            viewHolder.mTimeLeftView=v.findViewById(R.id.timeLeftView)
             viewHolder.mItemLayout=v
 
 
@@ -88,27 +87,13 @@ class ToDoListAdapter(private val mContext: Context) :
         } else {
             val toDoItem = mItems[position - 1]
 
-            Log.i(TAG, "onBindViewHolder   " + viewHolder.mTitleView.toString())
+            Log.i(TAG, "onBindViewHolder   " + viewHolder.mNameView.toString())
 
-            viewHolder.mTitleView!!.text = toDoItem.title
-
-            // Todo - Initialize statusView's isChecked property
-            viewHolder.mStatusView!!.isChecked = toDoItem.status==Status.DONE
-            // TODO - Set up OnCheckedChangeListener CheckBox
-            viewHolder.mStatusView!!.setOnCheckedChangeListener { buttonView, isChecked ->
-                if(isChecked){
-                    toDoItem.status = Status.DONE
-                } else {
-                    toDoItem.status = Status.NOTDONE
-                }
-            }
-            // TODO - Display Priority in a TextView
-            viewHolder.mPriorityView?.text = toDoItem.priority.toString()
-
+            viewHolder.mNameView!!.text = toDoItem.name
 
             // TODO - Display Time and Date
-            viewHolder.mDateView!!.text = ToDoItem.FORMAT.format(
-                toDoItem.date
+            viewHolder.mTimeLeftView!!.text = ToDoItem.FORMAT.format(
+                toDoItem.time
             )
 
         }
@@ -123,16 +108,19 @@ class ToDoListAdapter(private val mContext: Context) :
 
     class ViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var mItemLayout: View = itemView
-        var mTitleView: TextView? = null
-        var mStatusView: CheckBox? = null
-        var mPriorityView: TextView? = null
-        var mDateView: TextView? = null
+//        var mTitleView: TextView? = null
+//        var mStatusView: CheckBox? = null
+//        var mPriorityView: TextView? = null
+//        var mDateView: TextView? = null
+
+        var mNameView: TextView? = null
+        var mTimeLeftView: TextView? = null
     }
 
     companion object {
         private const val TAG = "Lab-UserInterface"
         private const val HEADER_VIEW_TYPE = R.layout.header_view
-        private const val TODO_VIEW_TYPE = R.layout.todo_item
+        private const val TODO_VIEW_TYPE = R.layout.todo_item_old
     }
 
 
