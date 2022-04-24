@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.util.Log
 import android.view.View
 import android.widget.*
@@ -32,6 +33,11 @@ class AddToDoActivity : FragmentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_todo_new)
 
+        val button = findViewById<Button>(R.id.contactsButton)
+        button.setOnClickListener {
+            pickContactIntent()
+        }
+
         val dropdown = findViewById<Spinner>(R.id.spinner1)
         //create a list of items for the spinner.
         //create a list of items for the spinner.
@@ -44,6 +50,11 @@ class AddToDoActivity : FragmentActivity() {
         //set the spinners adapter to the previously created one.
         //set the spinners adapter to the previously created one.
         dropdown.adapter = adapter
+    }
+
+    fun pickContactIntent() {
+        Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI)
+        startActivityForResult(intent, PERMISSIONS_PICK_CONTACT_REQUEST)
     }
 
     private fun setDefaultDateTime() {
@@ -158,5 +169,8 @@ class AddToDoActivity : FragmentActivity() {
 
             timeString = "$hour:$min:00"
         }
+
+        private const val PICK_CONTACT_REQUEST = 0
+        private const val PERMISSIONS_PICK_CONTACT_REQUEST = 1
     }
 }

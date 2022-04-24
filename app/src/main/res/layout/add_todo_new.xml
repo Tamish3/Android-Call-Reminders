@@ -5,12 +5,10 @@
     android:orientation="vertical" >
 
     <Button
-        android:id="@+id/settingsButtonItem"
-        android:layout_width="3dp"
-        android:layout_height="match_parent"
-        android:layout_toEndOf="@+id/TimeLeftView"
-        android:layout_weight="1"
-        android:text="" />
+        android:id="@+id/contactsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select contact" />
 
     <Spinner
         android:id="@+id/spinner1"
