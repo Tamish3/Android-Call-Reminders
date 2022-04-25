@@ -53,7 +53,7 @@ class AddToDoActivity : FragmentActivity() {
     }
 
     fun pickContactIntent() {
-        Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI)
+        val intent = Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI)
         startActivityForResult(intent, PERMISSIONS_PICK_CONTACT_REQUEST)
     }
 
