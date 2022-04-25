@@ -1,9 +1,11 @@
 package course.labs.todomanager
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.app.TimePickerDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
@@ -50,11 +52,55 @@ class AddToDoActivity : FragmentActivity() {
         //set the spinners adapter to the previously created one.
         //set the spinners adapter to the previously created one.
         dropdown.adapter = adapter
+
+        actionBar!!.title = "Add New Contact";
     }
 
     fun pickContactIntent() {
         val intent = Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI)
         startActivityForResult(intent, PERMISSIONS_PICK_CONTACT_REQUEST)
+    }
+
+    @SuppressLint("Range")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        // Ensure that this call is the result of a successful PICK_CONTACT_REQUEST request
+        if (resultCode == RESULT_OK && requestCode == PICK_CONTACT_REQUEST) {
+
+            // These details are covered in the lesson on ContentProviders
+
+            val contactUri = data?.data ?: return
+            val projection = null
+            val cr = contentResolver
+            val cursor = cr.query(contactUri, projection, null, null, null)
+
+            //name, icon, phone num, contact id
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    val contactId = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID))
+                    val contactName = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
+                    val contactIcon = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.PHOTO_THUMBNAIL_URI))
+                    val phoneResults = Integer.parseInt(cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER)))
+
+                    if (phoneResults == 1) {
+                        val cursor2 = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                        null,
+                            ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = "+contactId,
+                            null,
+                            null
+                            )
+
+                        if (cursor2 != null) {
+                            while(cursor2.moveToNext()) {
+                                val contactNumber = cursor2.getString(cursor2.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
+                            }
+                        }
+                        cursor2?.close()
+                    }
+
+                }
+            }
+            cursor?.close()
+        }
     }
 
     private fun setDefaultDateTime() {
@@ -172,5 +218,7 @@ class AddToDoActivity : FragmentActivity() {
 
         private const val PICK_CONTACT_REQUEST = 0
         private const val PERMISSIONS_PICK_CONTACT_REQUEST = 1
+//        private const val FORMATTED_ADDRESS =
+//            ContactsContract.CommonDataKinds.StructuredPostal.FORMATTED_ADDRESS
     }
 }
