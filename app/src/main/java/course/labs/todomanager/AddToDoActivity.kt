@@ -198,6 +198,7 @@ class AddToDoActivity : FragmentActivity() {
             // TODO - Reset data to default values
             nameView.text = ""
             iconView.setImageResource(0)
+            dropdown.setSelection(0)
         }
 
         // Set up OnClickListener for the Submit Button
