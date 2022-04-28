@@ -197,7 +197,7 @@ class AddToDoActivity : FragmentActivity() {
 
             // TODO - Reset data to default values
             nameView.text = ""
-            setDefaultDateTime()
+            iconView.setImageResource(0)
         }
 
         // Set up OnClickListener for the Submit Button
@@ -229,7 +229,7 @@ class AddToDoActivity : FragmentActivity() {
 
     fun pickContactIntent() {
         val intent = Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI)
-        startActivityForResult(intent, PERMISSIONS_PICK_CONTACT_REQUEST)
+        startActivityForResult(intent, PICK_CONTACT_REQUEST)
     }
 
     @SuppressLint("Range")
@@ -289,7 +289,7 @@ class AddToDoActivity : FragmentActivity() {
                         if (contactIcon != null) {
                             iconView.setImageURI(Uri.parse(contactIcon))
                         } else {
-                            //iconView?.setImageDrawable(getDrawable(R.drawable.ic_account_circle))
+                            iconView?.setImageDrawable(getDrawable(R.drawable.ic_account_circle))
                         }
                     }
                     cursor2?.close()

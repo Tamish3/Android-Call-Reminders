@@ -68,6 +68,7 @@ int dimen subtitle_corner_radius 0x7f03001c
 int dimen subtitle_outline_width 0x7f03001d
 int dimen subtitle_shadow_offset 0x7f03001e
 int dimen subtitle_shadow_radius 0x7f03001f
+int drawable ic_account_circle 0x7f04000d
 int drawable ic_launcher 0x7f040000
 int drawable notification_action_background 0x7f040001
 int drawable notification_bg 0x7f040002
