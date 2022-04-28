@@ -9,6 +9,7 @@
         android:targetSdkVersion="31" />
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:allowBackup="true"
@@ -29,6 +30,15 @@
         </activity>
         <activity android:name="course.labs.todomanager.AddToDoActivity" >
         </activity>
+
+        <receiver
+            android:name="course.labs.todomanager.CallReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
+            "outputFile": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
                     "source": "C:\\Users\\rauna\\.gradle\\caches\\transforms-3\\105461012ec02af38bb949279a5bbc7a\\transformed\\media-1.0.0\\res\\values-v24\\values-v24.xml",
