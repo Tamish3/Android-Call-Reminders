@@ -1,20 +1,22 @@
 package course.labs.todomanager
 
+//import course.labs.todomanager.ToDoItem.Priority
+//import course.labs.todomanager.ToDoItem.Status
+
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.app.TimePickerDialog
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
-import android.util.Log
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.*
+import android.widget.AdapterView.OnItemSelectedListener
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentActivity
-//import course.labs.todomanager.ToDoItem.Priority
-//import course.labs.todomanager.ToDoItem.Status
 import java.util.*
 
 
@@ -29,7 +31,12 @@ class AddToDoActivity : FragmentActivity() {
     private lateinit var dateView: TextView
     private lateinit var timeView: TextView
 
-    
+    var years: Int = 0
+    var months: Int = 0
+    var weeks: Int = 0
+    var days: Int = 0
+    var hours: Int = 0
+    var minutes: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,18 +47,132 @@ class AddToDoActivity : FragmentActivity() {
             pickContactIntent()
         }
 
-        val dropdown = findViewById<Spinner>(R.id.spinner1)
-        //create a list of items for the spinner.
-        //create a list of items for the spinner.
-        val items = arrayOf("24 hours", "1 week", "1 month", "6 months", "1 year", "Custom")
-        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
-        //There are multiple variations of this, but this is the basic variant.
-        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
-        //There are multiple variations of this, but this is the basic variant.
+        val dropdown = findViewById<Spinner>(R.id.spinner)
+        val items = arrayOf("1 day", "1 week", "1 month", "6 months", "1 year", "Custom")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, items)
-        //set the spinners adapter to the previously created one.
-        //set the spinners adapter to the previously created one.
         dropdown.adapter = adapter
+
+        val custom = findViewById<TextView>(R.id.custom)
+        val customLayout = findViewById<View>(R.id.custom_layout) as LinearLayout
+        custom.visibility = View.GONE
+        customLayout.visibility = View.GONE
+
+        dropdown.setOnItemSelectedListener(object : OnItemSelectedListener {
+            override fun onItemSelected(parentView: AdapterView<*>?, selectedItemView: View, position: Int, id: Long) {
+                var value = dropdown.selectedItem.toString()
+
+                years = 0
+                months = 0
+                weeks= 0
+                days = 0
+                hours= 0
+                minutes = 0
+
+                if (value == "Custom") {
+                    val custom = findViewById<View>(R.id.custom_layout) as LinearLayout
+                    custom.visibility = View.VISIBLE
+                    customLayout.visibility = View.VISIBLE
+                } else if (value == "1 day") {
+                    days = 1;
+                } else if (value == "1 week") {
+                    weeks = 1;
+                } else if (value == "1 month") {
+                    months = 1;
+                } else if (value == "6 months") {
+                    months = 6;
+                } else if (value == "1 year") {
+                    years = 1;
+                }
+                Toast.makeText(
+                    parentView!!.context,
+                    "$years years, $months months, $weeks weeks, $days days, $hours hours, $minutes minutes",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
+            override fun onNothingSelected(parentView: AdapterView<*>?) {
+
+            }
+        })
+
+        var yearsTxt = findViewById<EditText>(R.id.years)
+        var monthsTxt = findViewById<EditText>(R.id.months)
+        var weeksTxt = findViewById<EditText>(R.id.weeks)
+        var daysTxt = findViewById<EditText>(R.id.days)
+        var hoursTxt = findViewById<EditText>(R.id.hours)
+        var minutesTxt = findViewById<EditText>(R.id.minutes)
+
+        yearsTxt.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if (s != null && s.toString().toIntOrNull() != null) {
+                    years = s.toString().toInt()
+                }
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
+
+        monthsTxt.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if (s != null && s.toString().toIntOrNull() != null) {
+                    months = s.toString().toInt()
+                }
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
+
+        weeksTxt.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if (s != null && s.toString().toIntOrNull() != null) {
+                    weeks = s.toString().toInt()
+                }
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
+
+        daysTxt.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if (s != null && s.toString().toIntOrNull() != null) {
+                    days = s.toString().toInt()
+                }
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
+
+        hoursTxt.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if (s != null && s.toString().toIntOrNull() != null) {
+                    hours = s.toString().toInt()
+                }
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
+
+        minutesTxt.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                if (s != null && s.toString().toIntOrNull() != null) {
+                    minutes = s.toString().toInt()
+                }
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
 
         actionBar!!.title = "Add New Contact";
     }
