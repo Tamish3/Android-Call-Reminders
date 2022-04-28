@@ -142,8 +142,8 @@ id center_vertical
 id chronometer
 id clip_horizontal
 id clip_vertical
-id contactIcon
-id contactName
+id contactIconView
+id contactNameView
 id contactsButton
 id custom
 id custom_layout

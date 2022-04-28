@@ -141,8 +141,8 @@ int id center_vertical 0x7f050038
 int id chronometer 0x7f050039
 int id clip_horizontal 0x7f05003a
 int id clip_vertical 0x7f05003b
-int id contactIcon 0x7f05003c
-int id contactName 0x7f05003d
+int id contactIconView 0x7f050088
+int id contactNameView 0x7f050089
 int id contactsButton 0x7f05003e
 int id custom 0x7f050086
 int id custom_layout 0x7f050087

@@ -8,10 +8,12 @@ import android.app.DatePickerDialog
 import android.app.Dialog
 import android.app.TimePickerDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
@@ -30,6 +32,8 @@ class AddToDoActivity : FragmentActivity() {
     private lateinit var mDefaultPriorityButton: RadioButton
     private lateinit var dateView: TextView
     private lateinit var timeView: TextView
+    private lateinit var nameView: TextView
+    private lateinit var iconView: ImageView
 
     var years: Int = 0
     var months: Int = 0
@@ -41,6 +45,8 @@ class AddToDoActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_todo_new)
+        nameView = findViewById<TextView>(R.id.contactNameView)
+        iconView = findViewById<ImageView>(R.id.contactIconView)
 
         val button = findViewById<Button>(R.id.contactsButton)
         button.setOnClickListener {
@@ -175,6 +181,50 @@ class AddToDoActivity : FragmentActivity() {
         })
 
         actionBar!!.title = "Add New Contact";
+        val cancelButton = findViewById<View>(R.id.cancelButton) as Button
+        cancelButton.setOnClickListener {
+            Log.i(TAG, "Entered cancelButton.OnClickListener.onClick()")
+
+            // TODO - Indicate result and finish
+            setResult(RESULT_CANCELED)
+            finish()
+        }
+
+        // TODO - Set up OnClickListener for the Reset Button
+        val resetButton = findViewById<View>(R.id.resetButton) as Button
+        resetButton.setOnClickListener {
+            Log.i(TAG, "Entered resetButton.OnClickListener.onClick()")
+
+            // TODO - Reset data to default values
+            nameView.text = ""
+            setDefaultDateTime()
+        }
+
+        // Set up OnClickListener for the Submit Button
+
+        val submitButton = findViewById<View>(R.id.submitButton) as Button
+        submitButton.setOnClickListener {
+            Log.i(TAG, "Entered submitButton.OnClickListener.onClick()")
+
+            // TODO - gather ToDoItem data
+
+            // Get Priority
+//            val pr = priority
+//            // Get Status
+//            val st = status
+//            // Title
+//            val ti = mTitleText.text.toString()
+//            // Date
+//            val da = "$dateString $timeString"
+//            // Package ToDoItem data into an Intent
+            var data = Intent()
+            val name = nameView.text.toString()
+            ToDoItem.packageIntent(data, name)
+
+            // TODO - return data Intent and finish
+            setResult(RESULT_OK, data)
+            finish()
+        }
     }
 
     fun pickContactIntent() {
@@ -185,41 +235,73 @@ class AddToDoActivity : FragmentActivity() {
     @SuppressLint("Range")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         // Ensure that this call is the result of a successful PICK_CONTACT_REQUEST request
+        super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK && requestCode == PICK_CONTACT_REQUEST) {
-
+            Toast.makeText(
+                this,
+                "Entered first if",
+                Toast.LENGTH_SHORT
+            ).show()
             // These details are covered in the lesson on ContentProviders
-
-            val contactUri = data?.data ?: return
+//            val contactUri = data?.data ?: return
+            val contactUri = data!!.data
             val projection = null
             val cr = contentResolver
-            val cursor = cr.query(contactUri, projection, null, null, null)
+            val cursor = cr.query(contactUri!!, projection, null, null, null)
+
 
             //name, icon, phone num, contact id
-            if (cursor != null) {
-                if (cursor.moveToFirst()) {
-                    val contactId = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID))
-                    val contactName = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
-                    val contactIcon = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.PHOTO_THUMBNAIL_URI))
-                    val phoneResults = Integer.parseInt(cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER)))
+//            if (cursor != null) {
+            if (cursor!!.moveToFirst()) {
+                val contactId = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID))
+                val contactName = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
+                val contactIcon = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.PHOTO_THUMBNAIL_URI))
+                val phoneResults = Integer.parseInt(cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER)))
 
-                    if (phoneResults == 1) {
-                        val cursor2 = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                Toast.makeText(
+                    this,
+                    "Got Id$contactId",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                if (phoneResults == 1) {
+                    val cursor2 = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
                         null,
-                            ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = "+contactId,
-                            null,
-                            null
-                            )
+                        ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = "+contactId,
+                        null,
+                        null
+                    )
 
-                        if (cursor2 != null) {
-                            while(cursor2.moveToNext()) {
-                                val contactNumber = cursor2.getString(cursor2.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
+
+
+                    if (cursor2 != null) {
+                        val contactNumber = "";
+                        while(cursor2.moveToNext()) {
+                            if (contactNumber == "") {
+                                val contactNumber =
+                                    cursor2.getString(cursor2.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
+
                             }
                         }
-                        cursor2?.close()
+                        var textHelper = findViewById<TextView>(R.id.contactNameView)
+                        nameView.text = contactName.toString()
+                        var iconHelper = findViewById<ImageView>(R.id.contactIconView)
+                        if (contactIcon != null) {
+                            iconView.setImageURI(Uri.parse(contactIcon))
+                        } else {
+                            //iconView?.setImageDrawable(getDrawable(R.drawable.ic_account_circle))
+                        }
                     }
-
+                    cursor2?.close()
                 }
+//                    var textHelper = findViewById<TextView>(R.id.contactNameView)
+//                    textHelper.text = contactName.toString()
+//
+//                    var iconHelper = findViewById<ImageView>(R.id.contactIconView)
+////                    iconHelper.setImageURI()
+
             }
+//            }
             cursor?.close()
         }
     }
