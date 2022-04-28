@@ -80,14 +80,24 @@ class AddToDoActivity : FragmentActivity() {
                     customLayout.visibility = View.VISIBLE
                 } else if (value == "1 day") {
                     days = 1;
+                    custom.visibility = View.GONE
+                    customLayout.visibility = View.GONE
                 } else if (value == "1 week") {
                     weeks = 1;
+                    custom.visibility = View.GONE
+                    customLayout.visibility = View.GONE
                 } else if (value == "1 month") {
                     months = 1;
+                    custom.visibility = View.GONE
+                    customLayout.visibility = View.GONE
                 } else if (value == "6 months") {
                     months = 6;
+                    custom.visibility = View.GONE
+                    customLayout.visibility = View.GONE
                 } else if (value == "1 year") {
                     years = 1;
+                    custom.visibility = View.GONE
+                    customLayout.visibility = View.GONE
                 }
                 Toast.makeText(
                     parentView!!.context,
