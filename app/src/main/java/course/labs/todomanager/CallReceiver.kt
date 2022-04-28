@@ -1,4 +1,4 @@
-package course.examples.broadcastreceiver.singlebroadcaststaticregistration
+package course.labs.todomanager
 
 import android.content.BroadcastReceiver
 import android.content.Context
