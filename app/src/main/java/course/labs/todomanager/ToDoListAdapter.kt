@@ -44,6 +44,7 @@ class ToDoListAdapter(private val mContext: Context) :
     fun add(item: ToDoItem) {
         mItems.add(item)
         notifyItemChanged(mItems.size)
+        Log.i(TAG, "Adding")
     }
 
     // Clears the list adapter of all items.
@@ -68,6 +69,7 @@ class ToDoListAdapter(private val mContext: Context) :
 
     // Retrieve the number of ToDoItems
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        Log.i(TAG, "onCreateViewHolder")
         if (viewType == HEADER_VIEW_TYPE) {
             Log.i(TAG, "NOT adding contact onCreateViewHolder()   ")
             val v = LayoutInflater.from(parent.context).inflate(R.layout.header_view, parent, false)
@@ -84,7 +86,7 @@ class ToDoListAdapter(private val mContext: Context) :
             /*viewHolder.mStatusView=v.findViewById(R.id.statusCheckBox) //as CheckBox
             viewHolder.mPriorityView=v.findViewById(R.id.priorityView)*/
 //            viewHolder.mTimeLeftView=v.findViewById(R.id.timeLeftView)
-//            viewHolder.mItemLayout=v
+            viewHolder.mItemLayout=v
 
 
                 return viewHolder

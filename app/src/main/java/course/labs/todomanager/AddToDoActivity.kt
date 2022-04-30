@@ -19,7 +19,10 @@ import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentActivity
+import java.time.*
+import java.time.temporal.ChronoUnit
 import java.util.*
+import javax.xml.datatype.DatatypeConstants.HOURS
 
 
 class AddToDoActivity : FragmentActivity() {
@@ -99,11 +102,6 @@ class AddToDoActivity : FragmentActivity() {
                     custom.visibility = View.GONE
                     customLayout.visibility = View.GONE
                 }
-                Toast.makeText(
-                    parentView!!.context,
-                    "$years years, $months months, $weeks weeks, $days days, $hours hours, $minutes minutes",
-                    Toast.LENGTH_SHORT
-                ).show()
             }
 
             override fun onNothingSelected(parentView: AdapterView<*>?) {
@@ -205,7 +203,6 @@ class AddToDoActivity : FragmentActivity() {
         resetButton.setOnClickListener {
             Log.i(TAG, "Entered resetButton.OnClickListener.onClick()")
 
-            // TODO - Reset data to default values
             nameView.text = ""
             iconView.setImageResource(0)
             dropdown.setSelection(0)
@@ -216,21 +213,22 @@ class AddToDoActivity : FragmentActivity() {
         val submitButton = findViewById<View>(R.id.submitButton) as Button
         submitButton.setOnClickListener {
             Log.i(TAG, "Entered submitButton.OnClickListener.onClick()")
-
-            // TODO - gather ToDoItem data
-
-            // Get Priority
-//            val pr = priority
-//            // Get Status
-//            val st = status
-//            // Title
-//            val ti = mTitleText.text.toString()
-//            // Date
-//            val da = "$dateString $timeString"
-//            // Package ToDoItem data into an Intent
             var data = Intent()
+
+            var dateRange = Period.of(years, months, days + 7*weeks)
+            var timeRange = Duration.of(hours.toLong(), ChronoUnit.HOURS)
+            timeRange = timeRange.plus(minutes.toLong(), ChronoUnit.MINUTES)
+            var currentTime = ZonedDateTime.now()
+            var deadline = currentTime.plus(dateRange).plus(timeRange)
+
             val name = nameView.text.toString()
-            ToDoItem.packageIntent(data, name)
+
+            Toast.makeText(applicationContext,
+                "$name will be notified at $deadline.toString()",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            ToDoItem.packageIntent(data, name, deadline)
 
             // TODO - return data Intent and finish
             setResult(RESULT_OK, data)
@@ -317,24 +315,24 @@ class AddToDoActivity : FragmentActivity() {
         }
     }
 
-    private fun setDefaultDateTime() {
-
-        // Default is current time + 7 days
-        mDate = Date()
-        mDate = Date(mDate.time + SEVEN_DAYS)
-
-        val c = Calendar.getInstance()
-        c.time = mDate
-
-        setDateString(c.get(Calendar.YEAR), c.get(Calendar.MONTH),
-                c.get(Calendar.DAY_OF_MONTH))
-
-        dateView.text = dateString
-
-        setTimeString(c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE))
-
-        timeView.text = timeString
-    }
+//    private fun setDefaultDateTime() {
+//
+//        // Default is current time + 7 days
+//        mDate = Date()
+//        mDate = Date(mDate.time + SEVEN_DAYS)
+//
+//        val c = Calendar.getInstance()
+//        c.time = mDate
+//
+//        setDateString(c.get(Calendar.YEAR), c.get(Calendar.MONTH),
+//                c.get(Calendar.DAY_OF_MONTH))
+//
+//        dateView.text = dateString
+//
+//        setTimeString(c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE))
+//
+//        timeView.text = timeString
+//    }
 
     // DialogFragment used to pick a ToDoItem deadline date
 

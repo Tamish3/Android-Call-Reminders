@@ -7,6 +7,7 @@ import java.util.Locale
 
 import android.content.Intent
 import java.sql.Time
+import java.time.ZonedDateTime
 
 class ToDoItem {
 
@@ -76,7 +77,7 @@ class ToDoItem {
         // Take a set of String data values and
         // package them for transport in an Intent
 
-        fun packageIntent(intent: Intent, name: String) {
+        fun packageIntent(intent: Intent, name: String, deadline : ZonedDateTime) {
 //                          priority: Priority, status: Status, date: String) {
 
             intent.putExtra(NAME, name)
