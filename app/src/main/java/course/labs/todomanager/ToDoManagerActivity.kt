@@ -43,7 +43,7 @@ class ToDoManagerActivity : Activity() {
         x.layoutManager = LinearLayoutManager(this)
 
         // Load saved ToDoItems
-        loadItemsFromFile()
+//        loadItemsFromFile()
 
         // TODO - Attach the adapter to this Activity's RecyclerView
 //        x.adapter = mAdapter
@@ -112,6 +112,8 @@ class ToDoManagerActivity : Activity() {
         // Create a new ToDoItem from the data Intent
         // and then add it to the adapter
         if(resultCode== RESULT_OK && requestCode == ADD_TODO_ITEM_REQUEST) {
+            Log.i(TAG, "Getting Entered")
+            Log.i(TAG, "a ${mAdapter.itemCount} count")
             mAdapter.add(ToDoItem(data!!))
         }
     }

@@ -69,18 +69,22 @@ class ToDoListAdapter(private val mContext: Context) :
     // Retrieve the number of ToDoItems
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         if (viewType == HEADER_VIEW_TYPE) {
+            Log.i(TAG, "NOT adding contact onCreateViewHolder()   ")
             val v = LayoutInflater.from(parent.context).inflate(R.layout.header_view, parent, false)
             return ViewHolder(v)
         } else {
+            Log.i(TAG, "adding contact onCreateViewHolder()   ")
+
             val v = LayoutInflater.from(parent.context).inflate(R.layout.todo_item, parent, false)
             val viewHolder = ViewHolder(v)
 
             // TODO - Inflate the View (defined in todo_item.xml) for this ToDoItem and store references in ViewHolder
             viewHolder.mNameView=v.findViewById(R.id.nameView)
+//            viewHolder.mNameView=v.findViewById(R.id.nameView)
             /*viewHolder.mStatusView=v.findViewById(R.id.statusCheckBox) //as CheckBox
             viewHolder.mPriorityView=v.findViewById(R.id.priorityView)*/
-            viewHolder.mTimeLeftView=v.findViewById(R.id.timeLeftView)
-            viewHolder.mItemLayout=v
+//            viewHolder.mTimeLeftView=v.findViewById(R.id.timeLeftView)
+//            viewHolder.mItemLayout=v
 
 
                 return viewHolder
@@ -114,7 +118,7 @@ class ToDoListAdapter(private val mContext: Context) :
         } else {
             val toDoItem = mItems[position - 1]
 
-            Log.i(TAG, "onBindViewHolder   " + viewHolder.mNameView.toString())
+           Log.i(TAG, "onBindViewHolder   " + viewHolder.mNameView.toString())
 
             viewHolder.mNameView!!.text = toDoItem.name
 
@@ -192,13 +196,13 @@ class ToDoListAdapter(private val mContext: Context) :
 //        var mDateView: TextView? = null
 
         var mNameView: TextView? = null
-        var mTimeLeftView: TextView? = null
+//        var mTimeLeftView: TextView? = null
     }
 
     companion object {
         private const val TAG = "Lab-UserInterface"
         private const val HEADER_VIEW_TYPE = R.layout.header_view
-        private const val TODO_VIEW_TYPE = R.layout.todo_item_old
+        private const val TODO_VIEW_TYPE = R.layout.todo_item
 
         private var hasPermission: Boolean = false
         private const val PERMISSIONS_PICK_CONTACT_REQUEST = 1
