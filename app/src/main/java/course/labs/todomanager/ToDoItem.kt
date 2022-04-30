@@ -1,13 +1,10 @@
 package course.labs.todomanager
 
-import java.text.ParseException
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
-
 import android.content.Intent
-import java.sql.Time
+import java.time.Duration
+import java.time.Period
 import java.time.ZonedDateTime
+import java.util.*
 
 class ToDoItem {
 
@@ -16,8 +13,10 @@ class ToDoItem {
 //    var status = Status.NOTDONE
     var date = Date()
 
-    var name : String? = String()
-    var time : String? = String()
+    var name : String? = String();
+    var deadline : ZonedDateTime? = null;
+    var dateRange : Period? = null;
+    var timeRange : Duration? = null;
     /*
     enum class Priority {
         LOW, MED, HIGH
@@ -41,7 +40,10 @@ class ToDoItem {
 
     internal constructor(intent: Intent) {
 
-        name = intent.getStringExtra(NAME)
+        name = intent.getStringExtra("name")
+        deadline = intent.getSerializableExtra("deadline") as ZonedDateTime
+        dateRange = intent.getSerializableExtra("dateRange") as Period
+        timeRange = intent.getSerializableExtra("timeRange") as Duration
 //        title = intent.getStringExtra(TITLE)
 //        priority = Priority.valueOf(intent.getStringExtra(PRIORITY)!!)
 //        status = Status.valueOf(intent.getStringExtra(STATUS)!!)
@@ -67,24 +69,14 @@ class ToDoItem {
 
         val ITEM_SEP: String? = System.getProperty("line.separator")
 
-        const val NAME = "name"
-        const val TIME = "time"
-//        val FILENAME = "filename"
-
-//        val FORMAT = SimpleTimeFormat(
-//                "yyyy-MM-dd HH:mm:ss", Locale.US)
-
         // Take a set of String data values and
         // package them for transport in an Intent
 
-        fun packageIntent(intent: Intent, name: String, deadline : ZonedDateTime) {
-//                          priority: Priority, status: Status, date: String) {
-
-            intent.putExtra(NAME, name)
-//            intent.putExtra(PRIORITY, priority.toString())
-//            intent.putExtra(STATUS, status.toString())
-//            intent.putExtra(DATE, date)
-
+        fun packageIntent(intent: Intent, name: String, deadline: ZonedDateTime, dateRange: Period, timeRange: Duration) {
+            intent.putExtra("name", name)
+            intent.putExtra("deadline", deadline)
+            intent.putExtra("dateRange", dateRange)
+            intent.putExtra("timeRange", timeRange)
         }
     }
 

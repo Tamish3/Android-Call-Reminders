@@ -61,10 +61,10 @@
 37            android:exported="true" >
 37-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:29:13-36
 38            <intent-filter>
-38-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:30:9-32:25
+38-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:30:13-32:29
 39                <action android:name="android.intent.action.PHONE_STATE" />
-39-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:31:13-72
-39-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:31:21-69
+39-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:31:17-76
+39-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:31:25-73
 40            </intent-filter>
 41        </receiver>
 42    </application>

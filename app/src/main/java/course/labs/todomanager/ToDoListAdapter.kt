@@ -1,12 +1,18 @@
 package course.labs.todomanager
 
 
+//import course.labs.todomanager.ToDoItem.Status
+//import android.Manifest
+//import android.app.Activity
+//import android.content.Intent
+//import android.content.pm.PackageManager
+//import android.os.Build
+//import android.os.Bundle
+//import android.util.Log
 import android.Manifest
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,24 +20,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.app.ActivityCompat.startActivityForResult
-import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.recyclerview.widget.RecyclerView
-//import course.labs.todomanager.ToDoItem.Status
-//import android.Manifest
-import android.annotation.TargetApi
-//import android.app.Activity
-//import android.content.Intent
-//import android.content.pm.PackageManager
-import android.net.Uri
-//import android.os.Build
-//import android.os.Bundle
-import android.provider.ContactsContract
-//import android.util.Log
-import android.widget.Button
-import android.widget.Toast
-import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityCompat.requestPermissions
-import androidx.core.content.PermissionChecker
+import java.time.format.DateTimeFormatter
 
 class ToDoListAdapter(private val mContext: Context) :
     RecyclerView.Adapter<ToDoListAdapter.ViewHolder>() {
@@ -82,7 +72,7 @@ class ToDoListAdapter(private val mContext: Context) :
 
             // TODO - Inflate the View (defined in todo_item.xml) for this ToDoItem and store references in ViewHolder
             viewHolder.mNameView=v.findViewById(R.id.nameView)
-//            viewHolder.mNameView=v.findViewById(R.id.nameView)
+            viewHolder.mTimeLeftView = v.findViewById((R.id.timeLeftView))
             /*viewHolder.mStatusView=v.findViewById(R.id.statusCheckBox) //as CheckBox
             viewHolder.mPriorityView=v.findViewById(R.id.priorityView)*/
 //            viewHolder.mTimeLeftView=v.findViewById(R.id.timeLeftView)
@@ -120,10 +110,11 @@ class ToDoListAdapter(private val mContext: Context) :
         } else {
             val toDoItem = mItems[position - 1]
 
-           Log.i(TAG, "onBindViewHolder   " + viewHolder.mNameView.toString())
+            Log.i(TAG, "onBindViewHolder   " + viewHolder.mNameView.toString())
+            val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy - hh:mm a z")
 
             viewHolder.mNameView!!.text = toDoItem.name
-
+            viewHolder.mTimeLeftView!!.text = toDoItem.deadline!!.format(formatter)
             // TODO - Display Time and Date
 //            viewHolder.mTimeLeftView!!.text = ToDoItem.FORMAT.format(
 //                toDoItem.time
@@ -198,7 +189,7 @@ class ToDoListAdapter(private val mContext: Context) :
 //        var mDateView: TextView? = null
 
         var mNameView: TextView? = null
-//        var mTimeLeftView: TextView? = null
+        var mTimeLeftView: TextView? = null
     }
 
     companion object {
