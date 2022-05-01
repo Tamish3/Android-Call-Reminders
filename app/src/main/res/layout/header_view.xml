@@ -3,7 +3,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent"
 
-android:layout_height="match_parent" >
+android:layout_height="wrap_content" >
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/NameLabelView"
     android:layout_width="match_parent"
@@ -19,7 +19,7 @@ android:id="@+id/TimeLabelView"
 android:layout_width="match_parent"
 android:layout_height="wrap_content"
 android:gravity="center_horizontal"
-android:text="@string/time_label"
+android:text="Next Notification"
 android:textSize="24sp">
 
 </TextView>

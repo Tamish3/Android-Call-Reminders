@@ -22,7 +22,6 @@ import androidx.fragment.app.FragmentActivity
 import java.time.*
 import java.time.temporal.ChronoUnit
 import java.util.*
-import javax.xml.datatype.DatatypeConstants.HOURS
 
 
 class AddToDoActivity : FragmentActivity() {
@@ -228,7 +227,7 @@ class AddToDoActivity : FragmentActivity() {
                 Toast.LENGTH_SHORT
             ).show()
 
-            ToDoItem.packageIntent(data, name, deadline)
+            ToDoItem.packageIntent(data, name, deadline, dateRange, timeRange)
 
             // TODO - return data Intent and finish
             setResult(RESULT_OK, data)
