@@ -63,6 +63,12 @@ class ToDoManagerActivity : Activity() {
 
         }
 
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CALL_LOG) !=
+            PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_CALL_LOG), 1)
+
+        }
+
     }
 
 //    override fun onRequestPermissionsResult(
