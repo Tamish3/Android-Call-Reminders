@@ -11,15 +11,19 @@ package course.labs.todomanager
 //import android.util.Log
 import android.Manifest
 import android.app.Activity
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.telecom.Call
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.app.ActivityCompat.startActivityForResult
+import androidx.core.content.ContextCompat.getDrawable
 import androidx.recyclerview.widget.RecyclerView
 import java.time.format.DateTimeFormatter
 
@@ -71,6 +75,7 @@ class ToDoListAdapter(private val mContext: Context) :
             val viewHolder = ViewHolder(v)
 
             // TODO - Inflate the View (defined in todo_item.xml) for this ToDoItem and store references in ViewHolder
+            viewHolder.mIconView = v.findViewById(R.id.iconView)
             viewHolder.mNameView=v.findViewById(R.id.nameView)
             viewHolder.mTimeLeftView = v.findViewById((R.id.timeLeftView))
             /*viewHolder.mStatusView=v.findViewById(R.id.statusCheckBox) //as CheckBox
@@ -79,11 +84,9 @@ class ToDoListAdapter(private val mContext: Context) :
             viewHolder.mItemLayout=v
 
 
-                return viewHolder
+            return viewHolder
         }
     }
-
-
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
@@ -110,9 +113,15 @@ class ToDoListAdapter(private val mContext: Context) :
         } else {
             val toDoItem = mItems[position - 1]
 
+
             Log.i(TAG, "onBindViewHolder   " + viewHolder.mNameView.toString())
             val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy - hh:mm a z")
 
+            if (toDoItem.icon != "") {
+                viewHolder.mIconView!!.setImageURI(Uri.parse(toDoItem.icon))
+            } else {
+                viewHolder.mIconView?.setImageDrawable(getDrawable(mContext, R.drawable.ic_account_circle))
+            }
             viewHolder.mNameView!!.text = toDoItem.name
             viewHolder.mTimeLeftView!!.text = toDoItem.deadline!!.format(formatter)
             // TODO - Display Time and Date
@@ -183,16 +192,14 @@ class ToDoListAdapter(private val mContext: Context) :
 
     class ViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var mItemLayout: View = itemView
-//        var mTitleView: TextView? = null
-//        var mStatusView: CheckBox? = null
-//        var mPriorityView: TextView? = null
-//        var mDateView: TextView? = null
+        var mIconView: ImageView? = null;
 
         var mNameView: TextView? = null
         var mTimeLeftView: TextView? = null
     }
 
     companion object {
+
         private const val TAG = "Lab-UserInterface"
         private const val HEADER_VIEW_TYPE = R.layout.header_view
         private const val TODO_VIEW_TYPE = R.layout.todo_item

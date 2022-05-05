@@ -84,6 +84,8 @@ int drawable notification_tile_bg 0x7f04000c
 int drawable notify_panel_notification_icon_bg 0x7f04000d
 int id ContactHomePageLayoutItem 0x7f050000
 int id DateLabel 0x7f050001
+int id HeaderImageSpace 0x7f050088
+int id HeaderSettingsSpace 0x7f050089
 int id NameLabelView 0x7f050002
 int id PriorityLabel 0x7f050003
 int id RelativeLayout1 0x7f050004
@@ -162,6 +164,7 @@ int id forever 0x7f05004c
 int id highPriority 0x7f05004d
 int id hours 0x7f05004e
 int id icon 0x7f05004f
+int id iconView 0x7f05008a
 int id icon_group 0x7f050050
 int id info 0x7f050051
 int id italic 0x7f050052

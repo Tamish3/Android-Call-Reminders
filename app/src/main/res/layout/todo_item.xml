@@ -1,81 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:id="@+id/ContactHomePageLayoutItem"
-android:layout_width="match_parent"
+    android:id="@+id/ContactHomePageLayoutItem"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
+    >
 
-android:layout_height="50dp"
-android:orientation="horizontal" >
-<TextView
-    android:id="@+id/nameView"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentTop="true"
-android:layout_weight="4"
-android:layout_marginTop="10dp"
-android:textAppearance="?android:attr/textAppearanceLarge"
-android:text=""/>
+    <ImageView
+        android:id="@+id/iconView"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+    <TextView
+        android:id="@+id/nameView"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="" />
 
-<TextView
-    android:id="@+id/timeLeftView"
-    android:layout_width="wrap_content"
-android:layout_height="match_parent"
-android:layout_toEndOf="@+id/titleView"
-android:layout_weight="2"
-android:text=""
-/>
+    <TextView
+        android:id="@+id/timeLeftView"
+        android:layout_width="180dp"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@+id/titleView"
+        android:text="" />
 
-<Button
-    android:id="@+id/settingsButtonItem"
-    android:layout_width="3dp"
-    android:layout_height="match_parent"
-    android:layout_toEndOf="@+id/TimeLeftView"
-    android:layout_weight="1"
-    android:text="" />
-
-<!--    <CheckBox-->
-<!--        android:id="@+id/statusCheckBox"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentTop="true"-->
-<!--        android:layout_marginStart="0dp"-->
-<!--        android:layout_marginTop="26dp"-->
-<!--        android:layout_toEndOf="@+id/StatusLabel" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/PriorityLabel"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_alignBaseline="@+id/statusCheckBox"-->
-    <!--        android:layout_alignTop="@+id/StatusLabel"-->
-    <!--        android:layout_toStartOf="@+id/priorityView"-->
-    <!--        android:text="@string/priority_string" >-->
-    <!--    </TextView>-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/priorityView"-->
-    <!--        android:layout_width="50dip"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_alignBaseline="@+id/statusCheckBox"-->
-    <!--        android:layout_alignParentEnd="true"-->
-    <!--        android:layout_alignTop="@+id/StatusLabel" >-->
-    <!--    </TextView>-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/DateLabel"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_alignParentStart="true"-->
-    <!--        android:layout_below="@+id/statusCheckBox"-->
-    <!--        android:text="@string/date_string" >-->
-    <!--    </TextView>-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/dateView"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_alignBaseline="@+id/DateLabel"-->
-    <!--        android:layout_toEndOf="@+id/DateLabel" >-->
-    <!--    </TextView>-->
-
+    <Button
+        android:id="@+id/settingsButtonItem"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@+id/TimeLeftView"
+        android:text="Update"
+        android:textSize="10dp"/>
 </LinearLayout>

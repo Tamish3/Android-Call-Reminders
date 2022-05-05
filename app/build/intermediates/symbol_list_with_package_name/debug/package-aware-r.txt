@@ -85,6 +85,8 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 id ContactHomePageLayoutItem
 id DateLabel
+id HeaderImageSpace
+id HeaderSettingsSpace
 id NameLabelView
 id PriorityLabel
 id RelativeLayout1
@@ -163,6 +165,7 @@ id forever
 id highPriority
 id hours
 id icon
+id iconView
 id icon_group
 id info
 id italic

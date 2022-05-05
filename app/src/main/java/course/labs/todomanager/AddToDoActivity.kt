@@ -36,6 +36,8 @@ class AddToDoActivity : FragmentActivity() {
     private lateinit var timeView: TextView
     private lateinit var nameView: TextView
     private lateinit var iconView: ImageView
+    private lateinit var contactIcon : String;
+    private lateinit var phoneNumber : String;
 
     var years: Int = 0
     var months: Int = 0
@@ -227,7 +229,7 @@ class AddToDoActivity : FragmentActivity() {
                 Toast.LENGTH_SHORT
             ).show()
 
-            ToDoItem.packageIntent(data, name, deadline, dateRange, timeRange)
+            ToDoItem.packageIntent(data, contactIcon, name, deadline, phoneNumber, dateRange, timeRange)
 
             // TODO - return data Intent and finish
             setResult(RESULT_OK, data)
@@ -263,7 +265,11 @@ class AddToDoActivity : FragmentActivity() {
             if (cursor!!.moveToFirst()) {
                 val contactId = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID))
                 val contactName = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
-                val contactIcon = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.PHOTO_THUMBNAIL_URI))
+                if (cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.PHOTO_THUMBNAIL_URI)) != null) {
+                    contactIcon = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.PHOTO_THUMBNAIL_URI))
+                } else {
+                    contactIcon = "";
+                }
                 val phoneResults = Integer.parseInt(cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER)))
 
                 Toast.makeText(
@@ -283,18 +289,16 @@ class AddToDoActivity : FragmentActivity() {
 
 
                     if (cursor2 != null) {
-                        val contactNumber = "";
+                        var contactNumber = "";
                         while(cursor2.moveToNext()) {
                             if (contactNumber == "") {
-                                val contactNumber =
-                                    cursor2.getString(cursor2.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
-
+                                contactNumber = cursor2.getString(cursor2.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
                             }
                         }
-                        var textHelper = findViewById<TextView>(R.id.contactNameView)
+
                         nameView.text = contactName.toString()
-                        var iconHelper = findViewById<ImageView>(R.id.contactIconView)
-                        if (contactIcon != null) {
+                        phoneNumber = contactNumber;
+                        if (contactIcon != "") {
                             iconView.setImageURI(Uri.parse(contactIcon))
                         } else {
                             iconView?.setImageDrawable(getDrawable(R.drawable.ic_account_circle))

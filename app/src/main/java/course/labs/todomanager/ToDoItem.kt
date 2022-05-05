@@ -1,6 +1,8 @@
 package course.labs.todomanager
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
+import android.media.Image
 import java.time.Duration
 import java.time.Period
 import java.time.ZonedDateTime
@@ -13,8 +15,10 @@ class ToDoItem {
 //    var status = Status.NOTDONE
     var date = Date()
 
+    var icon : String? = String();
     var name : String? = String();
-    var deadline : ZonedDateTime? = null;
+    public var deadline : ZonedDateTime? = null;
+    var phoneNumber : String? = String();
     var dateRange : Period? = null;
     var timeRange : Duration? = null;
     /*
@@ -39,20 +43,12 @@ class ToDoItem {
     // Create a new ToDoItem from data packaged in an Intent
 
     internal constructor(intent: Intent) {
-
+        icon = intent.getStringExtra("icon")
         name = intent.getStringExtra("name")
         deadline = intent.getSerializableExtra("deadline") as ZonedDateTime
-        dateRange = intent.getSerializableExtra("dateRange") as Period
-        timeRange = intent.getSerializableExtra("timeRange") as Duration
-//        title = intent.getStringExtra(TITLE)
-//        priority = Priority.valueOf(intent.getStringExtra(PRIORITY)!!)
-//        status = Status.valueOf(intent.getStringExtra(STATUS)!!)
-
-//        date = try {
-//            FORMAT.parse(intent.getStringExtra(DATE)!!)!!
-//        } catch (e: ParseException) {
-//            Date()
-//        }
+        phoneNumber = intent.getStringExtra("phoneNumber")
+        dateRange = intent.getSerializableExtra("dateRange") as Period?
+        timeRange = intent.getSerializableExtra("timeRange") as Duration?
 
     }
 
@@ -72,9 +68,19 @@ class ToDoItem {
         // Take a set of String data values and
         // package them for transport in an Intent
 
-        fun packageIntent(intent: Intent, name: String, deadline: ZonedDateTime, dateRange: Period, timeRange: Duration) {
+        fun packageIntent(
+            intent: Intent,
+            icon: String?,
+            name: String,
+            deadline: ZonedDateTime,
+            phoneNumber: String,
+            dateRange: Period,
+            timeRange: Duration
+        ) {
+            intent.putExtra("icon", icon)
             intent.putExtra("name", name)
             intent.putExtra("deadline", deadline)
+            intent.putExtra("phoneNumber", phoneNumber)
             intent.putExtra("dateRange", dateRange)
             intent.putExtra("timeRange", timeRange)
         }

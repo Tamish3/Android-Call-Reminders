@@ -30,7 +30,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ToDoManagerActivity : Activity() {
 
-    private lateinit var mAdapter: ToDoListAdapter
+
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -126,8 +126,8 @@ class ToDoManagerActivity : Activity() {
         // and then add it to the adapter
         if(resultCode== RESULT_OK && requestCode == ADD_TODO_ITEM_REQUEST) {
             Log.i(TAG, "Getting Entered")
-            Log.i(TAG, "a ${mAdapter.itemCount} count")
-            mAdapter.add(ToDoItem(data!!))
+            Log.i(TAG, "a ${mAdapter!!.itemCount} count")
+            mAdapter!!.add(ToDoItem(data!!))
         }
     }
 
@@ -154,7 +154,7 @@ class ToDoManagerActivity : Activity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             MENU_DELETE -> {
-                mAdapter.clear()
+                mAdapter!!.clear()
                 true
             }
             MENU_DUMP -> {
@@ -166,8 +166,8 @@ class ToDoManagerActivity : Activity() {
     }
 
     private fun dump() {
-        for (i in 1 until mAdapter.itemCount) {
-            val data = (mAdapter.getItem(i) as ToDoItem).toLog()
+        for (i in 1 until mAdapter!!.itemCount) {
+            val data = (mAdapter!!.getItem(i) as ToDoItem).toLog()
             Log.i(TAG,
                     "Item " + i + ": " + data.replace(ToDoItem.ITEM_SEP!!, ","))
         }
@@ -199,7 +199,7 @@ class ToDoManagerActivity : Activity() {
 //                date = ToDoItem.FORMAT.parse(reader.readLine())
 //                mAdapter.add(ToDoItem(title, Priority.valueOf(priority),
 //                    Status.valueOf(status), date))
-                mAdapter.add(ToDoItem(name))
+                mAdapter!!.add(ToDoItem(name))
 
                 /*
                 title = reader.readLine()
@@ -238,9 +238,9 @@ class ToDoManagerActivity : Activity() {
             writer = PrintWriter(BufferedWriter(OutputStreamWriter(
                     fos)))
 
-            for (idx in 1 until mAdapter.itemCount) {
+            for (idx in 1 until mAdapter!!.itemCount) {
 
-                writer.println(mAdapter.getItem(idx))
+                writer.println(mAdapter!!.getItem(idx))
 
             }
         } catch (e: IOException) {
@@ -251,7 +251,7 @@ class ToDoManagerActivity : Activity() {
     }
 
     companion object {
-
+        var mAdapter: ToDoListAdapter? = null;
         const val ADD_TODO_ITEM_REQUEST = 0
         private const val FILE_NAME = "TodoManagerActivityData.txt"
         const val TAG = "Lab-UserInterface"

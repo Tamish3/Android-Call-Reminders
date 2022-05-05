@@ -6,10 +6,11 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.provider.ContactsContract
+import android.telephony.PhoneNumberUtils
 import android.telephony.TelephonyManager
 import android.util.Log
 import android.widget.Toast
-import java.util.*
+import java.time.ZonedDateTime
 
 
 class CallReceiver : BroadcastReceiver() {
@@ -17,27 +18,22 @@ class CallReceiver : BroadcastReceiver() {
         internal const val TAG = "Receiver"
 
     }
-//
-//    var lastcall = Date()
-//    var phonenum = "+16505556789"
-
+    private lateinit var adapter: ToDoListAdapter;
     //https://www.youtube.com/watch?v=rlzfcqDlovg
     //https://stackoverflow.com/questions/1853220/retrieve-incoming-calls-phone-number-in-android?noredirect=1&lq=1
     override fun onReceive(context: Context, intent: Intent) {
         Log.i(TAG, "Broadcast Received")
-//        Toast.makeText(context, "Broadcast Received by Receiver", Toast.LENGTH_LONG).show()
-//        Toast.makeText(context, getContactName(phonenum, context), Toast.LENGTH_LONG).show()
-//        Toast.makeText(context, TelephonyManager.EXTRA_INCOMING_NUMBER, Toast.LENGTH_LONG).show()
-
         val state = intent.getStringExtra(TelephonyManager.EXTRA_STATE)
         val incomingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER)
 
         if (incomingNumber != null) {
             Log.i(TAG, "$incomingNumber")
-            Toast.makeText(context, getContactName(incomingNumber, context), Toast.LENGTH_LONG).show()
+            if (ToDoManagerActivity.mAdapter != null) {
+                adapter = ToDoManagerActivity.mAdapter!!
+                updateDeadline(incomingNumber, context)
+            }
+            //Toast.makeText(context, getContactName(incomingNumber, context), Toast.LENGTH_LONG).show()
         }
-
-
     }
 
     //https://stackoverflow.com/questions/26192302/get-the-name-of-the-incoming-caller-before-programmatically-ending-the-call
@@ -57,22 +53,25 @@ class CallReceiver : BroadcastReceiver() {
         Uri.encode(number));
 
         // query time
-        val cursor = context.getContentResolver().query(contactUri,
+        val cursor = context.contentResolver.query(contactUri,
             projection, null, null, null);
-        // querying all contacts = Cursor cursor =
-        // context.getContentResolver().query(ContactsContract.Contacts.CONTENT_URI,
-        // projection, null, null, null);
 
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                contactName = cursor.getString(cursor.getColumnIndex(ContactsContract.PhoneLookup.DISPLAY_NAME));
-            }
+        if (cursor != null && cursor.moveToFirst()) {
+            contactName = cursor.getString(cursor.getColumnIndex(ContactsContract.PhoneLookup.DISPLAY_NAME));
+
         }
-        if (cursor != null) {
-            cursor.close()
-        };
+        cursor?.close();
         return contactName
-
     }
 
+    @SuppressLint("NewApi")
+    private fun updateDeadline(number: String, context: Context) : Unit {
+        for (i in 1 until adapter.itemCount) {
+            var item : ToDoItem = adapter.getItem(i) as ToDoItem
+            if (PhoneNumberUtils.areSamePhoneNumber(item.phoneNumber.toString(), number, "us")) {
+                item.deadline = item.deadline!!.plus(item.dateRange).plus(item.timeRange)
+                adapter.notifyDataSetChanged();
+            }
+        }
+    }
 }

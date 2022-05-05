@@ -1,27 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-
-android:layout_height="wrap_content" >
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/NameLabelView"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity=""
-    android:text="@string/name_label"
-    android:textSize="24sp" >
+    android:orientation="horizontal">
 
-</TextView>
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/HeaderImageSpace"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="    "
+        android:textSize="24sp"
+        >
+    </TextView>
 
-<TextView
-android:id="@+id/TimeLabelView"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:gravity="center_horizontal"
-android:text="Next Notification"
-android:textSize="24sp">
+    <TextView
+        android:id="@+id/NameLabelView"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity=""
+        android:text="@string/name_label"
+        android:textSize="24sp" >
 
-</TextView>
+    </TextView>
 
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/TimeLabelView"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Next Reminder"
+        android:textSize="24sp">
+
+    </TextView>
+
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/HeaderSettingsSpace"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="    "
+        android:textSize="24sp"
+        >
+    </TextView>
+
+</LinearLayout>
