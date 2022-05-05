@@ -1,38 +1,48 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-41:12
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-43:12
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\db2a58342ca77fbb964d487c533ec1cd\transformed\material-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\1caf80f7c50d57a418d55d2de2364f77\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.recyclerview:recyclerview:1.2.1] C:\Users\rauna\.gradle\caches\transforms-3\ba6e5a46f520d80be4b09e44f02a866c\transformed\recyclerview-1.2.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\abec502a1e4f4737b4b31d7bc324b3b2\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\914ab538ed35496d8a87a9b7416adfcc\transformed\fragment-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\441ba55c75b12302c6bf4c5e1e5da2c0\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\9b0a02d1f6c00ebea2ceacf3921b8e2f\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\9d17b94f0508cb1608d2819383737cb9\transformed\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\db3e32604606e057dbcb04d1b6d1a570\transformed\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\452e5045a89683911b6bf07617a2c265\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\37588e91cb44e62ac8f16f4f4fc04fda\transformed\coordinatorlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\b7ea2dc3bb3951293210734f07493cfc\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\73760f743de655a17ec4409f77abdd99\transformed\slidingpanelayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\90ff6284826a76d64333425325987fb8\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.media:media:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\105461012ec02af38bb949279a5bbc7a\transformed\media-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\1f136e5a28b878915ee7990084d15328\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\rauna\.gradle\caches\transforms-3\d7639bea2f01e258bccd6ff4c690a0d1\transformed\transition-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\b413932333463a989f8dc8a1adb20384\transformed\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\cb2b8ea3d12dd6f77a9e19b1317d9989\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\40f8902c19a5569b34d51cf0a2f3b049\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\db176a81715fee8502769ffe8057ef59\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\528275ead76171c48180946d7e305728\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\1334f0235b4eea245b30942710a80f19\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\60f1ba3103dfec4ce34db295b76ef5a9\transformed\jetified-activity-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core:1.3.2] C:\Users\rauna\.gradle\caches\transforms-3\f044a0b4a9ae18c3bb8602e66ee4b390\transformed\core-1.3.2\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\8d971597e19f349c719a4b8ee547bc7b\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\97028e0b09c78b2381a8a531035292d5\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\rauna\.gradle\caches\transforms-3\32924590deb01df42a0eae1ae261a224\transformed\lifecycle-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\dcd6dc55b0c4bf90c2a8a51f0f8c51e9\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\2abf0f7e550ebf1a9864f34566742e46\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\7f4ee7a55447ea2453916aefd53a5ead\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\007f9a9b187370f95bba48c622b051ba\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\05ffdf1a42b6a40b301f555561638de7\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\rauna\.gradle\caches\transforms-3\f42f1f6e6005ac42b260d8ac98aa33f8\transformed\lifecycle-viewmodel-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\rauna\.gradle\caches\transforms-3\65cd8983f65831f9b2457f6123bd5673\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\rauna\.gradle\caches\transforms-3\ce89264113e459044d48adf61c58f1a9\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\rauna\.gradle\caches\transforms-3\831a0d28be8fbb4ad94672807290513f\transformed\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-41:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\rauna\.gradle\caches\transforms-3\d5799b03deba7dbd90961d13d07f5b68\transformed\lifecycle-runtime-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\rauna\.gradle\caches\transforms-3\6aac1244725ee2a63a747e7f68744589\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\cc93910f129873179cbf40f65555b747\transformed\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
+INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-43:12
 	package
 		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:3:5-38
 		INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml
@@ -48,23 +58,25 @@ INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalPr
 		INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.READ_CONTACTS
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:7:5-72
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:8:5-72
 	android:name
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:7:22-69
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:8:22-69
 uses-permission#android.permission.READ_PHONE_STATE
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:8:5-75
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:9:5-75
 	android:name
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:8:22-72
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:9:22-72
 uses-permission#android.permission.READ_CALL_LOG
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:9:5-72
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:10:5-72
 	android:name
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:9:22-69
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:10:22-69
 uses-permission#android.permission.PROCESS_OUTGOING_CALLS
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:10:5-81
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:11:5-81
 	android:name
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:10:22-78
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:11:22-78
 application
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:13:5-38:19
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:14:5-40:19
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\db2a58342ca77fbb964d487c533ec1cd\transformed\material-1.1.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\db2a58342ca77fbb964d487c533ec1cd\transformed\material-1.1.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.core:core:1.3.2] C:\Users\rauna\.gradle\caches\transforms-3\f044a0b4a9ae18c3bb8602e66ee4b390\transformed\core-1.3.2\AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.3.2] C:\Users\rauna\.gradle\caches\transforms-3\f044a0b4a9ae18c3bb8602e66ee4b390\transformed\core-1.3.2\AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\97028e0b09c78b2381a8a531035292d5\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
@@ -72,65 +84,73 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ra
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.3.2] C:\Users\rauna\.gradle\caches\transforms-3\f044a0b4a9ae18c3bb8602e66ee4b390\transformed\core-1.3.2\AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:16:9-41
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:17:9-41
 	android:icon
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:15:9-45
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:16:9-45
 	android:allowBackup
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:14:9-35
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:15:9-35
+	android:theme
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:18:9-53
 activity#course.labs.todomanager.ToDoManagerActivity
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:17:9-25:20
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:19:9-27:20
 	android:exported
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:19:13-36
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:21:13-36
 	android:name
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:18:13-48
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:20:13-48
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:20:13-24:29
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:22:13-26:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:21:17-69
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:23:17-69
 	android:name
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:21:25-66
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:23:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:23:17-77
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:25:17-77
 	android:name
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:23:27-74
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:25:27-74
 activity#course.labs.todomanager.AddToDoActivity
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:26:9-27:20
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:28:9-29:20
 	android:name
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:26:19-50
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:28:19-50
 receiver#course.labs.todomanager.CallReceiver
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:29:9-37:20
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:31:9-39:20
 	android:enabled
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:31:13-35
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:33:13-35
 	android:exported
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:32:13-36
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:34:13-36
 	android:name
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:30:13-41
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:32:13-41
 intent-filter#action:name:android.intent.action.NEW_OUTGOING_CALL+action:name:android.intent.action.PHONE_STATE
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:33:13-36:29
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:35:13-38:29
 action#android.intent.action.PHONE_STATE
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:34:17-76
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:36:17-76
 	android:name
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:34:25-73
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:36:25-73
 action#android.intent.action.NEW_OUTGOING_CALL
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:35:17-82
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:37:17-82
 	android:name
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:35:25-79
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:37:25-79
 uses-sdk
 INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\db2a58342ca77fbb964d487c533ec1cd\transformed\material-1.1.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\db2a58342ca77fbb964d487c533ec1cd\transformed\material-1.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\1caf80f7c50d57a418d55d2de2364f77\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\1caf80f7c50d57a418d55d2de2364f77\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.recyclerview:recyclerview:1.2.1] C:\Users\rauna\.gradle\caches\transforms-3\ba6e5a46f520d80be4b09e44f02a866c\transformed\recyclerview-1.2.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.recyclerview:recyclerview:1.2.1] C:\Users\rauna\.gradle\caches\transforms-3\ba6e5a46f520d80be4b09e44f02a866c\transformed\recyclerview-1.2.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\abec502a1e4f4737b4b31d7bc324b3b2\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\abec502a1e4f4737b4b31d7bc324b3b2\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\914ab538ed35496d8a87a9b7416adfcc\transformed\fragment-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\914ab538ed35496d8a87a9b7416adfcc\transformed\fragment-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\441ba55c75b12302c6bf4c5e1e5da2c0\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\441ba55c75b12302c6bf4c5e1e5da2c0\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\9b0a02d1f6c00ebea2ceacf3921b8e2f\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\9b0a02d1f6c00ebea2ceacf3921b8e2f\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\9d17b94f0508cb1608d2819383737cb9\transformed\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\9d17b94f0508cb1608d2819383737cb9\transformed\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\db3e32604606e057dbcb04d1b6d1a570\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\db3e32604606e057dbcb04d1b6d1a570\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\452e5045a89683911b6bf07617a2c265\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\452e5045a89683911b6bf07617a2c265\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\37588e91cb44e62ac8f16f4f4fc04fda\transformed\coordinatorlayout-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\37588e91cb44e62ac8f16f4f4fc04fda\transformed\coordinatorlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\b7ea2dc3bb3951293210734f07493cfc\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\b7ea2dc3bb3951293210734f07493cfc\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\73760f743de655a17ec4409f77abdd99\transformed\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
@@ -141,18 +161,28 @@ MERGED from [androidx.media:media:1.0.0] C:\Users\rauna\.gradle\caches\transform
 MERGED from [androidx.media:media:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\105461012ec02af38bb949279a5bbc7a\transformed\media-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\1f136e5a28b878915ee7990084d15328\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\1f136e5a28b878915ee7990084d15328\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\rauna\.gradle\caches\transforms-3\d7639bea2f01e258bccd6ff4c690a0d1\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\rauna\.gradle\caches\transforms-3\d7639bea2f01e258bccd6ff4c690a0d1\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\b413932333463a989f8dc8a1adb20384\transformed\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\b413932333463a989f8dc8a1adb20384\transformed\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\cb2b8ea3d12dd6f77a9e19b1317d9989\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\cb2b8ea3d12dd6f77a9e19b1317d9989\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\40f8902c19a5569b34d51cf0a2f3b049\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\40f8902c19a5569b34d51cf0a2f3b049\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\db176a81715fee8502769ffe8057ef59\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\db176a81715fee8502769ffe8057ef59\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\528275ead76171c48180946d7e305728\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\528275ead76171c48180946d7e305728\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\1334f0235b4eea245b30942710a80f19\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\1334f0235b4eea245b30942710a80f19\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\60f1ba3103dfec4ce34db295b76ef5a9\transformed\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\60f1ba3103dfec4ce34db295b76ef5a9\transformed\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.3.2] C:\Users\rauna\.gradle\caches\transforms-3\f044a0b4a9ae18c3bb8602e66ee4b390\transformed\core-1.3.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.3.2] C:\Users\rauna\.gradle\caches\transforms-3\f044a0b4a9ae18c3bb8602e66ee4b390\transformed\core-1.3.2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\8d971597e19f349c719a4b8ee547bc7b\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\8d971597e19f349c719a4b8ee547bc7b\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\97028e0b09c78b2381a8a531035292d5\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\97028e0b09c78b2381a8a531035292d5\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\rauna\.gradle\caches\transforms-3\32924590deb01df42a0eae1ae261a224\transformed\lifecycle-runtime-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\rauna\.gradle\caches\transforms-3\32924590deb01df42a0eae1ae261a224\transformed\lifecycle-runtime-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\dcd6dc55b0c4bf90c2a8a51f0f8c51e9\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\dcd6dc55b0c4bf90c2a8a51f0f8c51e9\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\2abf0f7e550ebf1a9864f34566742e46\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
@@ -163,14 +193,18 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\rauna\.gradle\ca
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\007f9a9b187370f95bba48c622b051ba\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\05ffdf1a42b6a40b301f555561638de7\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\05ffdf1a42b6a40b301f555561638de7\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\rauna\.gradle\caches\transforms-3\f42f1f6e6005ac42b260d8ac98aa33f8\transformed\lifecycle-viewmodel-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\rauna\.gradle\caches\transforms-3\f42f1f6e6005ac42b260d8ac98aa33f8\transformed\lifecycle-viewmodel-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\rauna\.gradle\caches\transforms-3\65cd8983f65831f9b2457f6123bd5673\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\rauna\.gradle\caches\transforms-3\65cd8983f65831f9b2457f6123bd5673\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\rauna\.gradle\caches\transforms-3\ce89264113e459044d48adf61c58f1a9\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\rauna\.gradle\caches\transforms-3\ce89264113e459044d48adf61c58f1a9\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\rauna\.gradle\caches\transforms-3\831a0d28be8fbb4ad94672807290513f\transformed\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\rauna\.gradle\caches\transforms-3\831a0d28be8fbb4ad94672807290513f\transformed\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\rauna\.gradle\caches\transforms-3\d5799b03deba7dbd90961d13d07f5b68\transformed\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\rauna\.gradle\caches\transforms-3\d5799b03deba7dbd90961d13d07f5b68\transformed\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\rauna\.gradle\caches\transforms-3\6aac1244725ee2a63a747e7f68744589\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\rauna\.gradle\caches\transforms-3\6aac1244725ee2a63a747e7f68744589\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\cc93910f129873179cbf40f65555b747\transformed\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\cc93910f129873179cbf40f65555b747\transformed\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
 INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion

@@ -59,23 +59,23 @@ class ToDoManagerActivity : Activity() {
             x.adapter = mAdapter
         }
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) !=
-                PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_PHONE_STATE), 1)
-
-        }
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CALL_LOG) !=
-            PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_CALL_LOG), 1)
-
-        }
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.PROCESS_OUTGOING_CALLS) !=
-            PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.PROCESS_OUTGOING_CALLS), 1)
-
-        }
+//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) !=
+//                PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_PHONE_STATE), 1)
+//
+//        }
+//
+//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CALL_LOG) !=
+//            PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_CALL_LOG), 1)
+//
+//        }
+//
+//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.PROCESS_OUTGOING_CALLS) !=
+//            PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.PROCESS_OUTGOING_CALLS), 1)
+//
+//        }
 
 //        val addButton = findViewById<View>(R.id.addButton) as Button
 //        addButton.setOnClickListener {
@@ -133,7 +133,7 @@ class ToDoManagerActivity : Activity() {
             "Get permission",
             Toast.LENGTH_SHORT
         ).show()
-        ActivityCompat.requestPermissions(this as Activity, arrayOf(READ_CONTACTS_PERM),
+        ActivityCompat.requestPermissions(this as Activity, arrayOf(READ_CONTACTS_PERM, READ_PHONE_STATE_PERM, READ_CALL_LOG_PERM, PROCESS_OUTGOING_CALS_PERM),
             PERMISSIONS_PICK_CONTACT_REQUEST
         )
 //        requestPermissions(mContext as Activity, arrayOf(READ_CONTACTS_PERM), PERMISSIONS_PICK_CONTACT_REQUEST)
@@ -286,5 +286,8 @@ class ToDoManagerActivity : Activity() {
         private var hasPermission: Boolean = false
         private const val PERMISSIONS_PICK_CONTACT_REQUEST = 1
         private const val READ_CONTACTS_PERM = Manifest.permission.READ_CONTACTS
+        private const val READ_PHONE_STATE_PERM = Manifest.permission.READ_PHONE_STATE
+        private const val READ_CALL_LOG_PERM = Manifest.permission.READ_CALL_LOG
+        private const val PROCESS_OUTGOING_CALS_PERM = Manifest.permission.PROCESS_OUTGOING_CALLS
     }
 }
