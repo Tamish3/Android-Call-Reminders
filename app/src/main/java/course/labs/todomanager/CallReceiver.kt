@@ -33,10 +33,10 @@ class CallReceiver : BroadcastReceiver() {
                     adapter = ToDoManagerActivity.mAdapter!!
                     updateDeadline(incomingNumber, context)
                 }
-            }
+            } //We can condense later, code is the same
         } else if (state.equals(TelephonyManager.EXTRA_STATE_OFFHOOK)) {
-            val outgoingNumber = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER)
-
+            val outgoingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER)
+            Log.i(TAG, "$outgoingNumber")
             if (outgoingNumber != null) {
                 Log.i(TAG, "$outgoingNumber")
                 if (ToDoManagerActivity.mAdapter != null) {

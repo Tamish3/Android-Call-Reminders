@@ -1,3 +1,4 @@
+course.labs.todomanager:string/time_and_date_string = 0x7f080014
 course.labs.todomanager:id/iconView = 0x7f05008a
 course.labs.todomanager:string/date_string = 0x7f080005
 course.labs.todomanager:id/tag_accessibility_actions = 0x7f050074
@@ -7,9 +8,8 @@ course.labs.todomanager:id/list = 0x7f050057
 course.labs.todomanager:layout/header_view_old = 0x7f070004
 course.labs.todomanager:string/status_string = 0x7f080012
 course.labs.todomanager:id/medPriority = 0x7f050059
-course.labs.todomanager:string/time_and_date_string = 0x7f080014
-course.labs.todomanager:drawable/notification_icon_background = 0x7f040009
 course.labs.todomanager:string/no_time_set_string = 0x7f08000a
+course.labs.todomanager:drawable/notification_icon_background = 0x7f040009
 course.labs.todomanager:string/not_done_string = 0x7f08000b
 course.labs.todomanager:string/app_name = 0x7f080001
 course.labs.todomanager:layout/add_todo_new = 0x7f070001

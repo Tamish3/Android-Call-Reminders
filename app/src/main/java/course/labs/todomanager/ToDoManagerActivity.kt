@@ -69,6 +69,12 @@ class ToDoManagerActivity : Activity() {
 
         }
 
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.PROCESS_OUTGOING_CALLS) !=
+            PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.PROCESS_OUTGOING_CALLS), 1)
+
+        }
+
     }
 
 //    override fun onRequestPermissionsResult(
