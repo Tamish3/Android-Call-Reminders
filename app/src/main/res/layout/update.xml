@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:text="Update Contact Info"
+        android:textSize="40dp"
+        />
+    <!--    <Button-->
+    <!--        android:id="@+id/contactsButton"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="Select contact"-->
+    <!--        android:layout_marginLeft="10dp"-->
+    <!--        />-->
+    <!--    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="100dp"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        android:layout_marginTop="30dp">-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/contactIconView"-->
+    <!--            android:layout_width="100dp"-->
+    <!--            android:layout_height="100dp"-->
+    <!--            />-->
+    <!--        <TextView-->
+    <!--            android:id="@+id/contactNameView"-->
+    <!--            android:textSize="35dp"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            />-->
+    <!--    </LinearLayout>-->
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Time From Last Call"
+        android:textSize="35dp"
+        />
+    <Spinner
+        android:id="@+id/updatespinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown" />
+
+    <TextView
+        android:id="@+id/updatecustom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Custom" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="Remind me every: " />
+
+    <LinearLayout
+        android:id="@+id/updatecustom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="285dp">
+
+        <EditText
+            android:id="@+id/updateyears"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Y" />
+
+        <EditText
+            android:id="@+id/updatemonths"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="M" />
+
+        <EditText
+            android:id="@+id/updateweeks"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="W" />
+
+        <EditText
+            android:id="@+id/updatedays"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="D" />
+
+        <EditText
+            android:id="@+id/updatehours"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="h" />
+
+        <EditText
+            android:id="@+id/updateminutes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="m" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        >
+        <Button
+            android:id="@+id/updatecancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="@string/cancel_string" />
+
+        <Space
+            android:layout_width="230dp"
+            android:layout_height="match_parent"
+            />
+        <Button
+            android:id="@+id/updatesubmitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="@string/submit_string" />
+
+    </LinearLayout>
+</LinearLayout>

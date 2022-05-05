@@ -30,14 +30,13 @@ class ToDoItem {
         NOTDONE, DONE
     }
     */
-    internal constructor(name: String) {
-//        this.title = title
-//        this.priority = priority
-//        this.status = status
-//        this.date = date
-
+    internal constructor(icon: String, name: String, deadline: ZonedDateTime, phoneNumber: String, dateRange: Period, timeRange: Duration) {
+        this.icon = icon
         this.name = name
-//        this.time = time
+        this.deadline = deadline
+        this.phoneNumber = phoneNumber
+        this.dateRange = dateRange
+        this.timeRange = timeRange
     }
 
     // Create a new ToDoItem from data packaged in an Intent
@@ -53,7 +52,7 @@ class ToDoItem {
     }
 
     override fun toString(): String {
-        return (name + ITEM_SEP)
+        return (icon + ITEM_SEP + name + ITEM_SEP + deadline.toString() + ITEM_SEP + phoneNumber + ITEM_SEP + dateRange.toString() + ITEM_SEP + timeRange.toString() + ITEM_SEP)
 //                + FORMAT.format(date))
     }
 
@@ -72,10 +71,10 @@ class ToDoItem {
             intent: Intent,
             icon: String?,
             name: String,
-            deadline: ZonedDateTime,
-            phoneNumber: String,
-            dateRange: Period,
-            timeRange: Duration
+            deadline: ZonedDateTime?,
+            phoneNumber: String?,
+            dateRange: Period?,
+            timeRange: Duration?
         ) {
             intent.putExtra("icon", icon)
             intent.putExtra("name", name)

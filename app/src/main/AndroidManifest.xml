@@ -27,7 +27,8 @@
         </activity>
         <activity android:name=".AddToDoActivity" >
         </activity>
-
+        <activity android:name=".UpdateToDoActivity" >
+        </activity>
         <receiver
             android:name=".CallReceiver"
             android:enabled="true"

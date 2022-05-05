@@ -56,6 +56,10 @@
         "source": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\src\\main\\res\\drawable-hdpi\\ic_add_button.png"
     },
     {
+        "merged": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\build\\intermediates\\merged_res\\debug\\layout_update.xml.flat",
+        "source": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\src\\main\\res\\layout\\update.xml"
+    },
+    {
         "merged": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
     },

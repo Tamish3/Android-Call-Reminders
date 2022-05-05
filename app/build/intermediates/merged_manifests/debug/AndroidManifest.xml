@@ -33,6 +33,8 @@
         </activity>
         <activity android:name="course.labs.todomanager.AddToDoActivity" >
         </activity>
+        <activity android:name="course.labs.todomanager.UpdateToDoActivity" >
+        </activity>
 
         <receiver
             android:name="course.labs.todomanager.CallReceiver"

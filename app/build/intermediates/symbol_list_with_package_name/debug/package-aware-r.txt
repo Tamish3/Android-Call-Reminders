@@ -1654,6 +1654,17 @@ id unchecked
 id uniform
 id unlabeled
 id up
+id updatecancelButton
+id updatecustom
+id updatecustom_layout
+id updatedays
+id updatehours
+id updateminutes
+id updatemonths
+id updatespinner
+id updatesubmitButton
+id updateweeks
+id updateyears
 id useLogo
 id view_offset_helper
 id visible
@@ -1803,6 +1814,7 @@ layout text_view_with_theme_line_height
 layout text_view_without_line_height
 layout todo_item
 layout todo_item_old
+layout update
 plurals mtrl_badge_content_description
 string abc_action_bar_home_description
 string abc_action_bar_up_description

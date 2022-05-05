@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-43:12
-INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-43:12
-INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-43:12
-INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-43:12
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-44:12
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\db2a58342ca77fbb964d487c533ec1cd\transformed\material-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\1caf80f7c50d57a418d55d2de2364f77\transformed\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.recyclerview:recyclerview:1.2.1] C:\Users\rauna\.gradle\caches\transforms-3\ba6e5a46f520d80be4b09e44f02a866c\transformed\recyclerview-1.2.1\AndroidManifest.xml:17:1-24:12
@@ -40,9 +40,9 @@ MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\rauna\.gradle\cache
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\rauna\.gradle\caches\transforms-3\d5799b03deba7dbd90961d13d07f5b68\transformed\lifecycle-runtime-2.1.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\rauna\.gradle\caches\transforms-3\6aac1244725ee2a63a747e7f68744589\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\rauna\.gradle\caches\transforms-3\cc93910f129873179cbf40f65555b747\transformed\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-43:12
-INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-43:12
-INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:2:1-44:12
 	package
 		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:3:5-38
 		INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml
@@ -74,7 +74,7 @@ ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProje
 	android:name
 		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:11:22-78
 application
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:14:5-40:19
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:14:5-41:19
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\db2a58342ca77fbb964d487c533ec1cd\transformed\material-1.1.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\rauna\.gradle\caches\transforms-3\db2a58342ca77fbb964d487c533ec1cd\transformed\material-1.1.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.core:core:1.3.2] C:\Users\rauna\.gradle\caches\transforms-3\f044a0b4a9ae18c3bb8602e66ee4b390\transformed\core-1.3.2\AndroidManifest.xml:24:5-89
@@ -111,24 +111,28 @@ activity#course.labs.todomanager.AddToDoActivity
 ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:28:9-29:20
 	android:name
 		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:28:19-50
+activity#course.labs.todomanager.UpdateToDoActivity
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:30:9-31:20
+	android:name
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:30:19-53
 receiver#course.labs.todomanager.CallReceiver
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:31:9-39:20
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:32:9-40:20
 	android:enabled
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:33:13-35
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:34:13-35
 	android:exported
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:34:13-36
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:35:13-36
 	android:name
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:32:13-41
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:33:13-41
 intent-filter#action:name:android.intent.action.NEW_OUTGOING_CALL+action:name:android.intent.action.PHONE_STATE
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:35:13-38:29
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:36:13-39:29
 action#android.intent.action.PHONE_STATE
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:36:17-76
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:37:17-76
 	android:name
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:36:25-73
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:37:25-73
 action#android.intent.action.NEW_OUTGOING_CALL
-ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:37:17-82
+ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:38:17-82
 	android:name
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:37:25-79
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:38:25-79
 uses-sdk
 INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml

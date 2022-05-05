@@ -11,8 +11,10 @@ package course.labs.todomanager
 //import android.util.Log
 import android.Manifest
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.BroadcastReceiver
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -36,9 +38,47 @@ class ToDoListAdapter(private val mContext: Context) :
     // Notify observers that the data set has changed
 
     fun add(item: ToDoItem) {
-        mItems.add(item)
-        notifyItemChanged(mItems.size)
+        var helper = true;
+        for(contact in mItems) {
+            if(contact.name == item.name) {
+                helper = false;
+            }
+        }
+        if(helper) {
+            mItems.add(item)
+            notifyItemChanged(mItems.size)
+            //https://www.tutorialkart.com/kotlin-android/android-alert-dialog-example/
+
+        } else {
+            val dialogBuilder = AlertDialog.Builder(mContext)
+
+            // set message of alert dialog
+            dialogBuilder.setMessage("You can update by clicking the settings icon to the corresponding contact.")
+                // if the dialog is cancelable
+                .setCancelable(false)
+                // negative button text and action
+                .setNegativeButton("OK", DialogInterface.OnClickListener {
+                        dialog, id -> dialog.cancel()
+                })
+
+            // create dialog box
+            val alert = dialogBuilder.create()
+            // set title for alert dialog box
+            alert.setTitle("${item.name} was already added")
+            // show alert dialog
+            alert.show()
+        }
         Log.i(TAG, "Adding")
+    }
+
+    fun update(item: ToDoItem) {
+        var helper = true;
+        for (contact in mItems) {
+            if(contact.name == item.name) {
+                contact.deadline = item.deadline
+            }
+        }
+        notifyDataSetChanged()
     }
 
     // Clears the list adapter of all items.
@@ -78,6 +118,7 @@ class ToDoListAdapter(private val mContext: Context) :
             viewHolder.mIconView = v.findViewById(R.id.iconView)
             viewHolder.mNameView=v.findViewById(R.id.nameView)
             viewHolder.mTimeLeftView = v.findViewById((R.id.timeLeftView))
+            viewHolder.mUpdateView = v.findViewById(R.id.settingsButtonItem)
             /*viewHolder.mStatusView=v.findViewById(R.id.statusCheckBox) //as CheckBox
             viewHolder.mPriorityView=v.findViewById(R.id.priorityView)*/
 //            viewHolder.mTimeLeftView=v.findViewById(R.id.timeLeftView)
@@ -94,26 +135,19 @@ class ToDoListAdapter(private val mContext: Context) :
             viewHolder.itemView.setOnClickListener {
                 Log.i(ToDoManagerActivity.TAG, "Entered footerView.OnClickListener.onClick()")
 
-
-//                if (checkPermission()) {
-                    val options: Bundle? = null
-                    startActivityForResult(
-                        mContext as Activity,
-                        Intent(
-                            mContext,
-                            AddToDoActivity::class.java
-                        ),
-                        ToDoManagerActivity.ADD_TODO_ITEM_REQUEST,
-                        options
-                    )
-                }
-//                else {
-//                    getPermission()
-//                }
-//            }
+                val options: Bundle? = null
+                startActivityForResult(
+                    mContext as Activity,
+                    Intent(
+                        mContext,
+                        AddToDoActivity::class.java
+                    ),
+                    ToDoManagerActivity.ADD_TODO_ITEM_REQUEST,
+                    options
+                )
+            }
         } else {
             val toDoItem = mItems[position - 1]
-
 
             Log.i(TAG, "onBindViewHolder   " + viewHolder.mNameView.toString())
             val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy - hh:mm a z")
@@ -123,13 +157,19 @@ class ToDoListAdapter(private val mContext: Context) :
             } else {
                 viewHolder.mIconView?.setImageDrawable(getDrawable(mContext, R.drawable.ic_account_circle))
             }
-            viewHolder.mNameView!!.text = toDoItem.name
-            viewHolder.mTimeLeftView!!.text = toDoItem.deadline!!.format(formatter)
-            // TODO - Display Time and Date
-//            viewHolder.mTimeLeftView!!.text = ToDoItem.FORMAT.format(
-//                toDoItem.time
-//            )
+            viewHolder.mNameView?.text = toDoItem.name
+            viewHolder.mTimeLeftView?.text = toDoItem.deadline!!.format(formatter)
 
+            viewHolder.mUpdateView?.setOnClickListener {
+                Log.i(ToDoManagerActivity.TAG, "Entered footerView.OnClickListener.onClick()")
+
+                val abc = Intent(mContext, UpdateToDoActivity::class.java)
+                abc.putExtra("icon", mItems[position-1].icon)
+                abc.putExtra("name", mItems[position-1].name)
+                abc.putExtra("phoneNumber", mItems[position-1].phoneNumber)
+
+                startActivityForResult(mContext as Activity, abc, ToDoManagerActivity.UPDATE_TODO_ITEM_REQUEST, null)
+            }
         }
     }
 
@@ -197,6 +237,7 @@ class ToDoListAdapter(private val mContext: Context) :
 
         var mNameView: TextView? = null
         var mTimeLeftView: TextView? = null
+        var mUpdateView: Button? = null
     }
 
     companion object {

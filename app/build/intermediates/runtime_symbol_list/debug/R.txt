@@ -1653,6 +1653,17 @@ int id unchecked 0x7f080143
 int id uniform 0x7f080144
 int id unlabeled 0x7f080145
 int id up 0x7f080146
+int id updatecancelButton 0x7f08014e
+int id updatecustom 0x7f08014f
+int id updatecustom_layout 0x7f080150
+int id updatedays 0x7f080151
+int id updatehours 0x7f080152
+int id updateminutes 0x7f080153
+int id updatemonths 0x7f080154
+int id updatespinner 0x7f080155
+int id updatesubmitButton 0x7f080156
+int id updateweeks 0x7f080157
+int id updateyears 0x7f080158
 int id useLogo 0x7f080147
 int id view_offset_helper 0x7f080148
 int id visible 0x7f080149
@@ -1802,6 +1813,7 @@ int layout text_view_with_theme_line_height 0x7f0b006a
 int layout text_view_without_line_height 0x7f0b006b
 int layout todo_item 0x7f0b006c
 int layout todo_item_old 0x7f0b006d
+int layout update 0x7f0b006e
 int plurals mtrl_badge_content_description 0x7f0c0000
 int string abc_action_bar_home_description 0x7f0d0000
 int string abc_action_bar_up_description 0x7f0d0001

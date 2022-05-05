@@ -189,7 +189,7 @@ class AddToDoActivity : FragmentActivity() {
             }
         })
 
-//        actionBar!!.title = "Add New Contact";
+        //actionBar!!.title = "Add New Contact";
         val cancelButton = findViewById<View>(R.id.cancelButton) as Button
         cancelButton.setOnClickListener {
             Log.i(TAG, "Entered cancelButton.OnClickListener.onClick()")
@@ -301,7 +301,7 @@ class AddToDoActivity : FragmentActivity() {
                         if (contactIcon != "") {
                             iconView.setImageURI(Uri.parse(contactIcon))
                         } else {
-                            iconView?.setImageDrawable(getDrawable(R.drawable.ic_account_circle))
+                            iconView.setImageDrawable(getDrawable(R.drawable.ic_account_circle))
                         }
                     }
                     cursor2?.close()

@@ -27,6 +27,11 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.time.Duration
+import java.time.Period
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
+
 //import course.labs.todomanager.ToDoItem.Priority
 //import course.labs.todomanager.ToDoItem.Status
 
@@ -46,7 +51,7 @@ class ToDoManagerActivity : Activity() {
         x.layoutManager = LinearLayoutManager(this)
 
         // Load saved ToDoItems
-//        loadItemsFromFile()
+        loadItemsFromFile()
 
         // TODO - Attach the adapter to this Activity's RecyclerView
 //        x.adapter = mAdapter
@@ -147,10 +152,13 @@ class ToDoManagerActivity : Activity() {
         // if user submitted a new ToDoItem
         // Create a new ToDoItem from the data Intent
         // and then add it to the adapter
-        if(resultCode== RESULT_OK && requestCode == ADD_TODO_ITEM_REQUEST) {
+        if (resultCode== RESULT_OK && requestCode == ADD_TODO_ITEM_REQUEST) {
             Log.i(TAG, "Getting Entered")
             Log.i(TAG, "a ${mAdapter!!.itemCount} count")
             mAdapter!!.add(ToDoItem(data!!))
+        } else if (resultCode== RESULT_OK && requestCode == UPDATE_TODO_ITEM_REQUEST){
+            Log.i(TAG, "Getting Entered into Update")
+            mAdapter!!.update(ToDoItem(data!!))
         }
     }
 
@@ -196,42 +204,32 @@ class ToDoManagerActivity : Activity() {
         }
     }
 
-    // Load stored ToDoItems
     private fun loadItemsFromFile() {
         var reader: BufferedReader? = null
         try {
             val fis = openFileInput(FILE_NAME)
             reader = BufferedReader(InputStreamReader(fis))
 
+            var icon: String?
             var name: String?
-            var priority: String?
-            var status: String?
-            var date: Date?
-
-            /*
-            var name: String?
-            var date: Date?
-             */
-
+            var deadline: ZonedDateTime?
+            var phoneNumber: String?
+            var dateRange: Period?
+            var timeRange: Duration?
+            var counter = 0
             do {
+                icon = reader.readLine()
                 name = reader.readLine()
-                if (name == null)
+                if (name == null) {
                     break
-//                priority = reader.readLine()
-//                status = reader.readLine()
-//                date = ToDoItem.FORMAT.parse(reader.readLine())
-//                mAdapter.add(ToDoItem(title, Priority.valueOf(priority),
-//                    Status.valueOf(status), date))
-                mAdapter!!.add(ToDoItem(name))
+                }
+                deadline = ZonedDateTime.parse(reader.readLine())
+                phoneNumber = reader.readLine()
+                dateRange = Period.parse(reader.readLine())
+                timeRange = Duration.parse(reader.readLine())
+                reader.readLine()
 
-                /*
-                title = reader.readLine()
-                if (name == null)
-                    break
-                date = ToDoItem.FORMAT.parse(reader.readLine())
-                mAdapter.add(ToDoItem(title, Priority.valueOf(priority),
-                    Status.valueOf(status), date))
-                */
+                mAdapter!!.add(ToDoItem(icon, name, deadline, phoneNumber, dateRange, timeRange))
             }
             while (true)
 
@@ -259,12 +257,11 @@ class ToDoManagerActivity : Activity() {
         try {
             val fos = openFileOutput(FILE_NAME, Context.MODE_PRIVATE)
             writer = PrintWriter(BufferedWriter(OutputStreamWriter(
-                    fos)))
+                fos)))
 
             for (idx in 1 until mAdapter!!.itemCount) {
-
                 writer.println(mAdapter!!.getItem(idx))
-
+                Log.i(TAG, mAdapter!!.getItem(idx).toString())
             }
         } catch (e: IOException) {
             e.printStackTrace()
@@ -276,6 +273,7 @@ class ToDoManagerActivity : Activity() {
     companion object {
         var mAdapter: ToDoListAdapter? = null;
         const val ADD_TODO_ITEM_REQUEST = 0
+        const val UPDATE_TODO_ITEM_REQUEST = 1
         private const val FILE_NAME = "TodoManagerActivityData.txt"
         const val TAG = "Lab-UserInterface"
 
