@@ -19,6 +19,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -74,6 +76,21 @@ class ToDoManagerActivity : Activity() {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.PROCESS_OUTGOING_CALLS), 1)
 
         }
+
+//        val addButton = findViewById<View>(R.id.addButton) as Button
+//        addButton.setOnClickListener {
+//            val options: Bundle? = null
+//            ActivityCompat.startActivityForResult(
+//                applicationContext as Activity,
+//                Intent(
+//                    applicationContext,
+//                    AddToDoActivity::class.java
+//                ),
+//                ADD_TODO_ITEM_REQUEST,
+//                options
+//            )
+//        }
+
 
     }
 

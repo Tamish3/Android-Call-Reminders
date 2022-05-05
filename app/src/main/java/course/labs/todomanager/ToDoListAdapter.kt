@@ -89,10 +89,11 @@ class ToDoListAdapter(private val mContext: Context) :
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-
+//        val button = mContext.findViewById()
         if (position == 0) {
             viewHolder.itemView.setOnClickListener {
                 Log.i(ToDoManagerActivity.TAG, "Entered footerView.OnClickListener.onClick()")
+
 
 //                if (checkPermission()) {
                     val options: Bundle? = null

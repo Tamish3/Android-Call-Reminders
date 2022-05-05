@@ -189,7 +189,7 @@ class AddToDoActivity : FragmentActivity() {
             }
         })
 
-        actionBar!!.title = "Add New Contact";
+//        actionBar!!.title = "Add New Contact";
         val cancelButton = findViewById<View>(R.id.cancelButton) as Button
         cancelButton.setOnClickListener {
             Log.i(TAG, "Entered cancelButton.OnClickListener.onClick()")
