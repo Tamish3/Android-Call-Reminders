@@ -24,15 +24,26 @@ class CallReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         Log.i(TAG, "Broadcast Received")
         val state = intent.getStringExtra(TelephonyManager.EXTRA_STATE)
-        val incomingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER)
+        if (state.equals(TelephonyManager.EXTRA_STATE_RINGING)) {
+            val incomingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER)
 
-        if (incomingNumber != null) {
-            Log.i(TAG, "$incomingNumber")
-            if (ToDoManagerActivity.mAdapter != null) {
-                adapter = ToDoManagerActivity.mAdapter!!
-                updateDeadline(incomingNumber, context)
+            if (incomingNumber != null) {
+                Log.i(TAG, "$incomingNumber")
+                if (ToDoManagerActivity.mAdapter != null) {
+                    adapter = ToDoManagerActivity.mAdapter!!
+                    updateDeadline(incomingNumber, context)
+                }
             }
-            //Toast.makeText(context, getContactName(incomingNumber, context), Toast.LENGTH_LONG).show()
+        } else if (state.equals(TelephonyManager.EXTRA_STATE_OFFHOOK)) {
+            val outgoingNumber = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER)
+
+            if (outgoingNumber != null) {
+                Log.i(TAG, "$outgoingNumber")
+                if (ToDoManagerActivity.mAdapter != null) {
+                    adapter = ToDoManagerActivity.mAdapter!!
+                    updateDeadline(outgoingNumber, context)
+                }
+            }
         }
     }
 
