@@ -4,10 +4,11 @@ package course.labs.todomanager
 //import course.labs.todomanager.ToDoItem.Status
 
 import android.annotation.SuppressLint
-import android.app.DatePickerDialog
-import android.app.Dialog
-import android.app.TimePickerDialog
+import android.app.*
+import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.media.AudioAttributes
 import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
@@ -209,6 +210,10 @@ class AddToDoActivity : FragmentActivity() {
             dropdown.setSelection(0)
         }
 
+        //notification channel
+        mNotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        createNotificationChannel()
+
         // Set up OnClickListener for the Submit Button
 
         val submitButton = findViewById<View>(R.id.submitButton) as Button
@@ -231,11 +236,82 @@ class AddToDoActivity : FragmentActivity() {
 
             ToDoItem.packageIntent(data, contactIcon, name, deadline, phoneNumber, dateRange, timeRange)
 
+            //notify
+            //pass in datetime
+            createNotification()
+
             // TODO - return data Intent and finish
             setResult(RESULT_OK, data)
             finish()
         }
     }
+
+    private fun createNotification() {
+//        val notifyIntent = Intent(applicationContext, NotificationSubActivity::class.java)
+        Log.i(TAG, "here")
+        val notifyIntent = Intent(applicationContext, NotificationSubActivity::class.java)
+            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        val pendingIntent = PendingIntent.getBroadcast(
+            applicationContext,
+//            MY_NOTIFICATION_ID,
+            0,
+            notifyIntent,
+            PendingIntent.FLAG_IMMUTABLE
+//                PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+
+//        val alarmManager = applicationContext.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+//        alarmManager.setRepeating(
+//            AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),
+//            (1000).toLong(), //datetime here
+//            pendingIntent
+//        )
+
+        val notificationBuilder = Notification.Builder(
+            applicationContext, mChannelID
+        )
+            .setTicker(tickerText)
+            .setSmallIcon(android.R.drawable.stat_sys_warning)
+            .setAutoCancel(true)
+            .setContentTitle(contentTitle)
+            .setContentIntent(pendingIntent)
+//            .setWhen(System.currentTimeMillis() + (10000).toLong())
+            //set repeatable
+            //set to update contact as well
+            //set text to have name
+            //set to specific time
+
+        // Pass the Notification to the NotificationManager:
+        mNotificationManager.notify(
+            MY_NOTIFICATION_ID,
+            notificationBuilder.build()
+        )
+    }
+
+    private fun createNotificationChannel() {
+        mChannelID = "$packageName.channel_01"
+
+        // The user-visible name of the channel.
+        val name = getString(R.string.channel_name)
+
+        // The user-visible description of the channel
+        val description = getString(R.string.channel_description)
+        val importance = NotificationManager.IMPORTANCE_HIGH
+        val mChannel = NotificationChannel(mChannelID, name, importance)
+
+        // Configure the notification channel.
+        mChannel.description = description
+        mChannel.enableLights(true)
+
+        // Sets the notification light color for notifications posted to this
+        // channel, if the device supports this feature.
+        mChannel.lightColor = Color.RED
+        mChannel.enableVibration(true)
+
+        mNotificationManager.createNotificationChannel(mChannel)
+    }
+
 
     fun pickContactIntent() {
         val intent = Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI)
@@ -435,5 +511,16 @@ class AddToDoActivity : FragmentActivity() {
         private const val PERMISSIONS_PICK_CONTACT_REQUEST = 1
 //        private const val FORMATTED_ADDRESS =
 //            ContactsContract.CommonDataKinds.StructuredPostal.FORMATTED_ADDRESS
+
+        private const val MY_NOTIFICATION_ID = 1
+
+        private const val KEY_COUNT = "key_count"
+        private lateinit var mNotificationManager: NotificationManager
+        private lateinit var mChannelID: String
+
+        // Notification Text Elements
+        private const val tickerText = "This is a Really, Really, Super Long Notification Message!"
+        private const val contentTitle = "Notification"
+        private const val contentText = "You've Been Notified!"
     }
 }

@@ -38,6 +38,16 @@
                 <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
             </intent-filter>
         </receiver>
+        <receiver
+            android:name=".NotificationReceiver"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
+        <service
+            android:name=".MyNewIntentService"
+            android:exported="false" >
+        </service>
+
     </application>
 
 
