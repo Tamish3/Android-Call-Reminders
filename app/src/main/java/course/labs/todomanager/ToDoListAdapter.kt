@@ -27,6 +27,7 @@ import android.widget.*
 import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat.getDrawable
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.time.format.DateTimeFormatter
 
 class ToDoListAdapter(private val mContext: Context) :
@@ -107,6 +108,7 @@ class ToDoListAdapter(private val mContext: Context) :
         if (viewType == HEADER_VIEW_TYPE) {
             Log.i(TAG, "NOT adding contact onCreateViewHolder()   ")
             val v = LayoutInflater.from(parent.context).inflate(R.layout.header_view, parent, false)
+            v
             return ViewHolder(v)
         } else {
             Log.i(TAG, "adding contact onCreateViewHolder()   ")
@@ -119,6 +121,7 @@ class ToDoListAdapter(private val mContext: Context) :
             viewHolder.mNameView=v.findViewById(R.id.nameView)
             viewHolder.mTimeLeftView = v.findViewById((R.id.timeLeftView))
             viewHolder.mUpdateView = v.findViewById(R.id.settingsButtonItem)
+            viewHolder.mAddView = v.findViewById(R.id.addbutton)
             /*viewHolder.mStatusView=v.findViewById(R.id.statusCheckBox) //as CheckBox
             viewHolder.mPriorityView=v.findViewById(R.id.priorityView)*/
 //            viewHolder.mTimeLeftView=v.findViewById(R.id.timeLeftView)
@@ -132,20 +135,7 @@ class ToDoListAdapter(private val mContext: Context) :
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 //        val button = mContext.findViewById()
         if (position == 0) {
-            viewHolder.itemView.setOnClickListener {
-                Log.i(ToDoManagerActivity.TAG, "Entered footerView.OnClickListener.onClick()")
-
-                val options: Bundle? = null
-                startActivityForResult(
-                    mContext as Activity,
-                    Intent(
-                        mContext,
-                        AddToDoActivity::class.java
-                    ),
-                    ToDoManagerActivity.ADD_TODO_ITEM_REQUEST,
-                    options
-                )
-            }
+            Log.i(ToDoManagerActivity.TAG, "Entered footerView.OnClickListener.onClick()")
         } else {
             val toDoItem = mItems[position - 1]
 
@@ -169,6 +159,21 @@ class ToDoListAdapter(private val mContext: Context) :
                 abc.putExtra("phoneNumber", mItems[position-1].phoneNumber)
 
                 startActivityForResult(mContext as Activity, abc, ToDoManagerActivity.UPDATE_TODO_ITEM_REQUEST, null)
+            }
+
+            viewHolder.mAddView?.setOnClickListener {
+                Log.i(ToDoManagerActivity.TAG, "Entered footerView.OnClickListener.onClick()")
+
+                val options: Bundle? = null
+                startActivityForResult(
+                    mContext as Activity,
+                    Intent(
+                        mContext,
+                        AddToDoActivity::class.java
+                    ),
+                    ToDoManagerActivity.ADD_TODO_ITEM_REQUEST,
+                    options
+                )
             }
         }
     }
@@ -238,6 +243,7 @@ class ToDoListAdapter(private val mContext: Context) :
         var mNameView: TextView? = null
         var mTimeLeftView: TextView? = null
         var mUpdateView: Button? = null
+        var mAddView: FloatingActionButton? = null
     }
 
     companion object {

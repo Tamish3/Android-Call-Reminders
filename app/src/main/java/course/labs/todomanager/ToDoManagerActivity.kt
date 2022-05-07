@@ -27,6 +27,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.time.Duration
 import java.time.Period
 import java.time.ZonedDateTime
@@ -62,6 +63,21 @@ class ToDoManagerActivity : Activity() {
         else {
             getPermission()
             x.adapter = mAdapter
+        }
+
+       findViewById<FloatingActionButton>(R.id.addbutton)?.setOnClickListener {
+            Log.i(ToDoManagerActivity.TAG, "Entered footerView.OnClickListener.onClick()")
+
+            val options: Bundle? = null
+            ActivityCompat.startActivityForResult(
+                this,
+                Intent(
+                    this,
+                    AddToDoActivity::class.java
+                ),
+                ADD_TODO_ITEM_REQUEST,
+                options
+            )
         }
 
 //        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) !=
