@@ -1,6 +1,7 @@
 package course.labs.todomanager
 
 import android.Manifest
+import android.Manifest.permission.SCHEDULE_EXACT_ALARM
 import android.app.Activity
 import java.io.BufferedReader
 import java.io.BufferedWriter
@@ -154,7 +155,7 @@ class ToDoManagerActivity : Activity() {
             "Get permission",
             Toast.LENGTH_SHORT
         ).show()
-        ActivityCompat.requestPermissions(this as Activity, arrayOf(READ_CONTACTS_PERM, READ_PHONE_STATE_PERM, READ_CALL_LOG_PERM, PROCESS_OUTGOING_CALS_PERM),
+        ActivityCompat.requestPermissions(this as Activity, arrayOf(READ_CONTACTS_PERM, READ_PHONE_STATE_PERM, READ_CALL_LOG_PERM, PROCESS_OUTGOING_CALS_PERM, SCHEDULE_EXACT_ALARM),
             PERMISSIONS_PICK_CONTACT_REQUEST
         )
 //        requestPermissions(mContext as Activity, arrayOf(READ_CONTACTS_PERM), PERMISSIONS_PICK_CONTACT_REQUEST)

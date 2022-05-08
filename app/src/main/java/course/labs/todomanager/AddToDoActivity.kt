@@ -238,7 +238,7 @@ class AddToDoActivity : FragmentActivity() {
 
             //notify
             //pass in datetime and name
-            createNotification(name)
+//            createNotification(name)
 
             // TODO - return data Intent and finish
             setResult(RESULT_OK, data)
@@ -264,32 +264,38 @@ class AddToDoActivity : FragmentActivity() {
 
 
         val alarmManager = applicationContext.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        alarmManager.setRepeating(
-            AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),
-            (1000).toLong(), //datetime here
-            pendingIntent
-        )
+        val alarmIntent = Intent(applicationContext, NotificationReceiver::class.java).let { intent ->
+            PendingIntent.getBroadcast(applicationContext, 0, intent, 0)
+        }
 
-        val notificationBuilder = Notification.Builder(
-            applicationContext, mChannelID
-        )
-            .setTicker(tickerText)
-            .setSmallIcon(android.R.drawable.stat_sys_warning)
-            .setAutoCancel(true)
-            .setContentTitle(contentTitle)
-            .setContentText("Call this contact: $name")
-            .setContentIntent(pendingIntent)
-//            .setWhen(System.currentTimeMillis() + (10000).toLong())
+
+//        alarmManager.setRepeating(
+//            AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),
+//            (1000).toLong(), //datetime here
+//            pendingIntent
+//        )
+
+//        val notificationBuilder = Notification.Builder(
+//            applicationContext, mChannelID
+//        )
+//            .setTicker(tickerText)
+//            .setSmallIcon(android.R.drawable.stat_sys_warning)
+//            .setAutoCancel(true)
+//            .setContentTitle(contentTitle)
+//            .setContentText("Call this contact: $name")
+//            .setContentIntent(pendingIntent)
+//            .setWhen(System.currentTimeMillis() + (1000 * 60 * 60 * 24).toLong())
+//            .setWhen(Calendar.getInstance().getTimeInMillis() + (1000 * 60 * 60 * 24).toLong())
             //set to specific time
             //set repeatable
             //set to update contact as well
 
 
         // Pass the Notification to the NotificationManager:
-        mNotificationManager.notify(
-            MY_NOTIFICATION_ID,
-            notificationBuilder.build()
-        )
+//        mNotificationManager.notify(
+//            MY_NOTIFICATION_ID,
+//            notificationBuilder.build()
+//        )
     }
 
     private fun createNotificationChannel() {

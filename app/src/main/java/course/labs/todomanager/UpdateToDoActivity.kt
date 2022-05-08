@@ -72,7 +72,7 @@ class UpdateToDoActivity : FragmentActivity() {
                 minutes = 0
 
                 if (value == "Custom") {
-                    val custom = findViewById<View>(R.id.custom_layout) as LinearLayout
+                    val custom = findViewById<View>(R.id.updatecustom_layout) as LinearLayout
                     custom.visibility = View.VISIBLE
                     customLayout.visibility = View.VISIBLE
                 } else if (value == "1 day") {
