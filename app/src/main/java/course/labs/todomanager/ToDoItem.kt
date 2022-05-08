@@ -10,11 +10,6 @@ import java.util.*
 
 class ToDoItem {
 
-    var title : String? = String()
-//    var priority : Priority = Priority.LOW
-//    var status = Status.NOTDONE
-    var date = Date()
-
     var icon : String? = String();
     var name : String? = String();
     var deadline : ZonedDateTime? = null;
@@ -22,15 +17,7 @@ class ToDoItem {
     var oldTime : ZonedDateTime? = null;
     var dateRange : Period? = null;
     var timeRange : Duration? = null;
-    /*
-    enum class Priority {
-        LOW, MED, HIGH
-    }
 
-    enum class Status {
-        NOTDONE, DONE
-    }
-    */
     internal constructor(icon: String, name: String, deadline: ZonedDateTime, phoneNumber: String, oldTime: ZonedDateTime, dateRange: Period, timeRange: Duration) {
         this.icon = icon
         this.name = name

@@ -23,7 +23,7 @@ class MyNewIntentService : IntentService("MyNewIntentService") {
         builder.setContentText("Call your contact: " + intent?.getStringExtra("name"))
         builder.setSmallIcon(android.R.drawable.stat_sys_warning)
         builder.setTicker(intent?.getStringExtra("name"))
-        Log.i("tag", "notify")
+
         val notifyIntent = Intent(this, NotificationSubActivity::class.java)
         val pendingIntent =
 //            PendingIntent.getActivity(this, 2, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT)
@@ -34,18 +34,9 @@ class MyNewIntentService : IntentService("MyNewIntentService") {
         val managerCompat = NotificationManagerCompat.from(this)
         managerCompat.notify(NOTIFICATION_ID, notificationCompat)
 
-//        ToDoItem.packageIntent(data, contactIcon, name, deadline, phoneNumber, currentTime, dateRange, timeRange)
-//
-//        //notify
-//        //pass in datetime and name
-////            createNotification(name)
-//
-//        // TODO - return data Intent and finish
-//        setResult(FragmentActivity.RESULT_OK, data)
-//        finish()
+
     }
 
-    //developer warning for package course.labs.todomanager
     companion object {
         private const val NOTIFICATION_ID = 3
         private lateinit var mChannelID: String

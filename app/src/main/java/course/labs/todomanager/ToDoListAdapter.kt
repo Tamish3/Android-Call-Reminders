@@ -1,14 +1,7 @@
 package course.labs.todomanager
 
 
-//import course.labs.todomanager.ToDoItem.Status
-//import android.Manifest
-//import android.app.Activity
-//import android.content.Intent
-//import android.content.pm.PackageManager
-//import android.os.Build
-//import android.os.Bundle
-//import android.util.Log
+
 import android.Manifest
 import android.app.*
 import android.content.BroadcastReceiver
@@ -51,9 +44,6 @@ class ToDoListAdapter(private val mContext: Context) :
         for (contact in mItems) {
             counter++
             if(contact.name == name) {
-                Log.i(TAG, "First")
-                Log.i(TAG, "Contact: " + contact.deadline)
-                Log.i(TAG, "Item: " + contact.deadline)
                 contact.oldTime = contact.deadline
                 contact.deadline = contact.deadline?.plus(contact.dateRange)?.plus(contact.timeRange)
                 break
@@ -77,10 +67,6 @@ class ToDoListAdapter(private val mContext: Context) :
         val calendar: Calendar = Calendar.getInstance().apply {
             timeInMillis = item.deadline?.toEpochSecond()?.times(1000)!!
         }
-
-        Log.i(TAG, "other calendar update to")
-        Log.i(TAG, calendar.get(Calendar.DAY_OF_MONTH).toString() + " " + item.deadline?.dayOfMonth.toString())
-        Log.i(TAG, calendar.get(Calendar.YEAR).toString() + " " + item.deadline?.year.toString())
 
         alarmManager?.setExact(
             AlarmManager.RTC_WAKEUP,
@@ -121,16 +107,19 @@ class ToDoListAdapter(private val mContext: Context) :
             // show alert dialog
             alert.show()
         }
-        Log.i(TAG, "Adding")
     }
 
     fun update(item: ToDoItem) {
         for (contact in mItems) {
-            if(contact.name == item.name) {
-                Log.i(TAG, "First")
-                Log.i(TAG, "Contact: " + contact.deadline)
-                Log.i(TAG, "Item: " + item.deadline)
-                contact.deadline = item.deadline
+            if (contact.name == item.name) {
+                if (contact.deadline!!.isAfter(ZonedDateTime.now())) {
+                    contact.oldTime = ZonedDateTime.now()
+                    contact.deadline = ZonedDateTime.now().plus(item.dateRange).plus(item.timeRange)
+                } else {
+                    contact.deadline = item.deadline
+                }
+                contact.dateRange = item.dateRange
+                contact.timeRange = item.timeRange
             }
         }
         notifyDataSetChanged()
@@ -149,26 +138,7 @@ class ToDoListAdapter(private val mContext: Context) :
 
         val calendar: Calendar = Calendar.getInstance().apply {
             timeInMillis = item.deadline?.toEpochSecond()?.times(1000)!!
-//            timeInMillis = System.currentTimeMillis()
-//            val temp = item.deadline?.toEpochSecond()
-//
-//            if (temp != null) {
-//                Log.i(TAG, (temp * 1000 - timeInMillis).toString() + " update")
-//            }
-//
-//            item.deadline?.let { set(Calendar.HOUR_OF_DAY, it.hour) }
-//            item.deadline?.let { set(Calendar.MINUTE, it.minute) }
-//            item.deadline?.let { set(Calendar.DAY_OF_MONTH, it.dayOfMonth) }
-//            item.deadline?.let { set(Calendar.MONTH, it.monthValue) }
-//            item.deadline?.let { set(Calendar.YEAR, it.year) }
-//            item.deadline?.let { set(Calendar.SECOND, it.second) }
-
-
         }
-
-        Log.i(TAG, "other calendar update")
-        Log.i(TAG, calendar.get(Calendar.DAY_OF_MONTH).toString() + " " + item.deadline?.dayOfMonth.toString())
-        Log.i(TAG, calendar.get(Calendar.YEAR).toString() + " " + item.deadline?.year.toString())
 
         alarmManager?.setExact(
             AlarmManager.RTC_WAKEUP,
@@ -239,13 +209,6 @@ class ToDoListAdapter(private val mContext: Context) :
         mChannel.enableVibration(true)
         mChannel.vibrationPattern = mVibratePattern
 
-//        mSoundURI = Uri.parse("android.resource://" + packageName + "/" + R.raw.alarm_rooster)
-//        mChannel.setSound(
-//            mSoundURI, AudioAttributes.Builder()
-//                .setUsage(AudioAttributes.USAGE_NOTIFICATION)
-//                .build()
-//        )
-
         mNotificationManager.createNotificationChannel(mChannel)
     }
 
@@ -274,9 +237,7 @@ class ToDoListAdapter(private val mContext: Context) :
             viewHolder.mTimeLeftView = v.findViewById((R.id.timeLeftView))
             viewHolder.mUpdateView = v.findViewById(R.id.settingsButtonItem)
             viewHolder.mAddView = v.findViewById(R.id.addbutton)
-            /*viewHolder.mStatusView=v.findViewById(R.id.statusCheckBox) //as CheckBox
-            viewHolder.mPriorityView=v.findViewById(R.id.priorityView)*/
-//            viewHolder.mTimeLeftView=v.findViewById(R.id.timeLeftView)
+
             viewHolder.mItemLayout=v
 
 
@@ -339,7 +300,6 @@ class ToDoListAdapter(private val mContext: Context) :
 
     @RequiresApi(Build.VERSION_CODES.S)
     private fun createNotification(name: String, deadline: ZonedDateTime) {
-        Log.i(TAG, "create notification")
         val notifyIntent = Intent(mContext, NotificationReceiver::class.java)
             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 
@@ -348,41 +308,14 @@ class ToDoListAdapter(private val mContext: Context) :
 
         val pendingIntent = PendingIntent.getBroadcast(
             mContext,
-//            0,
             name.hashCode(),
             notifyIntent,
             PendingIntent.FLAG_IMMUTABLE
         )
-//        pendingIntent.putExtra("name", name)
-
-
-//        Toast.makeText(
-//            mContext,
-//            alarmManager.canScheduleExactAlarms().toString(),
-//            Toast.LENGTH_SHORT
-//        ).show()
-//        val alarmIntent = Intent(mContext, NotificationReceiver::class.java).let { intent ->
-//            PendingIntent.getBroadcast(mContext, 0, intent, 0)
-//        }
-
         val calendar: Calendar = Calendar.getInstance().apply {
             timeInMillis = deadline.toEpochSecond() * 1000
-                //System.currentTimeMillis()
-//            Log.i(TAG, (deadline.toEpochSecond() * 1000).toString())
-//            Log.i(TAG, (timeInMillis).toString())
-//            Log.i(TAG, (deadline.toEpochSecond() * 1000 - timeInMillis).toString())
-//            set(Calendar.MONTH, )
-//            set(Calendar.HOUR_OF_DAY, deadline.hour)
-//            set(Calendar.MINUTE, deadline.minute)
-//            set(Calendar.DAY_OF_MONTH, deadline.dayOfMonth)
-//            set(Calendar.MONTH, deadline.monthValue)
-//            set(Calendar.YEAR, deadline.year)
-//            set(Calendar.SECOND, 0)
         }
 
-        Log.i(TAG, "other calendar")
-        Log.i(TAG, calendar.get(Calendar.DAY_OF_MONTH).toString() + " " + deadline.dayOfMonth.toString())
-        Log.i(TAG, calendar.get(Calendar.YEAR).toString() + " " + deadline.year.toString())
 
 
         alarmManager?.setExact(
@@ -390,70 +323,8 @@ class ToDoListAdapter(private val mContext: Context) :
             calendar.timeInMillis,
             pendingIntent
         )
-        Log.i(TAG, "other calendar")
-//        alarmManager?.setRepeating(
-//            AlarmManager.RTC_WAKEUP,
-//            calendar.timeInMillis,
-//            (1000 * 5).toLong(),
-//            pendingIntent
-//        )
-
-        //set to specific time
-        //set repeatable
-        //set to update contact as well
 
     }
-
-//    override fun onRequestPermissionsResult(
-//        requestCode: Int, permissions: Array<String>,
-//        grantResults: IntArray
-//    ) {
-//        if (requestCode == PERMISSIONS_PICK_CONTACT_REQUEST) {
-//            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                // Permission is granted
-//                hasPermission = true
-////                startContactsApp()
-//                val options: Bundle? = null
-//                startActivityForResult(
-//                    mContext as Activity,
-//                    Intent(
-//                        mContext,
-//                        AddToDoActivity::class.java
-//                    ),
-//                    ToDoManagerActivity.ADD_TODO_ITEM_REQUEST,
-//                    options
-//                )
-//            } else {
-//                Toast.makeText(
-//                    mContext,
-//                    "This app requires access to your contact list",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            }
-//        }
-//    }
-
-//    fun checkPermission(): Boolean {
-//        Toast.makeText(
-//            mContext,
-//            "check permission",
-//            Toast.LENGTH_SHORT
-//        ).show()
-////        mContext.checkSelfPermission(mContext)
-//        return checkSelfPermission(
-//            mContext, READ_CONTACTS_PERM
-//        ) == PermissionChecker.PERMISSION_GRANTED
-//    }
-//
-//    fun getPermission() {
-//        Toast.makeText(
-//            mContext,
-//            "Get permission",
-//            Toast.LENGTH_SHORT
-//        ).show()
-//        ActivityCompat.requestPermissions(mContext as Activity, arrayOf(READ_CONTACTS_PERM), PERMISSIONS_PICK_CONTACT_REQUEST)
-////        requestPermissions(mContext as Activity, arrayOf(READ_CONTACTS_PERM), PERMISSIONS_PICK_CONTACT_REQUEST)
-//    }
 
     // Get the ID for the ToDoItem
     // In this case it's just the position
@@ -478,24 +349,10 @@ class ToDoListAdapter(private val mContext: Context) :
         private const val HEADER_VIEW_TYPE = R.layout.header_view
         private const val TODO_VIEW_TYPE = R.layout.todo_item
 
-        private var hasPermission: Boolean = false
-        private const val PERMISSIONS_PICK_CONTACT_REQUEST = 1
-        private const val READ_CONTACTS_PERM = Manifest.permission.READ_CONTACTS
-
-
-        private const val MY_NOTIFICATION_ID = 1
-
-        private const val KEY_COUNT = "key_count"
         private lateinit var mNotificationManager: NotificationManager
         private lateinit var mChannelID: String
 
-        // Notification Text Elements
-        private const val tickerText = "This is a Really, Really, Super Long Notification Message!"
-        private const val contentTitle = "Notification"
-        private const val contentText = "You've Been Notified!"
-
         private val mVibratePattern = longArrayOf(100, 200, 300, 400, 500, 400, 300, 200, 400)
-        private lateinit var mSoundURI: Uri
     }
 
 

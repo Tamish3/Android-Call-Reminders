@@ -1,43 +1,18 @@
 package course.labs.todomanager
 
-//import course.labs.todomanager.ToDoItem.Priority
-//import course.labs.todomanager.ToDoItem.Status
-
-import android.annotation.SuppressLint
-import android.app.DatePickerDialog
-import android.app.Dialog
-import android.app.TimePickerDialog
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentActivity
 import java.time.*
 import java.time.temporal.ChronoUnit
-import java.util.*
-
 
 class UpdateToDoActivity : FragmentActivity() {
-
-    private lateinit var mDate: Date
-    private lateinit var mPriorityRadioGroup: RadioGroup
-    private lateinit var mStatusRadioGroup: RadioGroup
-    private lateinit var mTitleText: EditText
-    private lateinit var mDefaultStatusButton: RadioButton
-    private lateinit var mDefaultPriorityButton: RadioButton
-    private lateinit var dateView: TextView
-    private lateinit var timeView: TextView
-    private lateinit var nameView: TextView
-    private lateinit var iconView: ImageView
-    private lateinit var contactIcon : String;
-    private lateinit var phoneNumber : String;
 
     var years: Int = 0
     var months: Int = 0
@@ -252,44 +227,6 @@ class UpdateToDoActivity : FragmentActivity() {
 
 
     companion object {
-
-        // 7 days in milliseconds - 7 * 24 * 60 * 60 * 1000
-        private const val SEVEN_DAYS = 604800000
-
-        private const val TAG = "Lab-UserInterface"
-
-        private var timeString: String? = null
-        private var dateString: String? = null
-
-        private fun setDateString(year: Int, monthOfYear: Int, dayOfMonth: Int) {
-            var localMonthOfYear = monthOfYear
-
-            // Increment monthOfYear for Calendar/Date -> Time Format setting
-            localMonthOfYear++
-            var mon = "" + localMonthOfYear
-            var day = "" + dayOfMonth
-
-            if (localMonthOfYear < 10)
-                mon = "0$localMonthOfYear"
-            if (dayOfMonth < 10)
-                day = "0$dayOfMonth"
-
-            dateString = "$year-$mon-$day"
-        }
-
-        private fun setTimeString(hourOfDay: Int, minute: Int) {
-            var hour = "" + hourOfDay
-            var min = "" + minute
-
-            if (hourOfDay < 10)
-                hour = "0$hourOfDay"
-            if (minute < 10)
-                min = "0$minute"
-
-            timeString = "$hour:$min:00"
-        }
-
-        private const val PICK_CONTACT_REQUEST = 0
-
+        private const val TAG = "CallYourMother-UpdateToDoActivity"
     }
 }

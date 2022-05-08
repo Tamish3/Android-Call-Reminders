@@ -16,19 +16,16 @@ import java.time.ZonedDateTime
 class CallReceiver : BroadcastReceiver() {
     companion object {
         internal const val TAG = "Receiver"
-
     }
     private lateinit var adapter: ToDoListAdapter;
     //https://www.youtube.com/watch?v=rlzfcqDlovg
     //https://stackoverflow.com/questions/1853220/retrieve-incoming-calls-phone-number-in-android?noredirect=1&lq=1
     override fun onReceive(context: Context, intent: Intent) {
-        Log.i(TAG, "Broadcast Received")
         val state = intent.getStringExtra(TelephonyManager.EXTRA_STATE)
         if (state.equals(TelephonyManager.EXTRA_STATE_RINGING)) {
             val incomingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER)
 
             if (incomingNumber != null) {
-                Log.i(TAG, "$incomingNumber")
                 if (ToDoManagerActivity.mAdapter != null) {
                     adapter = ToDoManagerActivity.mAdapter!!
                     updateDeadline(incomingNumber, context)
@@ -36,9 +33,7 @@ class CallReceiver : BroadcastReceiver() {
             } //We can condense later, code is the same
         } else if (state.equals(TelephonyManager.EXTRA_STATE_OFFHOOK)) {
             val outgoingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER)
-            Log.i(TAG, "$outgoingNumber")
             if (outgoingNumber != null) {
-                Log.i(TAG, "$outgoingNumber")
                 if (ToDoManagerActivity.mAdapter != null) {
                     adapter = ToDoManagerActivity.mAdapter!!
                     updateDeadline(outgoingNumber, context)

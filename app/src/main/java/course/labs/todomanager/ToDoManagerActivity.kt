@@ -26,9 +26,6 @@ import java.time.Period
 import java.time.ZonedDateTime
 
 
-//import course.labs.todomanager.ToDoItem.Priority
-//import course.labs.todomanager.ToDoItem.Status
-
 class ToDoManagerActivity : Activity() {
 
     private var enableNotificationListenerAlertDialog: AlertDialog? = null
@@ -49,8 +46,6 @@ class ToDoManagerActivity : Activity() {
         loadItemsFromFile()
 
         // TODO - Attach the adapter to this Activity's RecyclerView
-//        x.adapter = mAdapter
-
         if (checkPermission()) {
             x.adapter = mAdapter
         }
@@ -129,30 +124,9 @@ class ToDoManagerActivity : Activity() {
 
     class NotificationHelper : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            Log.i(TAG, "yay")
+            Log.i(TAG, "Notification helper")
         }
     }
-
-//    override fun onRequestPermissionsResult(
-//        requestCode: Int, permissions: Array<String>,
-//        grantResults: IntArray
-//    ) {
-//        if (requestCode == PERMISSIONS_PICK_CONTACT_REQUEST) {
-//            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                // Permission is granted
-//                hasPermission = true
-////                startContactsApp()
-//                x.adapter = mAdapter
-//
-//            } else {
-//                Toast.makeText(
-//                    this,
-//                    "This app requires access to your contact list",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            }
-//        }
-//    }
 
     fun checkPermission(): Boolean {
         Toast.makeText(
@@ -198,10 +172,7 @@ class ToDoManagerActivity : Activity() {
         } else if (resultCode== RESULT_FIRST_USER && requestCode == UPDATE_TODO_ITEM_REQUEST) {
             mAdapter!!.delete(ToDoItem(data!!))
         }
-//        } else if (resultCode == RESULT_OK && requestCode == DELETE_TODO_ITEM_REQUEST) {
-//            Log.i(TAG, "Getting Entered into Update")
-//            mAdapter!!.update(ToDoItem(data!!))
-//        }
+
     }
 
     // Do not modify below here
