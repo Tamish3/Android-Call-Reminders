@@ -75,7 +75,7 @@ class CallReceiver : BroadcastReceiver() {
         for (i in 1 until adapter.itemCount) {
             var item : ToDoItem = adapter.getItem(i) as ToDoItem
             if (PhoneNumberUtils.areSamePhoneNumber(item.phoneNumber.toString(), number, "us")) {
-                item.deadline = item.deadline!!.plus(item.dateRange).plus(item.timeRange)
+                item.deadline = ZonedDateTime.now().plus(item.dateRange).plus(item.timeRange)
                 adapter.notifyDataSetChanged();
             }
         }
