@@ -1,8 +1,11 @@
 package course.labs.todomanager
 
 import android.content.BroadcastReceiver
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.provider.Settings
+import android.text.TextUtils
 import android.util.Log
 
 
@@ -16,4 +19,5 @@ class NotificationReceiver : BroadcastReceiver() {
         intent1.putExtra("name", name)
         context.startService(intent1)
     }
+
 }

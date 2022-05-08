@@ -4,44 +4,34 @@ import android.Manifest
 import android.Manifest.permission.BIND_NOTIFICATION_LISTENER_SERVICE
 import android.Manifest.permission.SCHEDULE_EXACT_ALARM
 import android.app.Activity
-import android.content.BroadcastReceiver
-import java.io.BufferedReader
-import java.io.BufferedWriter
-import java.io.FileNotFoundException
-import java.io.IOException
-import java.io.InputStreamReader
-import java.io.OutputStreamWriter
-import java.io.PrintWriter
-import java.text.ParseException
-import java.util.Date
-
-import android.content.Context
-import android.content.Intent
-import android.content.IntentFilter
-import android.content.pm.PackageManager
+import android.app.AlertDialog
+import android.content.*
 import android.os.Bundle
+import android.provider.Settings
+import android.provider.Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS
+import android.text.TextUtils
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.io.*
+import java.text.ParseException
 import java.time.Duration
 import java.time.Period
 import java.time.ZonedDateTime
-import java.time.format.DateTimeFormatter
+
 
 //import course.labs.todomanager.ToDoItem.Priority
 //import course.labs.todomanager.ToDoItem.Status
 
 class ToDoManagerActivity : Activity() {
 
+    private var enableNotificationListenerAlertDialog: AlertDialog? = null
 
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -84,11 +74,57 @@ class ToDoManagerActivity : Activity() {
             )
         }
 
+        if(!isNotificationServiceEnabled()){
+            enableNotificationListenerAlertDialog = buildNotificationServiceAlertDialog();
+            enableNotificationListenerAlertDialog?.show();
+        }
+
         val notificationHelper : NotificationHelper? = null
         val filter : IntentFilter = IntentFilter("android.service.notification.NotificationListenerService")
         registerReceiver(notificationHelper, filter)
 
 
+    }
+
+    private fun isNotificationServiceEnabled(): Boolean {
+        val pkgName: String = "course.labs.todomanager"
+        val flat: String = Settings.Secure.getString(
+            applicationContext.getContentResolver(),
+            "enabled_notification_listeners"
+        )
+        if (!TextUtils.isEmpty(flat)) {
+            val names = flat.split(":").toTypedArray()
+            for (i in names.indices) {
+                val cn = ComponentName.unflattenFromString(names[i])
+                if (cn != null) {
+                    if (TextUtils.equals(pkgName, cn.packageName)) {
+                        return true
+                    }
+                }
+            }
+        }
+        return false
+    }
+
+    //https://github.com/Chagall/notification-listener-service-example/blob/master/app/src/main/java/com/github/chagall/notificationlistenerexample/MainActivity.java
+    private fun buildNotificationServiceAlertDialog(): AlertDialog? {
+        val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this)
+        alertDialogBuilder.setTitle(R.string.read_notifications_string)
+        alertDialogBuilder.setMessage(R.string.read_notifications_explanation)
+        alertDialogBuilder.setPositiveButton(R.string.yes,
+            DialogInterface.OnClickListener { dialog, id ->
+                startActivity(
+                    Intent(
+                        ACTION_NOTIFICATION_LISTENER_SETTINGS
+                    )
+                )
+            })
+        alertDialogBuilder.setNegativeButton(R.string.no,
+            DialogInterface.OnClickListener { dialog, id ->
+                // If you choose to not enable the notification listener
+                // the app. will not work as expected
+            })
+        return alertDialogBuilder.create()
     }
 
     class NotificationHelper : BroadcastReceiver() {
@@ -136,9 +172,11 @@ class ToDoManagerActivity : Activity() {
             "Get permission",
             Toast.LENGTH_SHORT
         ).show()
-        ActivityCompat.requestPermissions(this as Activity, arrayOf(READ_CONTACTS_PERM, READ_PHONE_STATE_PERM, READ_CALL_LOG_PERM, PROCESS_OUTGOING_CALS_PERM, SCHEDULE_EXACT_ALARM, BIND_NOTIFICATION_LISTENER_SERVICE),
+        ActivityCompat.requestPermissions(this as Activity, arrayOf(READ_CONTACTS_PERM, READ_PHONE_STATE_PERM, READ_CALL_LOG_PERM, PROCESS_OUTGOING_CALS_PERM, SCHEDULE_EXACT_ALARM, BIND_NOTIFICATION_LISTENER_SERVICE, ACCESS_NOTIFICATION_POLICY),
             PERMISSIONS_PICK_CONTACT_REQUEST
         )
+
+
 //        requestPermissions(mContext as Activity, arrayOf(READ_CONTACTS_PERM), PERMISSIONS_PICK_CONTACT_REQUEST)
     }
 
@@ -294,5 +332,6 @@ class ToDoManagerActivity : Activity() {
         private const val READ_PHONE_STATE_PERM = Manifest.permission.READ_PHONE_STATE
         private const val READ_CALL_LOG_PERM = Manifest.permission.READ_CALL_LOG
         private const val PROCESS_OUTGOING_CALS_PERM = Manifest.permission.PROCESS_OUTGOING_CALLS
+        private const val ACCESS_NOTIFICATION_POLICY = Manifest.permission.ACCESS_NOTIFICATION_POLICY
     }
 }

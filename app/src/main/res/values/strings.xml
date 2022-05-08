@@ -30,4 +30,9 @@
     <string name="channel_name">NotificationChannel</string>
     <string name="channel_description">Notification channel for this app</string>
 
+    <string name="read_notifications_string">Permission Requested</string>
+    <string name="read_notifications_explanation">Call Your Mother needs permission to read your notifications. Select Call Your Mother, then check Allow notification access.</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
 </resources>
