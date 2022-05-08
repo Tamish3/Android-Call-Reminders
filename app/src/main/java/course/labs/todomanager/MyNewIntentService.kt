@@ -10,7 +10,8 @@ import androidx.core.app.NotificationManagerCompat
 //https://stackoverflow.com/questions/34517520/how-to-give-notifications-on-android-on-specific-time
 class MyNewIntentService : IntentService("MyNewIntentService") {
     override fun onHandleIntent(intent: Intent?) {
-        val builder: Notification.Builder = Notification.Builder(this)
+        val builder: Notification.Builder = Notification.Builder(applicationContext
+        )
         builder.setContentTitle("My Title")
         builder.setContentText("This is the Body")
         val notifyIntent = Intent(this, NotificationSubActivity::class.java)

@@ -237,8 +237,8 @@ class AddToDoActivity : FragmentActivity() {
             ToDoItem.packageIntent(data, contactIcon, name, deadline, phoneNumber, dateRange, timeRange)
 
             //notify
-            //pass in datetime
-            createNotification()
+            //pass in datetime and name
+            createNotification(name)
 
             // TODO - return data Intent and finish
             setResult(RESULT_OK, data)
@@ -246,10 +246,12 @@ class AddToDoActivity : FragmentActivity() {
         }
     }
 
-    private fun createNotification() {
+    private fun createNotification(name: String) {
 //        val notifyIntent = Intent(applicationContext, NotificationSubActivity::class.java)
         Log.i(TAG, "here")
-        val notifyIntent = Intent(applicationContext, NotificationSubActivity::class.java)
+//        val notifyIntent = Intent(applicationContext, NotificationSubActivity::class.java)
+//            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        val notifyIntent = Intent(applicationContext, NotificationReceiver::class.java)
             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         val pendingIntent = PendingIntent.getBroadcast(
             applicationContext,
@@ -261,12 +263,12 @@ class AddToDoActivity : FragmentActivity() {
         )
 
 
-//        val alarmManager = applicationContext.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-//        alarmManager.setRepeating(
-//            AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),
-//            (1000).toLong(), //datetime here
-//            pendingIntent
-//        )
+        val alarmManager = applicationContext.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        alarmManager.setRepeating(
+            AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),
+            (1000).toLong(), //datetime here
+            pendingIntent
+        )
 
         val notificationBuilder = Notification.Builder(
             applicationContext, mChannelID
@@ -275,12 +277,13 @@ class AddToDoActivity : FragmentActivity() {
             .setSmallIcon(android.R.drawable.stat_sys_warning)
             .setAutoCancel(true)
             .setContentTitle(contentTitle)
+            .setContentText("Call this contact: $name")
             .setContentIntent(pendingIntent)
 //            .setWhen(System.currentTimeMillis() + (10000).toLong())
+            //set to specific time
             //set repeatable
             //set to update contact as well
-            //set text to have name
-            //set to specific time
+
 
         // Pass the Notification to the NotificationManager:
         mNotificationManager.notify(
@@ -520,7 +523,6 @@ class AddToDoActivity : FragmentActivity() {
 
         // Notification Text Elements
         private const val tickerText = "This is a Really, Really, Super Long Notification Message!"
-        private const val contentTitle = "Notification"
-        private const val contentText = "You've Been Notified!"
+        private const val contentTitle = "Call Your Mother Notification"
     }
 }
