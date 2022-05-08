@@ -17,8 +17,9 @@ class ToDoItem {
 
     var icon : String? = String();
     var name : String? = String();
-    public var deadline : ZonedDateTime? = null;
+    var deadline : ZonedDateTime? = null;
     var phoneNumber : String? = String();
+    var oldTime : ZonedDateTime? = null;
     var dateRange : Period? = null;
     var timeRange : Duration? = null;
     /*
@@ -30,11 +31,12 @@ class ToDoItem {
         NOTDONE, DONE
     }
     */
-    internal constructor(icon: String, name: String, deadline: ZonedDateTime, phoneNumber: String, dateRange: Period, timeRange: Duration) {
+    internal constructor(icon: String, name: String, deadline: ZonedDateTime, phoneNumber: String, oldTime: ZonedDateTime, dateRange: Period, timeRange: Duration) {
         this.icon = icon
         this.name = name
         this.deadline = deadline
         this.phoneNumber = phoneNumber
+        this.oldTime = oldTime
         this.dateRange = dateRange
         this.timeRange = timeRange
     }
@@ -46,13 +48,14 @@ class ToDoItem {
         name = intent.getStringExtra("name")
         deadline = intent.getSerializableExtra("deadline") as ZonedDateTime
         phoneNumber = intent.getStringExtra("phoneNumber")
+        oldTime = intent.getSerializableExtra("oldTime") as ZonedDateTime
         dateRange = intent.getSerializableExtra("dateRange") as Period?
         timeRange = intent.getSerializableExtra("timeRange") as Duration?
 
     }
 
     override fun toString(): String {
-        return (icon + ITEM_SEP + name + ITEM_SEP + deadline.toString() + ITEM_SEP + phoneNumber + ITEM_SEP + dateRange.toString() + ITEM_SEP + timeRange.toString() + ITEM_SEP)
+        return (icon + ITEM_SEP + name + ITEM_SEP + deadline.toString() + ITEM_SEP + phoneNumber + ITEM_SEP + oldTime.toString() + ITEM_SEP + dateRange.toString() + ITEM_SEP + timeRange.toString() + ITEM_SEP)
 //                + FORMAT.format(date))
     }
 
@@ -73,6 +76,7 @@ class ToDoItem {
             name: String,
             deadline: ZonedDateTime?,
             phoneNumber: String?,
+            oldTime: ZonedDateTime?,
             dateRange: Period?,
             timeRange: Duration?
         ) {
@@ -80,6 +84,7 @@ class ToDoItem {
             intent.putExtra("name", name)
             intent.putExtra("deadline", deadline)
             intent.putExtra("phoneNumber", phoneNumber)
+            intent.putExtra("oldTime", oldTime)
             intent.putExtra("dateRange", dateRange)
             intent.putExtra("timeRange", timeRange)
         }

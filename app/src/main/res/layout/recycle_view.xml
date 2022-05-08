@@ -48,9 +48,10 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
+        android:src="@drawable/ic_add_button"
         android:translationX="340dp"
         android:translationY="660dp"
-        android:src="@drawable/ic_add_button"
+        android:backgroundTint="#ffb33a"
         app:fabSize="normal" />
 
 

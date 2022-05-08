@@ -73,10 +73,21 @@ class ToDoListAdapter(private val mContext: Context) :
     }
 
     fun update(item: ToDoItem) {
-        var helper = true;
         for (contact in mItems) {
             if(contact.name == item.name) {
+                Log.i(TAG, "First")
+                Log.i(TAG, "Contact: " + contact.deadline)
+                Log.i(TAG, "Item: " + item.deadline)
                 contact.deadline = item.deadline
+            }
+        }
+        notifyDataSetChanged()
+    }
+
+    fun delete(item: ToDoItem) {
+        for (contact in mItems) {
+            if(contact.name == item.name) {
+                mItems.remove(contact)
             }
         }
         notifyDataSetChanged()
@@ -157,6 +168,9 @@ class ToDoListAdapter(private val mContext: Context) :
                 abc.putExtra("icon", mItems[position-1].icon)
                 abc.putExtra("name", mItems[position-1].name)
                 abc.putExtra("phoneNumber", mItems[position-1].phoneNumber)
+                abc.putExtra("oldTime", mItems[position-1].oldTime)
+                abc.putExtra("dateRange", mItems[position-1].dateRange)
+                abc.putExtra("timeRange", mItems[position-1].timeRange)
 
                 startActivityForResult(mContext as Activity, abc, ToDoManagerActivity.UPDATE_TODO_ITEM_REQUEST, null)
             }

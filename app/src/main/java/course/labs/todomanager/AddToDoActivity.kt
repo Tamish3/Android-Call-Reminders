@@ -229,7 +229,7 @@ class AddToDoActivity : FragmentActivity() {
                 Toast.LENGTH_SHORT
             ).show()
 
-            ToDoItem.packageIntent(data, contactIcon, name, deadline, phoneNumber, dateRange, timeRange)
+            ToDoItem.packageIntent(data, contactIcon, name, deadline, phoneNumber, currentTime, dateRange, timeRange)
 
             // TODO - return data Intent and finish
             setResult(RESULT_OK, data)
