@@ -1,7 +1,5 @@
 package course.labs.todomanager
 
-//import course.labs.todomanager.ToDoItem.Priority
-//import course.labs.todomanager.ToDoItem.Status
 
 import android.annotation.SuppressLint
 import android.app.*
@@ -47,7 +45,9 @@ class AddToDoActivity : FragmentActivity() {
     var hours: Int = 0
     var minutes: Int = 0
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_todo_new)
         nameView = findViewById<TextView>(R.id.contactNameView)
@@ -189,8 +189,8 @@ class AddToDoActivity : FragmentActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
         })
-
-        //actionBar!!.title = "Add New Contact";
+//          actionBar = setActionBar()
+//        actionBar!!.title = "Add New Contact";
         val cancelButton = findViewById<View>(R.id.cancelButton) as Button
         cancelButton.setOnClickListener {
             Log.i(TAG, "Entered cancelButton.OnClickListener.onClick()")
@@ -234,7 +234,7 @@ class AddToDoActivity : FragmentActivity() {
                 Toast.LENGTH_SHORT
             ).show()
 
-            ToDoItem.packageIntent(data, contactIcon, name, deadline, phoneNumber, dateRange, timeRange)
+            ToDoItem.packageIntent(data, contactIcon, name, deadline, phoneNumber, currentTime, dateRange, timeRange)
 
             //notify
             //pass in datetime and name

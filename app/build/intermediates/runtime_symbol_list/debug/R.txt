@@ -755,6 +755,7 @@ int color foreground_material_dark 0x7f050059
 int color foreground_material_light 0x7f05005a
 int color highlighted_text_material_dark 0x7f05005b
 int color highlighted_text_material_light 0x7f05005c
+int color ic_launcher_background 0x7f0500c1
 int color material_blue_grey_800 0x7f05005d
 int color material_blue_grey_900 0x7f05005e
 int color material_blue_grey_950 0x7f05005f
@@ -1294,7 +1295,7 @@ int drawable ic_clear_black_24dp 0x7f07006f
 int drawable ic_edit_black_24dp 0x7f070070
 int drawable ic_keyboard_arrow_left_black_24dp 0x7f070071
 int drawable ic_keyboard_arrow_right_black_24dp 0x7f070072
-int drawable ic_launcher 0x7f070073
+int drawable ic_launcher_foreground 0x7f070094
 int drawable ic_menu_arrow_down_black_24dp 0x7f070074
 int drawable ic_menu_arrow_up_black_24dp 0x7f070075
 int drawable ic_mtrl_checked_circle 0x7f070076
@@ -1657,6 +1658,7 @@ int id updatecancelButton 0x7f08014e
 int id updatecustom 0x7f08014f
 int id updatecustom_layout 0x7f080150
 int id updatedays 0x7f080151
+int id updatedeleteButton 0x7f080159
 int id updatehours 0x7f080152
 int id updateminutes 0x7f080153
 int id updatemonths 0x7f080154
@@ -1814,6 +1816,9 @@ int layout text_view_without_line_height 0x7f0b006b
 int layout todo_item 0x7f0b006c
 int layout todo_item_old 0x7f0b006d
 int layout update 0x7f0b006e
+int mipmap ic_launcher 0x7f110000
+int mipmap ic_launcher_foreground 0x7f110001
+int mipmap ic_launcher_round 0x7f110002
 int plurals mtrl_badge_content_description 0x7f0c0000
 int string abc_action_bar_home_description 0x7f0d0000
 int string abc_action_bar_up_description 0x7f0d0001

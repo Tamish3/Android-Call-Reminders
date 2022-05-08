@@ -193,14 +193,29 @@ class UpdateToDoActivity : FragmentActivity() {
         }
 
 //        // TODO - Set up OnClickListener for the Reset Button
-//        val resetButton = findViewById<View>(R.id.resetButton) as Button
-//        resetButton.setOnClickListener {
-//            Log.i(TAG, "Entered resetButton.OnClickListener.onClick()")
-//
-//            nameView.text = ""
-//            iconView.setImageResource(0)
-//            dropdown.setSelection(0)
-//        }
+        val deleteButton = findViewById<View>(R.id.updatedeleteButton) as Button
+        deleteButton.setOnClickListener {
+            Log.i(TAG, "Entered deleteButton.OnClickListener.onClick()")
+
+            var data = Intent()
+
+            var dateRange = intent.getSerializableExtra("dateRange") as Period
+            var timeRange = intent.getSerializableExtra("timeRange") as Duration
+            var oldTime = intent.getSerializableExtra("oldTime") as ZonedDateTime
+            var deadline = oldTime.plus(dateRange).plus(timeRange)
+
+            val name = intent.getStringExtra("name")
+            val icon = intent.getStringExtra("icon")
+            val phoneNumber = intent.getStringExtra("phoneNumber")
+
+            if (name != null) {
+                ToDoItem.packageIntent(data, icon, name, deadline, phoneNumber, oldTime, dateRange, timeRange)
+            }
+
+            // TODO - return data Intent and finish
+            setResult(RESULT_FIRST_USER, data)
+            finish()
+        }
 
         // Set up OnClickListener for the Submit Button
 
@@ -212,8 +227,8 @@ class UpdateToDoActivity : FragmentActivity() {
             var dateRange = Period.of(years, months, days + 7*weeks)
             var timeRange = Duration.of(hours.toLong(), ChronoUnit.HOURS)
             timeRange = timeRange.plus(minutes.toLong(), ChronoUnit.MINUTES)
-            var currentTime = ZonedDateTime.now()
-            var deadline = currentTime.plus(dateRange).plus(timeRange)
+            var oldTime = intent.getSerializableExtra("oldTime") as ZonedDateTime
+            var deadline = oldTime.plus(dateRange).plus(timeRange)
 
             val name = intent.getStringExtra("name")
             val icon = intent.getStringExtra("icon")
@@ -224,10 +239,10 @@ class UpdateToDoActivity : FragmentActivity() {
                 Toast.LENGTH_SHORT
             ).show()
 
-            if (name != null) {
-                ToDoItem.packageIntent(data, icon, name, deadline, phoneNumber, dateRange, timeRange)
-            }
 
+            if (name != null) {
+                ToDoItem.packageIntent(data, icon, name, deadline, phoneNumber, oldTime, dateRange, timeRange)
+            }
             // TODO - return data Intent and finish
             setResult(RESULT_OK, data)
             finish()

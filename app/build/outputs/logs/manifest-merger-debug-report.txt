@@ -86,7 +86,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ra
 	android:label
 		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:17:9-41
 	android:icon
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:16:9-45
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:16:9-43
 	android:allowBackup
 		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:15:9-35
 	android:theme

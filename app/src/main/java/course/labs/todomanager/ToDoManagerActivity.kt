@@ -27,6 +27,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.time.Duration
 import java.time.Period
 import java.time.ZonedDateTime
@@ -62,6 +63,21 @@ class ToDoManagerActivity : Activity() {
         else {
             getPermission()
             x.adapter = mAdapter
+        }
+
+       findViewById<FloatingActionButton>(R.id.addbutton)?.setOnClickListener {
+            Log.i(ToDoManagerActivity.TAG, "Entered footerView.OnClickListener.onClick()")
+
+            val options: Bundle? = null
+            ActivityCompat.startActivityForResult(
+                this,
+                Intent(
+                    this,
+                    AddToDoActivity::class.java
+                ),
+                ADD_TODO_ITEM_REQUEST,
+                options
+            )
         }
 
 //        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) !=
@@ -159,7 +175,13 @@ class ToDoManagerActivity : Activity() {
         } else if (resultCode== RESULT_OK && requestCode == UPDATE_TODO_ITEM_REQUEST){
             Log.i(TAG, "Getting Entered into Update")
             mAdapter!!.update(ToDoItem(data!!))
+        } else if (resultCode== RESULT_FIRST_USER && requestCode == UPDATE_TODO_ITEM_REQUEST) {
+            mAdapter!!.delete(ToDoItem(data!!))
         }
+//        } else if (resultCode == RESULT_OK && requestCode == DELETE_TODO_ITEM_REQUEST) {
+//            Log.i(TAG, "Getting Entered into Update")
+//            mAdapter!!.update(ToDoItem(data!!))
+//        }
     }
 
     // Do not modify below here
@@ -214,6 +236,7 @@ class ToDoManagerActivity : Activity() {
             var name: String?
             var deadline: ZonedDateTime?
             var phoneNumber: String?
+            var oldTime: ZonedDateTime?
             var dateRange: Period?
             var timeRange: Duration?
             var counter = 0
@@ -225,11 +248,12 @@ class ToDoManagerActivity : Activity() {
                 }
                 deadline = ZonedDateTime.parse(reader.readLine())
                 phoneNumber = reader.readLine()
+                oldTime = ZonedDateTime.parse(reader.readLine())
                 dateRange = Period.parse(reader.readLine())
                 timeRange = Duration.parse(reader.readLine())
                 reader.readLine()
 
-                mAdapter!!.add(ToDoItem(icon, name, deadline, phoneNumber, dateRange, timeRange))
+                mAdapter!!.add(ToDoItem(icon, name, deadline, phoneNumber, oldTime, dateRange, timeRange))
             }
             while (true)
 
@@ -274,6 +298,7 @@ class ToDoManagerActivity : Activity() {
         var mAdapter: ToDoListAdapter? = null;
         const val ADD_TODO_ITEM_REQUEST = 0
         const val UPDATE_TODO_ITEM_REQUEST = 1
+        const val DELETE_TODO_ITEM_REQUEST = 2
         private const val FILE_NAME = "TodoManagerActivityData.txt"
         const val TAG = "Lab-UserInterface"
 
