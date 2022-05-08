@@ -1,8 +1,10 @@
 package course.labs.todomanager
 
 import android.Manifest
+import android.Manifest.permission.BIND_NOTIFICATION_LISTENER_SERVICE
 import android.Manifest.permission.SCHEDULE_EXACT_ALARM
 import android.app.Activity
+import android.content.BroadcastReceiver
 import java.io.BufferedReader
 import java.io.BufferedWriter
 import java.io.FileNotFoundException
@@ -15,6 +17,7 @@ import java.util.Date
 
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
@@ -81,39 +84,17 @@ class ToDoManagerActivity : Activity() {
             )
         }
 
-//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) !=
-//                PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_PHONE_STATE), 1)
-//
-//        }
-//
-//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CALL_LOG) !=
-//            PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_CALL_LOG), 1)
-//
-//        }
-//
-//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.PROCESS_OUTGOING_CALLS) !=
-//            PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.PROCESS_OUTGOING_CALLS), 1)
-//
-//        }
-
-//        val addButton = findViewById<View>(R.id.addButton) as Button
-//        addButton.setOnClickListener {
-//            val options: Bundle? = null
-//            ActivityCompat.startActivityForResult(
-//                applicationContext as Activity,
-//                Intent(
-//                    applicationContext,
-//                    AddToDoActivity::class.java
-//                ),
-//                ADD_TODO_ITEM_REQUEST,
-//                options
-//            )
-//        }
+        val notificationHelper : NotificationHelper? = null
+        val filter : IntentFilter = IntentFilter("android.service.notification.NotificationListenerService")
+        registerReceiver(notificationHelper, filter)
 
 
+    }
+
+    class NotificationHelper : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            Log.i(TAG, "yay")
+        }
     }
 
 //    override fun onRequestPermissionsResult(
@@ -155,7 +136,7 @@ class ToDoManagerActivity : Activity() {
             "Get permission",
             Toast.LENGTH_SHORT
         ).show()
-        ActivityCompat.requestPermissions(this as Activity, arrayOf(READ_CONTACTS_PERM, READ_PHONE_STATE_PERM, READ_CALL_LOG_PERM, PROCESS_OUTGOING_CALS_PERM, SCHEDULE_EXACT_ALARM),
+        ActivityCompat.requestPermissions(this as Activity, arrayOf(READ_CONTACTS_PERM, READ_PHONE_STATE_PERM, READ_CALL_LOG_PERM, PROCESS_OUTGOING_CALS_PERM, SCHEDULE_EXACT_ALARM, BIND_NOTIFICATION_LISTENER_SERVICE),
             PERMISSIONS_PICK_CONTACT_REQUEST
         )
 //        requestPermissions(mContext as Activity, arrayOf(READ_CONTACTS_PERM), PERMISSIONS_PICK_CONTACT_REQUEST)
@@ -296,7 +277,7 @@ class ToDoManagerActivity : Activity() {
     }
 
     companion object {
-        var mAdapter: ToDoListAdapter? = null;
+
         const val ADD_TODO_ITEM_REQUEST = 0
         const val UPDATE_TODO_ITEM_REQUEST = 1
         const val DELETE_TODO_ITEM_REQUEST = 2
@@ -306,7 +287,7 @@ class ToDoManagerActivity : Activity() {
         // IDs for menu items
         private const val MENU_DELETE = Menu.FIRST
         private const val MENU_DUMP = Menu.FIRST + 1
-
+        var mAdapter : ToDoListAdapter? = null
         private var hasPermission: Boolean = false
         private const val PERMISSIONS_PICK_CONTACT_REQUEST = 1
         private const val READ_CONTACTS_PERM = Manifest.permission.READ_CONTACTS

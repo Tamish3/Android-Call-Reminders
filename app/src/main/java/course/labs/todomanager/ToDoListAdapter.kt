@@ -46,6 +46,50 @@ class ToDoListAdapter(private val mContext: Context) :
     // Add a ToDoItem to the adapter
     // Notify observers that the data set has changed
 
+    fun updateTo(name: String) {
+        var counter = -1
+        for (contact in mItems) {
+            counter++
+            if(contact.name == name) {
+                Log.i(TAG, "First")
+                Log.i(TAG, "Contact: " + contact.deadline)
+                Log.i(TAG, "Item: " + contact.deadline)
+                contact.oldTime = contact.deadline
+                contact.deadline = contact.deadline?.plus(contact.dateRange)?.plus(contact.timeRange)
+                break
+            }
+        }
+        val item = mItems[counter]
+        notifyDataSetChanged()
+
+        val notifyIntent = Intent(mContext, NotificationReceiver::class.java)
+            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        val pendingIntent = PendingIntent.getBroadcast(
+            mContext,
+//            0,
+            item.name.hashCode(),
+            notifyIntent,
+            PendingIntent.FLAG_IMMUTABLE
+        )
+
+        alarmManager.cancel(pendingIntent)
+
+        val calendar: Calendar = Calendar.getInstance().apply {
+            timeInMillis = item.deadline?.toEpochSecond()?.times(1000)!!
+        }
+
+        Log.i(TAG, "other calendar update to")
+        Log.i(TAG, calendar.get(Calendar.DAY_OF_MONTH).toString() + " " + item.deadline?.dayOfMonth.toString())
+        Log.i(TAG, calendar.get(Calendar.YEAR).toString() + " " + item.deadline?.year.toString())
+
+        alarmManager?.setExact(
+            AlarmManager.RTC_WAKEUP,
+            calendar.timeInMillis,
+            pendingIntent
+        )
+
+    }
+
     fun add(item: ToDoItem) {
         var helper = true;
         for(contact in mItems) {

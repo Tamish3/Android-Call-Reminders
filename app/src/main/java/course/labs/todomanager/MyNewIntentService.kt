@@ -22,6 +22,7 @@ class MyNewIntentService : IntentService("MyNewIntentService") {
         builder.setContentTitle("Call Your Mother Notification")
         builder.setContentText("Call your contact: " + intent?.getStringExtra("name"))
         builder.setSmallIcon(android.R.drawable.stat_sys_warning)
+        builder.setTicker(intent?.getStringExtra("name"))
         Log.i("tag", "notify")
         val notifyIntent = Intent(this, NotificationSubActivity::class.java)
         val pendingIntent =
