@@ -27,20 +27,25 @@
         />
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="90dp"
         android:orientation="horizontal"
         android:layout_marginTop="30dp">
 
         <ImageView
             android:id="@+id/contactIconView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
             />
+        <Space
+            android:layout_width="15dp"
+            android:layout_height="90dp"/>
         <TextView
             android:id="@+id/contactNameView"
             android:textSize="35dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="90dp"
+            android:gravity="center"
+            android:layout_gravity="center"
             />
     </LinearLayout>
 
@@ -75,7 +80,7 @@
     <LinearLayout
         android:id="@+id/custom_layout"
         android:layout_width="match_parent"
-        android:layout_height="320dp">
+        android:layout_height="280dp">
 
         <EditText
             android:id="@+id/years"

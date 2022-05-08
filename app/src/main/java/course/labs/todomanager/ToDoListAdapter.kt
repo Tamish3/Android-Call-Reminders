@@ -44,6 +44,9 @@ class ToDoListAdapter(private val mContext: Context) :
         for (contact in mItems) {
             counter++
             if(contact.name == name) {
+//                if (ZonedDateTime.now().compareTo(contact.deadline) > 0) {
+//
+//                }
                 contact.oldTime = contact.deadline
                 contact.deadline = contact.deadline?.plus(contact.dateRange)?.plus(contact.timeRange)
                 break

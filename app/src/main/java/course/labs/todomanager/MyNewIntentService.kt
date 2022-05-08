@@ -1,11 +1,14 @@
 package course.labs.todomanager
 
-import android.R
+//import android.R
+import android.R.drawable
 import android.app.AlarmManager
+import course.labs.todomanager.R
 import android.app.IntentService
 import android.app.Notification
 import android.app.PendingIntent
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.util.Log
 import android.widget.Toast
 import androidx.core.app.NotificationManagerCompat
@@ -21,7 +24,7 @@ class MyNewIntentService : IntentService("MyNewIntentService") {
 
         builder.setContentTitle("Call Your Mother Notification")
         builder.setContentText("Call your contact: " + intent?.getStringExtra("name"))
-        builder.setSmallIcon(android.R.drawable.stat_sys_warning)
+        builder.setSmallIcon(course.labs.todomanager.R.drawable.ic_stat_name)
         builder.setTicker(intent?.getStringExtra("name"))
 
         val notifyIntent = Intent(this, NotificationSubActivity::class.java)
