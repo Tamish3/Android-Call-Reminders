@@ -10,7 +10,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="55dp">
+
 
 
 
@@ -31,6 +33,17 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         app:fabSize="normal" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ic_launcher_background"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:title="Call Your Mother"
+        app:title="Call Your Mother"
+        app:titleTextColor="#FFFFFF" />
 
 
 

@@ -2,45 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:text="Update Contact Info"
-        android:textSize="40dp"
-        />
-    <!--    <Button-->
-    <!--        android:id="@+id/contactsButton"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="Select contact"-->
-    <!--        android:layout_marginLeft="10dp"-->
-    <!--        />-->
-    <!--    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="100dp"-->
-    <!--        android:orientation="horizontal"-->
-    <!--        android:layout_marginTop="30dp">-->
-
-    <!--        <ImageView-->
-    <!--            android:id="@+id/contactIconView"-->
-    <!--            android:layout_width="100dp"-->
-    <!--            android:layout_height="100dp"-->
-    <!--            />-->
-    <!--        <TextView-->
-    <!--            android:id="@+id/contactNameView"-->
-    <!--            android:textSize="35dp"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            />-->
-    <!--    </LinearLayout>-->
-
+        android:background="@color/ic_launcher_background"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        android:title="Call Your Mother"
+        app:title="Update Contact"
+        app:titleTextColor="#FFFFFF" />
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30dp"/>
+        android:layout_height="10dp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,7 +46,7 @@
     <LinearLayout
         android:id="@+id/updatecustom_layout"
         android:layout_width="match_parent"
-        android:layout_height="285dp">
+        android:layout_height="555dp">
 
         <EditText
             android:id="@+id/updateyears"
@@ -156,27 +133,32 @@
         >
         <Button
             android:id="@+id/updatecancelButton"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_weight="0.2"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:text="@string/cancel_string" />
         <Space
-            android:layout_width="75dp"
+            android:layout_width="fill_parent"
+            android:layout_weight="0.2"
             android:layout_height="match_parent"
             />
         <Button
             android:id="@+id/updatedeleteButton"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_weight="0.2"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:text="Delete" />
         <Space
-            android:layout_width="75dp"
+            android:layout_width="fill_parent"
+            android:layout_weight="0.2"
             android:layout_height="match_parent"
             />
         <Button
             android:id="@+id/updatesubmitButton"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_weight="0.2"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:text="@string/submit_string" />

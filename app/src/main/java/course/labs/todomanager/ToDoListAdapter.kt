@@ -148,6 +148,12 @@ class ToDoListAdapter(private val mContext: Context) :
 
     }
 
+    fun deleteAll() {
+        for (contact in mItems) {
+            delete(contact)
+        }
+    }
+
     fun delete(item: ToDoItem) {
         for (contact in mItems) {
             if(contact.name == item.name) {
@@ -339,7 +345,7 @@ class ToDoListAdapter(private val mContext: Context) :
 
         var mNameView: TextView? = null
         var mTimeLeftView: TextView? = null
-        var mUpdateView: Button? = null
+        var mUpdateView: ImageView? = null
         var mAddView: FloatingActionButton? = null
     }
 

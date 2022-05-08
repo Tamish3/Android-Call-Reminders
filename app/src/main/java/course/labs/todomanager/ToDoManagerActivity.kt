@@ -3,9 +3,22 @@ package course.labs.todomanager
 import android.Manifest
 import android.Manifest.permission.BIND_NOTIFICATION_LISTENER_SERVICE
 import android.Manifest.permission.SCHEDULE_EXACT_ALARM
+import android.annotation.SuppressLint
+import android.app.ActionBar
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.*
+import java.io.BufferedReader
+import java.io.BufferedWriter
+import java.io.FileNotFoundException
+import java.io.IOException
+import java.io.InputStreamReader
+import java.io.OutputStreamWriter
+import java.io.PrintWriter
+import java.text.ParseException
+import java.util.Date
+
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.Settings
 import android.provider.Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS
@@ -13,20 +26,25 @@ import android.text.TextUtils
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.view.Window
+import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import java.io.*
-import java.text.ParseException
 import java.time.Duration
 import java.time.Period
 import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
 
 
-class ToDoManagerActivity : Activity() {
+class ToDoManagerActivity : AppCompatActivity() {
 
     private var enableNotificationListenerAlertDialog: AlertDialog? = null
 
@@ -34,6 +52,8 @@ class ToDoManagerActivity : Activity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.recycle_view)
+        var toolbar= findViewById<Toolbar>(R.id.toolbar);
+        setSupportActionBar(toolbar)
         Log.i(TAG, "Entered onCreate()")
 
         // Todo - Create a new TodoListAdapter for this Activity's RecyclerView
@@ -129,23 +149,12 @@ class ToDoManagerActivity : Activity() {
     }
 
     fun checkPermission(): Boolean {
-        Toast.makeText(
-            this,
-            "check permission",
-            Toast.LENGTH_SHORT
-        ).show()
-//        mContext.checkSelfPermission(mContext)
         return PermissionChecker.checkSelfPermission(
             this, READ_CONTACTS_PERM
         ) == PermissionChecker.PERMISSION_GRANTED
     }
 
     fun getPermission() {
-        Toast.makeText(
-            this,
-            "Get permission",
-            Toast.LENGTH_SHORT
-        ).show()
         ActivityCompat.requestPermissions(this as Activity, arrayOf(READ_CONTACTS_PERM, READ_PHONE_STATE_PERM, READ_CALL_LOG_PERM, PROCESS_OUTGOING_CALS_PERM, SCHEDULE_EXACT_ALARM, BIND_NOTIFICATION_LISTENER_SERVICE, ACCESS_NOTIFICATION_POLICY),
             PERMISSIONS_PICK_CONTACT_REQUEST
         )
@@ -155,6 +164,7 @@ class ToDoManagerActivity : Activity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
 
         Log.i(TAG, "Entered onActivityResult()")
 
@@ -198,7 +208,7 @@ class ToDoManagerActivity : Activity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             MENU_DELETE -> {
-                mAdapter!!.clear()
+                mAdapter!!.deleteAll()
                 true
             }
             MENU_DUMP -> {

@@ -19,7 +19,7 @@
         android:id="@+id/NameLabelView"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:gravity=""
+        android:gravity="center_horizontal"
         android:text="@string/name_label"
         android:textSize="24sp" >
 

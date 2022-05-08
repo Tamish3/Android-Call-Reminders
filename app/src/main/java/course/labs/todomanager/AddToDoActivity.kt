@@ -184,7 +184,6 @@ class AddToDoActivity : FragmentActivity() {
 //        actionBar!!.title = "Add New Contact";
         val cancelButton = findViewById<View>(R.id.cancelButton) as Button
         cancelButton.setOnClickListener {
-            Log.i(TAG, "Entered cancelButton.OnClickListener.onClick()")
 
             // TODO - Indicate result and finish
             setResult(RESULT_CANCELED)
@@ -219,17 +218,30 @@ class AddToDoActivity : FragmentActivity() {
             var deadline = currentTime.plus(dateRange).plus(timeRange)
 
             val name = nameView.text.toString()
+            if(name == "") {
+                Toast.makeText(applicationContext,
+                    "You need to choose a contact!",
+                    Toast.LENGTH_SHORT
+                ).show()
+                pickContactIntent()
+            }
+            else {
 
-            Toast.makeText(applicationContext,
-                "$name will be notified at $deadline.toString()",
-                Toast.LENGTH_SHORT
-            ).show()
+                ToDoItem.packageIntent(
+                    data,
+                    contactIcon,
+                    name,
+                    deadline,
+                    phoneNumber,
+                    currentTime,
+                    dateRange,
+                    timeRange
+                )
 
-            ToDoItem.packageIntent(data, contactIcon, name, deadline, phoneNumber, currentTime, dateRange, timeRange)
-
-            // TODO - return data Intent and finish
-            setResult(RESULT_OK, data)
-            finish()
+                // TODO - return data Intent and finish
+                setResult(RESULT_OK, data)
+                finish()
+            }
         }
     }
 
@@ -267,12 +279,6 @@ class AddToDoActivity : FragmentActivity() {
         // Ensure that this call is the result of a successful PICK_CONTACT_REQUEST request
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK && requestCode == PICK_CONTACT_REQUEST) {
-            Toast.makeText(
-                this,
-                "Entered first if",
-                Toast.LENGTH_SHORT
-            ).show()
-
             val contactUri = data!!.data
             val projection = null
             val cr = contentResolver
@@ -287,12 +293,6 @@ class AddToDoActivity : FragmentActivity() {
                     contactIcon = "";
                 }
                 val phoneResults = Integer.parseInt(cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER)))
-
-                Toast.makeText(
-                    this,
-                    "Got Id$contactId",
-                    Toast.LENGTH_SHORT
-                ).show()
 
                 if (phoneResults == 1) {
                     val cursor2 = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
