@@ -936,6 +936,7 @@ dimen abc_text_size_subtitle_material_toolbar
 dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
 dimen action_bar_size
+dimen activity_margin
 dimen appcompat_dialog_background_inset
 dimen cardview_compat_inset_shadow
 dimen cardview_default_elevation
@@ -1303,6 +1304,8 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_settings_button
+drawable ic_stat_name
 drawable mtrl_dialog_background
 drawable mtrl_dropdown_arrow
 drawable mtrl_ic_arrow_drop_down
@@ -1534,6 +1537,7 @@ id mtrl_picker_text_input_range_end
 id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id multiply
+id myCardView
 id nameView
 id navigation_header_container
 id never
@@ -1643,6 +1647,7 @@ id title
 id titleDividerNoCustom
 id titleView
 id title_template
+id toolbar
 id top
 id topPanel
 id touch_outside
@@ -1801,6 +1806,7 @@ layout recycle_view
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout sub_activity
 layout support_simple_spinner_dropdown_item
 layout test_action_chip
 layout test_design_checkbox
@@ -1853,6 +1859,8 @@ string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
 string cancel_string
+string channel_description
+string channel_name
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
@@ -1869,6 +1877,7 @@ string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
+string intent_received_string
 string mtrl_badge_numberless_content_description
 string mtrl_chip_close_icon_content_description
 string mtrl_exceed_max_badge_number_suffix
@@ -1904,9 +1913,11 @@ string mtrl_picker_toggle_to_day_selection
 string mtrl_picker_toggle_to_text_input_mode
 string mtrl_picker_toggle_to_year_selection
 string name_label
+string no
 string no_date_set_string
 string no_time_set_string
 string not_done_string
+string notify_string
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
@@ -1916,6 +1927,8 @@ string priority_high_string
 string priority_low_string
 string priority_medium_string
 string priority_string
+string read_notifications_explanation
+string read_notifications_string
 string reset_string
 string search_menu_title
 string status_bar_notification_info_overflow
@@ -1924,6 +1937,7 @@ string submit_string
 string time_and_date_string
 string time_label
 string title_string
+string yes
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
