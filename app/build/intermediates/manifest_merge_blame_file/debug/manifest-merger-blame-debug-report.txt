@@ -48,8 +48,8 @@
 28-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:22:9-65
 29        <activity
 29-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:23:9-31:20
-30            android:name="course.labs.todomanager.ToDoManagerActivity"
-30-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:24:13-48
+30            android:name="course.labs.todomanager.ContactManagerActivity"
+30-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:24:13-51
 31            android:exported="true" >
 31-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:25:13-36
 32            <intent-filter>
@@ -63,13 +63,13 @@
 35-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:29:27-74
 36            </intent-filter>
 37        </activity>
-38        <activity android:name="course.labs.todomanager.AddToDoActivity" >
+38        <activity android:name="course.labs.todomanager.AddContactActivity" >
 38-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:32:9-33:20
-38-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:32:19-50
+38-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:32:19-53
 39        </activity>
-40        <activity android:name="course.labs.todomanager.UpdateToDoActivity" >
+40        <activity android:name="course.labs.todomanager.UpdateContactActivity" >
 40-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:34:9-35:20
-40-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:34:19-53
+40-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:34:19-56
 41        </activity>
 42
 43        <receiver
@@ -102,8 +102,8 @@
 57
 58        <service
 58-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:50:9-53:19
-59            android:name="course.labs.todomanager.MyNewIntentService"
-59-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:51:13-47
+59            android:name="course.labs.todomanager.NotificationIntentService"
+59-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:51:13-54
 60            android:exported="false" >
 60-->C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:52:13-37
 61        </service>

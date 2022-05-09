@@ -5,8 +5,7 @@ import android.content.Intent
 import android.os.IBinder
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
-import android.util.Log
-import course.labs.todomanager.ToDoManagerActivity.Companion.mAdapter
+import course.labs.todomanager.ContactManagerActivity.Companion.mAdapter
 
 
 class NotificationListener : NotificationListenerService() {

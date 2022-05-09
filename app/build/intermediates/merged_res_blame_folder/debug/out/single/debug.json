@@ -72,8 +72,8 @@
         "source": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\src\\main\\res\\drawable-xhdpi\\ic_settings_button.png"
     },
     {
-        "merged": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\build\\intermediates\\merged_res\\debug\\layout_header_view_old.xml.flat",
-        "source": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\src\\main\\res\\layout\\header_view_old.xml"
+        "merged": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\build\\intermediates\\merged_res\\debug\\layout_contact_item.xml.flat",
+        "source": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\src\\main\\res\\layout\\contact_item.xml"
     },
     {
         "merged": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
@@ -88,12 +88,12 @@
         "source": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\build\\intermediates\\merged_res\\debug\\layout_add_todo.xml.flat",
-        "source": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\src\\main\\res\\layout\\add_todo.xml"
-    },
-    {
         "merged": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\build\\intermediates\\merged_res\\debug\\layout_recycle_view.xml.flat",
         "source": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\src\\main\\res\\layout\\recycle_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\build\\intermediates\\merged_res\\debug\\layout_add_contact.xml.flat",
+        "source": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\src\\main\\res\\layout\\add_contact.xml"
     },
     {
         "merged": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\build\\intermediates\\merged_res\\debug\\drawable-hdpi_ic_account_circle.png.flat",
@@ -102,10 +102,6 @@
     {
         "merged": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_ic_add_button.png.flat",
         "source": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\src\\main\\res\\drawable-xhdpi\\ic_add_button.png"
-    },
-    {
-        "merged": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\build\\intermediates\\merged_res\\debug\\layout_todo_item_old.xml.flat",
-        "source": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\src\\main\\res\\layout\\todo_item_old.xml"
     },
     {
         "merged": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\build\\intermediates\\merged_res\\debug\\layout_sub_activity.xml.flat",
@@ -128,16 +124,8 @@
         "source": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_stat_name.png"
     },
     {
-        "merged": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\build\\intermediates\\merged_res\\debug\\layout_add_todo_new.xml.flat",
-        "source": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\src\\main\\res\\layout\\add_todo_new.xml"
-    },
-    {
         "merged": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\build\\intermediates\\merged_res\\debug\\drawable-hdpi_ic_settings_button.png.flat",
         "source": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\src\\main\\res\\drawable-hdpi\\ic_settings_button.png"
-    },
-    {
-        "merged": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\build\\intermediates\\merged_res\\debug\\layout_todo_item.xml.flat",
-        "source": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\src\\main\\res\\layout\\todo_item.xml"
     },
     {
         "merged": "C:\\Users\\rauna\\Documents\\GitHub\\CMSC436FinalProject\\CMSC436FinalProject\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_ic_stat_name.png.flat",

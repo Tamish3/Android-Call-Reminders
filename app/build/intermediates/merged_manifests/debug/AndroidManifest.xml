@@ -27,7 +27,7 @@
         android:testOnly="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
         <activity
-            android:name="course.labs.todomanager.ToDoManagerActivity"
+            android:name="course.labs.todomanager.ContactManagerActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,9 +35,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="course.labs.todomanager.AddToDoActivity" >
+        <activity android:name="course.labs.todomanager.AddContactActivity" >
         </activity>
-        <activity android:name="course.labs.todomanager.UpdateToDoActivity" >
+        <activity android:name="course.labs.todomanager.UpdateContactActivity" >
         </activity>
 
         <receiver
@@ -56,7 +56,7 @@
         </receiver>
 
         <service
-            android:name="course.labs.todomanager.MyNewIntentService"
+            android:name="course.labs.todomanager.NotificationIntentService"
             android:exported="false" >
         </service>
         <service

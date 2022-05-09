@@ -8,8 +8,6 @@ import android.net.Uri
 import android.provider.ContactsContract
 import android.telephony.PhoneNumberUtils
 import android.telephony.TelephonyManager
-import android.util.Log
-import android.widget.Toast
 import java.time.ZonedDateTime
 
 
@@ -17,7 +15,7 @@ class CallReceiver : BroadcastReceiver() {
     companion object {
         internal const val TAG = "Receiver"
     }
-    private lateinit var adapter: ToDoListAdapter;
+    private lateinit var adapter: ContactListAdapter;
     //https://www.youtube.com/watch?v=rlzfcqDlovg
     //https://stackoverflow.com/questions/1853220/retrieve-incoming-calls-phone-number-in-android?noredirect=1&lq=1
     override fun onReceive(context: Context, intent: Intent) {
@@ -26,16 +24,16 @@ class CallReceiver : BroadcastReceiver() {
             val incomingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER)
 
             if (incomingNumber != null) {
-                if (ToDoManagerActivity.mAdapter != null) {
-                    adapter = ToDoManagerActivity.mAdapter!!
+                if (ContactManagerActivity.mAdapter != null) {
+                    adapter = ContactManagerActivity.mAdapter!!
                     updateDeadline(incomingNumber, context)
                 }
             } //We can condense later, code is the same
         } else if (state.equals(TelephonyManager.EXTRA_STATE_OFFHOOK)) {
             val outgoingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER)
             if (outgoingNumber != null) {
-                if (ToDoManagerActivity.mAdapter != null) {
-                    adapter = ToDoManagerActivity.mAdapter!!
+                if (ContactManagerActivity.mAdapter != null) {
+                    adapter = ContactManagerActivity.mAdapter!!
                     updateDeadline(outgoingNumber, context)
                 }
             }
@@ -73,7 +71,7 @@ class CallReceiver : BroadcastReceiver() {
     @SuppressLint("NewApi")
     private fun updateDeadline(number: String, context: Context) : Unit {
         for (i in 1 until adapter.itemCount) {
-            var item : ToDoItem = adapter.getItem(i) as ToDoItem
+            var item : ContactItem = adapter.getItem(i) as ContactItem
             if (PhoneNumberUtils.areSamePhoneNumber(item.phoneNumber.toString(), number, "us")) {
                 item.deadline = ZonedDateTime.now().plus(item.dateRange).plus(item.timeRange)
                 adapter.notifyDataSetChanged();

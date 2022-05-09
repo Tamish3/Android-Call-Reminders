@@ -105,12 +105,12 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ra
 		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:19:9-35
 	android:theme
 		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:22:9-65
-activity#course.labs.todomanager.ToDoManagerActivity
+activity#course.labs.todomanager.ContactManagerActivity
 ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:23:9-31:20
 	android:exported
 		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:25:13-36
 	android:name
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:24:13-48
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:24:13-51
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:26:13-30:29
 action#android.intent.action.MAIN
@@ -121,14 +121,14 @@ category#android.intent.category.LAUNCHER
 ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:29:17-77
 	android:name
 		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:29:27-74
-activity#course.labs.todomanager.AddToDoActivity
+activity#course.labs.todomanager.AddContactActivity
 ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:32:9-33:20
 	android:name
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:32:19-50
-activity#course.labs.todomanager.UpdateToDoActivity
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:32:19-53
+activity#course.labs.todomanager.UpdateContactActivity
 ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:34:9-35:20
 	android:name
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:34:19-53
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:34:19-56
 receiver#course.labs.todomanager.CallReceiver
 ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:36:9-44:20
 	android:enabled
@@ -155,12 +155,12 @@ ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProje
 		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:48:13-36
 	android:name
 		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:46:13-49
-service#course.labs.todomanager.MyNewIntentService
+service#course.labs.todomanager.NotificationIntentService
 ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:50:9-53:19
 	android:exported
 		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:52:13-37
 	android:name
-		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:51:13-47
+		ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:51:13-54
 service#course.labs.todomanager.NotificationListener
 ADDED from C:\Users\rauna\Documents\GitHub\CMSC436FinalProject\CMSC436FinalProject\app\src\main\AndroidManifest.xml:55:9-70:19
 	android:label
