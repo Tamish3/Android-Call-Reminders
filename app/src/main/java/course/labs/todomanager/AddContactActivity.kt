@@ -19,7 +19,8 @@ import androidx.fragment.app.FragmentActivity
 import java.time.*
 import java.time.temporal.ChronoUnit
 
-
+/** Takes care of adding a new contact that is chosen by
+ * the user */
 class AddContactActivity : FragmentActivity() {
     private lateinit var nameView: TextView
     private lateinit var iconView: ImageView
@@ -34,6 +35,7 @@ class AddContactActivity : FragmentActivity() {
     var minutes: Int = 0
 
 
+    //gets contact information and grabs the time
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -56,6 +58,7 @@ class AddContactActivity : FragmentActivity() {
         custom.visibility = View.GONE
         customLayout.visibility = View.GONE
 
+        //choosing a default time or a custom time
         dropdown.setOnItemSelectedListener(object : OnItemSelectedListener {
             override fun onItemSelected(parentView: AdapterView<*>?, selectedItemView: View, position: Int, id: Long) {
                 var value = dropdown.selectedItem.toString()
@@ -99,6 +102,8 @@ class AddContactActivity : FragmentActivity() {
             }
         })
 
+        // taking care of getting the appropriate time based on
+        // the values entered when custom is chosen
         var yearsTxt = findViewById<EditText>(R.id.years)
         var monthsTxt = findViewById<EditText>(R.id.months)
         var weeksTxt = findViewById<EditText>(R.id.weeks)
@@ -177,17 +182,17 @@ class AddContactActivity : FragmentActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
         })
-//          actionBar = setActionBar()
-//        actionBar!!.title = "Add New Contact";
+
+        //cancels the process and returns to the home screen
         val cancelButton = findViewById<View>(R.id.cancelButton) as Button
         cancelButton.setOnClickListener {
 
-            // TODO - Indicate result and finish
+            // Indicate result and the finish
             setResult(RESULT_CANCELED)
             finish()
         }
 
-        // TODO - Set up OnClickListener for the Reset Button
+        // resets all the value on the page to default or empty
         val resetButton = findViewById<View>(R.id.resetButton) as Button
         resetButton.setOnClickListener {
             Log.i(TAG, "Entered resetButton.OnClickListener.onClick()")
@@ -202,7 +207,8 @@ class AddContactActivity : FragmentActivity() {
         createNotificationChannel()
 
         // Set up OnClickListener for the Submit Button
-
+        //submits the information gathered as a Contact Item
+        // which is sent to the
         val submitButton = findViewById<View>(R.id.submitButton) as Button
         submitButton.setOnClickListener {
             Log.i(TAG, "Entered submitButton.OnClickListener.onClick()")
@@ -235,7 +241,6 @@ class AddContactActivity : FragmentActivity() {
                     timeRange
                 )
 
-                // TODO - return data Intent and finish
                 setResult(RESULT_OK, data)
                 finish()
             }

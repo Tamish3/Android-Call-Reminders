@@ -25,89 +25,92 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.collections.ArrayList
 
+
+/**
+ * The class in which the List of the contacts are being stored
+ * and also how they are manipulateed during an update or delete
+ * by a user or also when they need to get update because of
+ * the CallListener aor Notification Listener
+ */
 class ContactListAdapter(private val mContext: Context) :
     RecyclerView.Adapter<ContactListAdapter.ViewHolder>() {
 
     private val mItems = ArrayList<ContactItem>()
     private val alarmManager = mContext.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
-    // Add a ToDoItem to the adapter
-    // Notify observers that the data set has changed
 
+    //update when a call or notification is recieved so the deadline is
+    //just being incremented
     fun updateTo(name: String) {
         var counter = -1
         for (contact in mItems) {
             counter++
             if(contact.name == name) {
-//                if (ZonedDateTime.now().compareTo(contact.deadline) > 0) {
-//
-//                }
                 contact.oldTime = contact.deadline
                 contact.deadline = contact.deadline?.plus(contact.dateRange)?.plus(contact.timeRange)
                 break
             }
         }
+
+        //list and alarm manager are updated accordingly
         val item = mItems[counter]
         notifyDataSetChanged()
+
 
         val notifyIntent = Intent(mContext, NotificationReceiver::class.java)
             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         val pendingIntent = PendingIntent.getBroadcast(
             mContext,
-//            0,
             item.name.hashCode(),
             notifyIntent,
             PendingIntent.FLAG_IMMUTABLE
         )
-
         alarmManager.cancel(pendingIntent)
-
         val calendar: Calendar = Calendar.getInstance().apply {
             timeInMillis = item.deadline?.toEpochSecond()?.times(1000)!!
         }
-
         alarmManager?.setExact(
             AlarmManager.RTC_WAKEUP,
             calendar.timeInMillis,
             pendingIntent
         )
-
     }
 
+    //adding a new contact to the list
     fun add(item: ContactItem) {
         var helper = true;
+
+        //make sure not adding a duplicate
         for(contact in mItems) {
             if(contact.name == item.name) {
                 helper = false;
             }
         }
+
+        //if not adding a duplicate goes through if else it enters
+        //the else and sends a AlertDialog
         if(helper) {
             mItems.add(item)
             notifyItemChanged(mItems.size)
-            //https://www.tutorialkart.com/kotlin-android/android-alert-dialog-example/
-
-        } else {
+         } else { //Source : //https://www.tutorialkart.com/kotlin-android/android-alert-dialog-example/
             val dialogBuilder = AlertDialog.Builder(mContext)
-
-            // set message of alert dialog
+            // setting the message
             dialogBuilder.setMessage("You can update by clicking the settings icon to the corresponding contact.")
-                // if the dialog is cancelable
                 .setCancelable(false)
-                // negative button text and action
                 .setNegativeButton("OK", DialogInterface.OnClickListener {
                         dialog, id -> dialog.cancel()
                 })
 
-            // create dialog box
+            // creating a dialog box
             val alert = dialogBuilder.create()
-            // set title for alert dialog box
             alert.setTitle("${item.name} was already added")
-            // show alert dialog
             alert.show()
         }
     }
 
+    //Takes care of update from the user from the UpdateContactActivity
     fun update(item: ContactItem) {
+        //finds which item to update and updates it
         for (contact in mItems) {
             if (contact.name == item.name) {
                 if (contact.deadline!!.isAfter(ZonedDateTime.now())) {
@@ -120,13 +123,16 @@ class ContactListAdapter(private val mContext: Context) :
                 contact.timeRange = item.timeRange
             }
         }
+
+
+        //notifies that the data set has been changed and also
+        //updates the alarm manager accordingly
         notifyDataSetChanged()
 
         val notifyIntent = Intent(mContext, NotificationReceiver::class.java)
             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         val pendingIntent = PendingIntent.getBroadcast(
             mContext,
-//            0,
             item.name.hashCode(),
             notifyIntent,
             PendingIntent.FLAG_IMMUTABLE
@@ -146,8 +152,12 @@ class ContactListAdapter(private val mContext: Context) :
 
     }
 
+    //When user wants to delete all the contacts
+    //that are being tracked of deleteAll() is called
     fun deleteAll() {
         val iterator = mItems.iterator()
+
+        //goes through all the items in the list
         while(iterator.hasNext()) {
             val item = iterator.next()
             iterator.remove()
@@ -166,6 +176,8 @@ class ContactListAdapter(private val mContext: Context) :
         }
     }
 
+    //when user wants delete a single Contact
+    // inf the UpdateContactActivity
     fun delete(item: ContactItem) {
         for (contact in mItems) {
             if(contact.name == item.name) {
@@ -181,7 +193,6 @@ class ContactListAdapter(private val mContext: Context) :
             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         val pendingIntent = PendingIntent.getBroadcast(
             mContext,
-//            0,
             item.name.hashCode(),
             notifyIntent,
             PendingIntent.FLAG_IMMUTABLE
@@ -189,26 +200,21 @@ class ContactListAdapter(private val mContext: Context) :
         alarmManager.cancel(pendingIntent)
     }
 
-    // Clears the list adapter of all items.
-    fun clear() {
-        mItems.clear()
-        notifyDataSetChanged()
-    }
-
     fun getItem(pos: Int): Any {
         return mItems[pos - 1]
     }
 
-    // Returns the number of ToDoItems
-
+    // Returns the number of ContactItems
     override fun getItemCount(): Int {
         return mItems.size + 1
     }
 
+    // returns if the
     override fun getItemViewType(position: Int): Int {
-        return if (position==0) HEADER_VIEW_TYPE else TODO_VIEW_TYPE
+        return if (position==0) HEADER_VIEW_TYPE else CONTACT_VIEW_TYPE
     }
 
+    //cretaing a notification channel
     private fun createNotificationChannel() {
         mChannelID = "course.labs.todomanager.channel_01"
 
@@ -219,12 +225,11 @@ class ContactListAdapter(private val mContext: Context) :
         val importance = NotificationManager.IMPORTANCE_HIGH
         val mChannel = NotificationChannel(mChannelID, name, importance)
 
-        // Configure the notification channel.
+        // Configure notification channel
         mChannel.description = description
         mChannel.enableLights(true)
 
-        // Sets the notification light color for notifications posted to this
-        // channel, if the device supports this feature.
+        // Sets the notification light color for notifications posted
         mChannel.lightColor = Color.RED
         mChannel.enableVibration(true)
         mChannel.vibrationPattern = mVibratePattern
@@ -232,7 +237,7 @@ class ContactListAdapter(private val mContext: Context) :
         mNotificationManager.createNotificationChannel(mChannel)
     }
 
-    // Retrieve the number of ToDoItems
+    // Retrieve the number of ContactItems
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         Log.i(TAG, "onCreateViewHolder")
 
@@ -251,7 +256,6 @@ class ContactListAdapter(private val mContext: Context) :
             val v = LayoutInflater.from(parent.context).inflate(R.layout.contact_item, parent, false)
             val viewHolder = ViewHolder(v)
 
-            // TODO - Inflate the View (defined in todo_item.xml) for this ToDoItem and store references in ViewHolder
             viewHolder.mIconView = v.findViewById(R.id.iconView)
             viewHolder.mNameView=v.findViewById(R.id.nameView)
             viewHolder.mTimeLeftView = v.findViewById((R.id.timeLeftView))
@@ -265,27 +269,28 @@ class ContactListAdapter(private val mContext: Context) :
         }
     }
 
+    //adds the contacts to the view
     @RequiresApi(Build.VERSION_CODES.S)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 //        val button = mContext.findViewById()
         if (position == 0) {
             Log.i(ContactManagerActivity.TAG, "Entered footerView.OnClickListener.onClick()")
         } else {
-            val toDoItem = mItems[position - 1]
+            val ContactItem = mItems[position - 1]
 
             Log.i(TAG, "onBindViewHolder   " + viewHolder.mNameView.toString())
             val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy - hh:mm a z")
 
-            if (toDoItem.icon != "") {
-                viewHolder.mIconView!!.setImageURI(Uri.parse(toDoItem.icon))
+            if (ContactItem.icon != "") {
+                viewHolder.mIconView!!.setImageURI(Uri.parse(ContactItem.icon))
             } else {
                 viewHolder.mIconView?.setImageDrawable(getDrawable(mContext, R.drawable.ic_account_circle))
             }
-            viewHolder.mNameView?.text = toDoItem.name
-            viewHolder.mTimeLeftView?.text = toDoItem.deadline!!.format(formatter)
+            viewHolder.mNameView?.text = ContactItem.name
+            viewHolder.mTimeLeftView?.text = ContactItem.deadline!!.format(formatter)
 
             //notify
-            toDoItem.name?.let { createNotification(it, toDoItem.deadline!!) }
+            ContactItem.name?.let { createNotification(it, ContactItem.deadline!!) }
 
             viewHolder.mUpdateView?.setOnClickListener {
                 Log.i(ContactManagerActivity.TAG, "Entered footerView.OnClickListener.onClick()")
@@ -298,7 +303,7 @@ class ContactListAdapter(private val mContext: Context) :
                 abc.putExtra("dateRange", mItems[position-1].dateRange)
                 abc.putExtra("timeRange", mItems[position-1].timeRange)
 
-                startActivityForResult(mContext as Activity, abc, ContactManagerActivity.UPDATE_TODO_ITEM_REQUEST, null)
+                startActivityForResult(mContext as Activity, abc, ContactManagerActivity.UPDATE_CONTACT_ITEM_REQUEST, null)
             }
 
             viewHolder.mAddView?.setOnClickListener {
@@ -311,13 +316,14 @@ class ContactListAdapter(private val mContext: Context) :
                         mContext,
                         AddContactActivity::class.java
                     ),
-                    ContactManagerActivity.ADD_TODO_ITEM_REQUEST,
+                    ContactManagerActivity.ADD_CONTACT_ITEM_REQUEST,
                     options
                 )
             }
         }
     }
 
+    //create the notification for the first time
     @RequiresApi(Build.VERSION_CODES.S)
     private fun createNotification(name: String, deadline: ZonedDateTime) {
         val notifyIntent = Intent(mContext, NotificationReceiver::class.java)
@@ -336,8 +342,6 @@ class ContactListAdapter(private val mContext: Context) :
             timeInMillis = deadline.toEpochSecond() * 1000
         }
 
-
-
         alarmManager?.setExact(
             AlarmManager.RTC_WAKEUP,
             calendar.timeInMillis,
@@ -346,9 +350,7 @@ class ContactListAdapter(private val mContext: Context) :
 
     }
 
-    // Get the ID for the ToDoItem
-    // In this case it's just the position
-
+    // Get the ID for the ContactItem
     override fun getItemId(pos: Int): Long {
         return pos.toLong() - 1
     }
@@ -365,9 +367,9 @@ class ContactListAdapter(private val mContext: Context) :
 
     companion object {
 
-        private const val TAG = "Lab-UserInterface"
+        private const val TAG = "ContactListAdapter"
         private const val HEADER_VIEW_TYPE = R.layout.header_view
-        private const val TODO_VIEW_TYPE = R.layout.contact_item
+        private const val CONTACT_VIEW_TYPE = R.layout.contact_item
 
         private lateinit var mNotificationManager: NotificationManager
         private lateinit var mChannelID: String

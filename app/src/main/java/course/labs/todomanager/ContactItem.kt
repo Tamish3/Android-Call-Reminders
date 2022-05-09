@@ -1,13 +1,14 @@
 package course.labs.todomanager
 
 import android.content.Intent
-import android.graphics.drawable.Drawable
-import android.media.Image
 import java.time.Duration
 import java.time.Period
 import java.time.ZonedDateTime
-import java.util.*
 
+/**
+ * Structure of the contact that is being stored consisting of seven
+ * different componenets
+ */
 class ContactItem {
 
     var icon : String? = String();
@@ -18,6 +19,7 @@ class ContactItem {
     var dateRange : Period? = null;
     var timeRange : Duration? = null;
 
+    //Contact Constructor
     internal constructor(icon: String, name: String, deadline: ZonedDateTime, phoneNumber: String, oldTime: ZonedDateTime, dateRange: Period, timeRange: Duration) {
         this.icon = icon
         this.name = name
@@ -28,8 +30,7 @@ class ContactItem {
         this.timeRange = timeRange
     }
 
-    // Create a new ToDoItem from data packaged in an Intent
-
+    // Create a new ContactItem from data that is packaged in an Intent
     internal constructor(intent: Intent) {
         icon = intent.getStringExtra("icon")
         name = intent.getStringExtra("name")
@@ -41,21 +42,16 @@ class ContactItem {
 
     }
 
+    //ToString for the ContactItem
     override fun toString(): String {
-        return (icon + ITEM_SEP + name + ITEM_SEP + deadline.toString() + ITEM_SEP + phoneNumber + ITEM_SEP + oldTime.toString() + ITEM_SEP + dateRange.toString() + ITEM_SEP + timeRange.toString() + ITEM_SEP)
-//                + FORMAT.format(date))
-    }
-
-    fun toLog(): String {
-        return("Name:" + name + "Time:")
+        return (icon + ITEM_SEP + name + ITEM_SEP + deadline.toString()
+                + ITEM_SEP + phoneNumber + ITEM_SEP + oldTime.toString()
+                + ITEM_SEP + dateRange.toString() + ITEM_SEP
+                + timeRange.toString() + ITEM_SEP)
     }
 
     companion object {
-
         val ITEM_SEP: String? = System.getProperty("line.separator")
-
-        // Take a set of String data values and
-        // package them for transport in an Intent
 
         fun packageIntent(
             intent: Intent,
@@ -76,5 +72,4 @@ class ContactItem {
             intent.putExtra("timeRange", timeRange)
         }
     }
-
 }

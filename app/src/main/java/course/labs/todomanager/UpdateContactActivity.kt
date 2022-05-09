@@ -12,6 +12,8 @@ import androidx.fragment.app.FragmentActivity
 import java.time.*
 import java.time.temporal.ChronoUnit
 
+/** Takes care of changing the next reminder for a contact or deleting
+ * the user */
 class UpdateContactActivity : FragmentActivity() {
 
     var years: Int = 0
@@ -21,6 +23,7 @@ class UpdateContactActivity : FragmentActivity() {
     var hours: Int = 0
     var minutes: Int = 0
 
+    //Oncreat function takes care of getting all the input from the user
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.update)
@@ -35,6 +38,7 @@ class UpdateContactActivity : FragmentActivity() {
         custom.visibility = View.GONE
         customLayout.visibility = View.GONE
 
+        //getting info from a normal dropdown selector
         dropdown.setOnItemSelectedListener(object : OnItemSelectedListener {
             override fun onItemSelected(parentView: AdapterView<*>?, selectedItemView: View, position: Int, id: Long) {
                 var value = dropdown.selectedItem.toString()
@@ -78,6 +82,7 @@ class UpdateContactActivity : FragmentActivity() {
             }
         })
 
+        //storing the time info from custom
         var yearsTxt = findViewById<EditText>(R.id.updateyears)
         var monthsTxt = findViewById<EditText>(R.id.updatemonths)
         var weeksTxt = findViewById<EditText>(R.id.updateweeks)
@@ -85,6 +90,7 @@ class UpdateContactActivity : FragmentActivity() {
         var hoursTxt = findViewById<EditText>(R.id.updatehours)
         var minutesTxt = findViewById<EditText>(R.id.updateminutes)
 
+        //gets the information if the user selects a custom input
         yearsTxt.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if (s != null && s.toString().toIntOrNull() != null) {
@@ -157,17 +163,19 @@ class UpdateContactActivity : FragmentActivity() {
             }
         })
 
-        //actionBar!!.title = "Add New Contact";
+
+        //exits the activity of cancel_button is pressed
         val cancelButton = findViewById<View>(R.id.updatecancelButton) as Button
         cancelButton.setOnClickListener {
             Log.i(TAG, "Entered cancelButton.OnClickListener.onClick()")
 
-            // TODO - Indicate result and finish
             setResult(RESULT_CANCELED)
             finish()
         }
 
-//        // TODO - Set up OnClickListener for the Reset Button
+        //the delete button deletes the contact by sending the contact info back
+        //to the ContactManagerActivity which calls the delete function in the
+        //Contact List Adapter on this contact
         val deleteButton = findViewById<View>(R.id.updatedeleteButton) as Button
         deleteButton.setOnClickListener {
             Log.i(TAG, "Entered deleteButton.OnClickListener.onClick()")
@@ -187,13 +195,15 @@ class UpdateContactActivity : FragmentActivity() {
                 ContactItem.packageIntent(data, icon, name, deadline, phoneNumber, oldTime, dateRange, timeRange)
             }
 
-            // TODO - return data Intent and finish
+            // return data Intent and the finish
             setResult(RESULT_FIRST_USER, data)
             finish()
         }
 
         // Set up OnClickListener for the Submit Button
-
+        //the submit button updates the contact by sending the contact info back
+        //to the ContactManagerActivity which calls the update function in the
+        //Contact List Adapter on this contact
         val submitButton = findViewById<View>(R.id.updatesubmitButton) as Button
         submitButton.setOnClickListener {
             Log.i(TAG, "Entered submitButton.OnClickListener.onClick()")
@@ -209,24 +219,17 @@ class UpdateContactActivity : FragmentActivity() {
             val icon = intent.getStringExtra("icon")
             val phoneNumber = intent.getStringExtra("phoneNumber")
 
-            Toast.makeText(applicationContext,
-                "$name will be notified at $deadline.toString()",
-                Toast.LENGTH_SHORT
-            ).show()
-
-
             if (name != null) {
                 ContactItem.packageIntent(data, icon, name, deadline, phoneNumber, oldTime, dateRange, timeRange)
             }
-            // TODO - return data Intent and finish
+            // return data Intent and the finish
             setResult(RESULT_OK, data)
             finish()
         }
     }
 
-
-
+    //object that is used
     companion object {
-        private const val TAG = "CallYourMother-UpdateToDoActivity"
+        private const val TAG = "CallYourMother-UpdateContactActivity"
     }
 }

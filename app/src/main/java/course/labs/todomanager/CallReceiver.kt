@@ -4,13 +4,16 @@ import android.annotation.SuppressLint
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
-import android.provider.ContactsContract
 import android.telephony.PhoneNumberUtils
 import android.telephony.TelephonyManager
 import java.time.ZonedDateTime
 
 
+/** Looks for if any calls recieved or calls made are from/to
+ * a contact that has been added by the user to keep track off
+ * Source: https://www.youtube.com/watch?v=rlzfcqDlovg
+ * https://stackoverflow.com/questions/1853220/retrieve-incoming-calls-phone-number-in-android?noredirect=1&lq=1
+ */
 class CallReceiver : BroadcastReceiver() {
     companion object {
         internal const val TAG = "Receiver"
@@ -41,33 +44,8 @@ class CallReceiver : BroadcastReceiver() {
     }
 
     //https://stackoverflow.com/questions/26192302/get-the-name-of-the-incoming-caller-before-programmatically-ending-the-call
-    @SuppressLint("Range")
-    private fun getContactName(number: String, context: Context) : String{
-        var contactName = "";
-
-        // // define the columns I want the query to return
-        val projection = arrayOf(
-            ContactsContract.PhoneLookup.DISPLAY_NAME,
-            ContactsContract.PhoneLookup.NUMBER,
-            ContactsContract.PhoneLookup.HAS_PHONE_NUMBER )
-
-        // encode the phone number and build the filter URI
-        val contactUri = Uri.withAppendedPath(
-                ContactsContract.PhoneLookup.CONTENT_FILTER_URI,
-        Uri.encode(number));
-
-        // query time
-        val cursor = context.contentResolver.query(contactUri,
-            projection, null, null, null);
-
-        if (cursor != null && cursor.moveToFirst()) {
-            contactName = cursor.getString(cursor.getColumnIndex(ContactsContract.PhoneLookup.DISPLAY_NAME));
-
-        }
-        cursor?.close();
-        return contactName
-    }
-
+    //update the deadline when a call is received or made to a contact being
+    //tracked of and part of ContactListAdapter
     @SuppressLint("NewApi")
     private fun updateDeadline(number: String, context: Context) : Unit {
         for (i in 1 until adapter.itemCount) {
