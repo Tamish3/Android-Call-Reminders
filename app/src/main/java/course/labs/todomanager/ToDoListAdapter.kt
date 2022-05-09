@@ -152,8 +152,22 @@ class ToDoListAdapter(private val mContext: Context) :
     }
 
     fun deleteAll() {
-        for (contact in mItems) {
-            delete(contact)
+        val iterator = mItems.iterator()
+        while(iterator.hasNext()) {
+            val item = iterator.next()
+            iterator.remove()
+
+            //delete alarmManager for this contact
+            val notifyIntent = Intent(mContext, NotificationReceiver::class.java)
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            val pendingIntent = PendingIntent.getBroadcast(
+                mContext,
+                item.name.hashCode(),
+                notifyIntent,
+                PendingIntent.FLAG_IMMUTABLE
+            )
+            alarmManager.cancel(pendingIntent)
+            notifyDataSetChanged()
         }
     }
 
@@ -161,8 +175,10 @@ class ToDoListAdapter(private val mContext: Context) :
         for (contact in mItems) {
             if(contact.name == item.name) {
                 mItems.remove(contact)
+                break
             }
         }
+
         notifyDataSetChanged()
 
         //delete alarmManager for this contact

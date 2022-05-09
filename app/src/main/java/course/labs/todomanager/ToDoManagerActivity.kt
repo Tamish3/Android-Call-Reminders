@@ -201,7 +201,6 @@ class ToDoManagerActivity : AppCompatActivity() {
         super.onCreateOptionsMenu(menu)
 
         menu.add(Menu.NONE, MENU_DELETE, Menu.NONE, "Delete all")
-        menu.add(Menu.NONE, MENU_DUMP, Menu.NONE, "Dump to log")
         return true
     }
 
@@ -211,19 +210,7 @@ class ToDoManagerActivity : AppCompatActivity() {
                 mAdapter!!.deleteAll()
                 true
             }
-            MENU_DUMP -> {
-                dump()
-                true
-            }
             else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    private fun dump() {
-        for (i in 1 until mAdapter!!.itemCount) {
-            val data = (mAdapter!!.getItem(i) as ToDoItem).toLog()
-            Log.i(TAG,
-                    "Item " + i + ": " + data.replace(ToDoItem.ITEM_SEP!!, ","))
         }
     }
 
@@ -305,7 +292,6 @@ class ToDoManagerActivity : AppCompatActivity() {
 
         // IDs for menu items
         private const val MENU_DELETE = Menu.FIRST
-        private const val MENU_DUMP = Menu.FIRST + 1
         var mAdapter : ToDoListAdapter? = null
         private var hasPermission: Boolean = false
         private const val PERMISSIONS_PICK_CONTACT_REQUEST = 1
